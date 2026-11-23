@@ -1,0 +1,1876 @@
+[
+  {
+    "code": "WPN-001",
+    "name": "부시마스터 M17S",
+    "tags": [
+      "돌격소총"
+    ],
+    "weight": 317,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-001",
+        "PRT-002",
+        "PRT-003"
+      ],
+      "optic": [],
+      "foregrip": [],
+      "muzzle": []
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-007",
+      "AMMO-008",
+      "AMMO-009"
+    ]
+  },
+  {
+    "code": "WPN-002",
+    "name": "A-91",
+    "tags": [
+      "돌격소총"
+    ],
+    "weight": 317,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-001",
+        "PRT-002",
+        "PRT-003"
+      ],
+      "optic": [],
+      "foregrip": [],
+      "muzzle": []
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-007",
+      "AMMO-008",
+      "AMMO-009"
+    ]
+  },
+  {
+    "code": "WPN-003",
+    "name": "KH-2002",
+    "tags": [
+      "돌격소총"
+    ],
+    "weight": 317,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-001",
+        "PRT-002",
+        "PRT-003"
+      ],
+      "optic": [],
+      "foregrip": [],
+      "muzzle": []
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-007",
+      "AMMO-008",
+      "AMMO-009"
+    ]
+  },
+  {
+    "code": "WPN-004",
+    "name": "AK74",
+    "tags": [
+      "돌격소총"
+    ],
+    "weight": 300,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-004",
+        "PRT-005",
+        "PRT-006"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-060"
+      ],
+      "foregrip": [
+        "PRT-071",
+        "PRT-072",
+        "PRT-073",
+        "PRT-074",
+        "PRT-075",
+        "PRT-076",
+        "PRT-077",
+        "PRT-078",
+        "PRT-079",
+        "PRT-080"
+      ],
+      "muzzle": [
+        "PRT-089",
+        "PRT-090",
+        "PRT-091",
+        "PRT-092",
+        "PRT-093"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-010",
+      "AMMO-011",
+      "AMMO-012"
+    ]
+  },
+  {
+    "code": "WPN-005",
+    "name": "T-21",
+    "tags": [
+      "돌격소총"
+    ],
+    "weight": 327,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-001",
+        "PRT-002",
+        "PRT-003"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-060"
+      ],
+      "foregrip": [
+        "PRT-071",
+        "PRT-072",
+        "PRT-073",
+        "PRT-074",
+        "PRT-075",
+        "PRT-076",
+        "PRT-077",
+        "PRT-078",
+        "PRT-080"
+      ],
+      "muzzle": [
+        "PRT-094",
+        "PRT-089",
+        "PRT-095",
+        "PRT-096",
+        "PRT-097",
+        "PRT-098",
+        "PRT-099"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-007",
+      "AMMO-008",
+      "AMMO-009"
+    ]
+  },
+  {
+    "code": "WPN-006",
+    "name": "갈릴",
+    "tags": [
+      "돌격소총"
+    ],
+    "weight": 395,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-007",
+        "PRT-008"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-060"
+      ],
+      "foregrip": [
+        "PRT-071",
+        "PRT-072",
+        "PRT-073",
+        "PRT-074",
+        "PRT-075",
+        "PRT-076",
+        "PRT-077",
+        "PRT-078",
+        "PRT-079",
+        "PRT-080"
+      ],
+      "muzzle": [
+        "PRT-094",
+        "PRT-089",
+        "PRT-095",
+        "PRT-096",
+        "PRT-097",
+        "PRT-098",
+        "PRT-099"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-007",
+      "AMMO-008",
+      "AMMO-009"
+    ]
+  },
+  {
+    "code": "WPN-007",
+    "name": "M4",
+    "tags": [
+      "돌격소총"
+    ],
+    "weight": 292,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-001",
+        "PRT-002",
+        "PRT-003"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-060"
+      ],
+      "foregrip": [
+        "PRT-071",
+        "PRT-072",
+        "PRT-073",
+        "PRT-074",
+        "PRT-075",
+        "PRT-076",
+        "PRT-077",
+        "PRT-078",
+        "PRT-079",
+        "PRT-080"
+      ],
+      "muzzle": [
+        "PRT-094",
+        "PRT-089",
+        "PRT-095",
+        "PRT-096",
+        "PRT-097",
+        "PRT-098",
+        "PRT-099"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-007",
+      "AMMO-008",
+      "AMMO-009"
+    ]
+  },
+  {
+    "code": "WPN-008",
+    "name": "TCX-SPR",
+    "tags": [
+      "돌격소총"
+    ],
+    "weight": 350,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-009"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-060"
+      ],
+      "foregrip": [
+        "PRT-071",
+        "PRT-072",
+        "PRT-073",
+        "PRT-074",
+        "PRT-075",
+        "PRT-076",
+        "PRT-077",
+        "PRT-078",
+        "PRT-080"
+      ],
+      "muzzle": [
+        "PRT-100",
+        "PRT-101",
+        "PRT-102",
+        "PRT-103",
+        "PRT-104",
+        "PRT-105"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-022",
+      "AMMO-023",
+      "AMMO-024"
+    ]
+  },
+  {
+    "code": "WPN-009",
+    "name": "FAL",
+    "tags": [
+      "돌격소총"
+    ],
+    "weight": 425,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-010",
+        "PRT-011",
+        "PRT-012"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-060"
+      ],
+      "foregrip": [
+        "PRT-071",
+        "PRT-072",
+        "PRT-073",
+        "PRT-074",
+        "PRT-075",
+        "PRT-076",
+        "PRT-077",
+        "PRT-078",
+        "PRT-079",
+        "PRT-080"
+      ],
+      "muzzle": [
+        "PRT-100",
+        "PRT-101",
+        "PRT-103",
+        "PRT-098"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-025",
+      "AMMO-026",
+      "AMMO-027"
+    ]
+  },
+  {
+    "code": "WPN-010",
+    "name": "PP-19 BIZON",
+    "tags": [
+      "기관단총"
+    ],
+    "weight": 210,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-013"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-058",
+        "PRT-059"
+      ],
+      "foregrip": [],
+      "muzzle": [
+        "PRT-089",
+        "PRT-106",
+        "PRT-107",
+        "PRT-108"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-001",
+      "AMMO-002",
+      "AMMO-003"
+    ]
+  },
+  {
+    "code": "WPN-011",
+    "name": "PP-19 비탸지",
+    "tags": [
+      "기관단총"
+    ],
+    "weight": 290,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-014",
+        "PRT-015",
+        "PRT-016"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-058",
+        "PRT-059"
+      ],
+      "foregrip": [
+        "PRT-071",
+        "PRT-072",
+        "PRT-073",
+        "PRT-074",
+        "PRT-075",
+        "PRT-076",
+        "PRT-077",
+        "PRT-078",
+        "PRT-080"
+      ],
+      "muzzle": [
+        "PRT-089",
+        "PRT-106",
+        "PRT-107",
+        "PRT-109",
+        "PRT-108",
+        "PRT-110"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-001",
+      "AMMO-002",
+      "AMMO-003"
+    ]
+  },
+  {
+    "code": "WPN-012",
+    "name": "AMP-9",
+    "tags": [
+      "기관단총"
+    ],
+    "weight": 140,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-017",
+        "PRT-018",
+        "PRT-019",
+        "PRT-020"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-058",
+        "PRT-059"
+      ],
+      "foregrip": [
+        "PRT-071",
+        "PRT-072",
+        "PRT-073",
+        "PRT-074",
+        "PRT-075",
+        "PRT-076",
+        "PRT-077",
+        "PRT-078",
+        "PRT-080"
+      ],
+      "muzzle": [
+        "PRT-089",
+        "PRT-111",
+        "PRT-106",
+        "PRT-107",
+        "PRT-108",
+        "PRT-112"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-001",
+      "AMMO-002",
+      "AMMO-003"
+    ]
+  },
+  {
+    "code": "WPN-013",
+    "name": "MP5",
+    "tags": [
+      "기관단총"
+    ],
+    "weight": 254,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-021",
+        "PRT-022",
+        "PRT-023"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-058",
+        "PRT-059"
+      ],
+      "foregrip": [
+        "PRT-071",
+        "PRT-072",
+        "PRT-073",
+        "PRT-074",
+        "PRT-075",
+        "PRT-076",
+        "PRT-077",
+        "PRT-078",
+        "PRT-080"
+      ],
+      "muzzle": [
+        "PRT-089",
+        "PRT-106",
+        "PRT-107",
+        "PRT-108",
+        "PRT-113"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-001",
+      "AMMO-002",
+      "AMMO-003"
+    ]
+  },
+  {
+    "code": "WPN-014",
+    "name": "슈퍼-45",
+    "tags": [
+      "기관단총"
+    ],
+    "weight": 300,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-024",
+        "PRT-025",
+        "PRT-026"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-058",
+        "PRT-059"
+      ],
+      "foregrip": [
+        "PRT-071",
+        "PRT-072",
+        "PRT-073",
+        "PRT-074",
+        "PRT-075",
+        "PRT-076",
+        "PRT-077",
+        "PRT-078",
+        "PRT-080"
+      ],
+      "muzzle": [
+        "PRT-114",
+        "PRT-115",
+        "PRT-108"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-004",
+      "AMMO-005",
+      "AMMO-006"
+    ]
+  },
+  {
+    "code": "WPN-015",
+    "name": "MP43",
+    "tags": [
+      "산탄총"
+    ],
+    "weight": 320,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [],
+      "optic": [],
+      "foregrip": [],
+      "muzzle": []
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-029",
+      "AMMO-030"
+    ]
+  },
+  {
+    "code": "WPN-016",
+    "name": "M500",
+    "tags": [
+      "산탄총"
+    ],
+    "weight": 352,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-060"
+      ],
+      "foregrip": [
+        "PRT-071",
+        "PRT-072",
+        "PRT-073",
+        "PRT-074",
+        "PRT-075",
+        "PRT-076",
+        "PRT-077",
+        "PRT-078",
+        "PRT-079"
+      ],
+      "muzzle": [
+        "PRT-116",
+        "PRT-117",
+        "PRT-118",
+        "PRT-119"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-029",
+      "AMMO-030"
+    ]
+  },
+  {
+    "code": "WPN-017",
+    "name": "M249 SAW",
+    "tags": [
+      "경기관총"
+    ],
+    "weight": 750,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-001",
+        "PRT-002",
+        "PRT-003",
+        "PRT-027",
+        "PRT-028"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-060"
+      ],
+      "foregrip": [
+        "PRT-071",
+        "PRT-072",
+        "PRT-073",
+        "PRT-074",
+        "PRT-075",
+        "PRT-076",
+        "PRT-077",
+        "PRT-078",
+        "PRT-079",
+        "PRT-081",
+        "PRT-080"
+      ],
+      "muzzle": [
+        "PRT-120",
+        "PRT-095",
+        "PRT-096",
+        "PRT-121",
+        "PRT-097",
+        "PRT-098",
+        "PRT-099"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-007",
+      "AMMO-008",
+      "AMMO-009"
+    ]
+  },
+  {
+    "code": "WPN-018",
+    "name": "PKM",
+    "tags": [
+      "경기관총"
+    ],
+    "weight": 750,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-029"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-060"
+      ],
+      "foregrip": [
+        "PRT-082"
+      ],
+      "muzzle": [
+        "PRT-100",
+        "PRT-101",
+        "PRT-122",
+        "PRT-121",
+        "PRT-123",
+        "PRT-124"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-016",
+      "AMMO-017",
+      "AMMO-018"
+    ]
+  },
+  {
+    "code": "WPN-019",
+    "name": "EVO-3 울트라",
+    "tags": [
+      "경기관총"
+    ],
+    "weight": 630,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-030"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-060"
+      ],
+      "foregrip": [
+        "PRT-071",
+        "PRT-072",
+        "PRT-073",
+        "PRT-074",
+        "PRT-075",
+        "PRT-076",
+        "PRT-077",
+        "PRT-078",
+        "PRT-079",
+        "PRT-083",
+        "PRT-080"
+      ],
+      "muzzle": [
+        "PRT-100",
+        "PRT-101",
+        "PRT-103",
+        "PRT-125"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-025",
+      "AMMO-026",
+      "AMMO-027"
+    ]
+  },
+  {
+    "code": "WPN-020",
+    "name": "SKS",
+    "tags": [
+      "지정사수소총"
+    ],
+    "weight": 385,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-061",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-062",
+        "PRT-060",
+        "PRT-063",
+        "PRT-064",
+        "PRT-065",
+        "PRT-066"
+      ],
+      "foregrip": [
+        "PRT-084"
+      ],
+      "muzzle": [
+        "PRT-100",
+        "PRT-101",
+        "PRT-126",
+        "PRT-127",
+        "PRT-123",
+        "PRT-128"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-022",
+      "AMMO-023",
+      "AMMO-024"
+    ]
+  },
+  {
+    "code": "WPN-021",
+    "name": "SVD",
+    "tags": [
+      "지정사수소총"
+    ],
+    "weight": 530,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-031",
+        "PRT-032"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-061",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-062",
+        "PRT-060",
+        "PRT-063",
+        "PRT-064",
+        "PRT-065",
+        "PRT-066"
+      ],
+      "foregrip": [
+        "PRT-085"
+      ],
+      "muzzle": [
+        "PRT-100",
+        "PRT-129",
+        "PRT-123",
+        "PRT-124",
+        "PRT-128"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-016",
+      "AMMO-017",
+      "AMMO-018"
+    ]
+  },
+  {
+    "code": "WPN-022",
+    "name": "BMR-308",
+    "tags": [
+      "지정사수소총"
+    ],
+    "weight": 390,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-010",
+        "PRT-011",
+        "PRT-012"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-060"
+      ],
+      "foregrip": [
+        "PRT-071",
+        "PRT-072",
+        "PRT-073",
+        "PRT-074",
+        "PRT-075",
+        "PRT-076",
+        "PRT-077",
+        "PRT-078",
+        "PRT-086"
+      ],
+      "muzzle": [
+        "PRT-100",
+        "PRT-101",
+        "PRT-130",
+        "PRT-103",
+        "PRT-131",
+        "PRT-128"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-025",
+      "AMMO-026",
+      "AMMO-027"
+    ]
+  },
+  {
+    "code": "WPN-023",
+    "name": "M14",
+    "tags": [
+      "지정사수소총"
+    ],
+    "weight": 420,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-033",
+        "PRT-034",
+        "PRT-035"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-061",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-062",
+        "PRT-060",
+        "PRT-067",
+        "PRT-063",
+        "PRT-064",
+        "PRT-065",
+        "PRT-066"
+      ],
+      "foregrip": [
+        "PRT-087"
+      ],
+      "muzzle": [
+        "PRT-132",
+        "PRT-133"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-025",
+      "AMMO-026",
+      "AMMO-027"
+    ]
+  },
+  {
+    "code": "WPN-024",
+    "name": "정찰소총 TD",
+    "tags": [
+      "저격소총"
+    ],
+    "weight": 295,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-061",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-062",
+        "PRT-060",
+        "PRT-063",
+        "PRT-064",
+        "PRT-065",
+        "PRT-066"
+      ],
+      "foregrip": [],
+      "muzzle": [
+        "PRT-100",
+        "PRT-134"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-007",
+      "AMMO-008",
+      "AMMO-009"
+    ]
+  },
+  {
+    "code": "WPN-025",
+    "name": "모신나강",
+    "tags": [
+      "저격소총"
+    ],
+    "weight": 410,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [],
+      "optic": [
+        "PRT-068"
+      ],
+      "foregrip": [],
+      "muzzle": [
+        "PRT-100",
+        "PRT-101",
+        "PRT-123",
+        "PRT-124",
+        "PRT-128"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-016",
+      "AMMO-017",
+      "AMMO-018"
+    ]
+  },
+  {
+    "code": "WPN-026",
+    "name": "SV98",
+    "tags": [
+      "저격소총"
+    ],
+    "weight": 580,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-036"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-061",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-062",
+        "PRT-060",
+        "PRT-063",
+        "PRT-064",
+        "PRT-065",
+        "PRT-066"
+      ],
+      "foregrip": [
+        "PRT-088"
+      ],
+      "muzzle": [
+        "PRT-100",
+        "PRT-101",
+        "PRT-123",
+        "PRT-124",
+        "PRT-128"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-016",
+      "AMMO-017",
+      "AMMO-018"
+    ]
+  },
+  {
+    "code": "WPN-027",
+    "name": "MK22",
+    "tags": [
+      "저격소총"
+    ],
+    "weight": 630,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-037",
+        "PRT-038"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-061",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-062",
+        "PRT-060",
+        "PRT-063",
+        "PRT-064",
+        "PRT-065",
+        "PRT-066"
+      ],
+      "foregrip": [
+        "PRT-086"
+      ],
+      "muzzle": [
+        "PRT-100",
+        "PRT-101",
+        "PRT-135",
+        "PRT-103",
+        "PRT-128"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-025",
+      "AMMO-026",
+      "AMMO-027"
+    ]
+  },
+  {
+    "code": "WPN-028",
+    "name": "AMR 50",
+    "tags": [
+      "저격소총"
+    ],
+    "weight": 1250,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-039",
+        "PRT-040"
+      ],
+      "optic": [
+        "PRT-047",
+        "PRT-048",
+        "PRT-049",
+        "PRT-050",
+        "PRT-051",
+        "PRT-052",
+        "PRT-053",
+        "PRT-061",
+        "PRT-054",
+        "PRT-055",
+        "PRT-056",
+        "PRT-057",
+        "PRT-058",
+        "PRT-059",
+        "PRT-062",
+        "PRT-060",
+        "PRT-063",
+        "PRT-064",
+        "PRT-065",
+        "PRT-066"
+      ],
+      "foregrip": [
+        "PRT-086"
+      ],
+      "muzzle": [
+        "PRT-136",
+        "PRT-137",
+        "PRT-128"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-016",
+      "AMMO-017",
+      "AMMO-018"
+    ]
+  },
+  {
+    "code": "WPN-029",
+    "name": "컴파운드 보우",
+    "tags": [
+      "장비"
+    ],
+    "weight": 130,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [],
+      "optic": [],
+      "foregrip": [],
+      "muzzle": []
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-034"
+    ]
+  },
+  {
+    "code": "WPN-030",
+    "name": "GGX 17",
+    "tags": [
+      "권총"
+    ],
+    "weight": 63,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-041",
+        "PRT-042",
+        "PRT-043"
+      ],
+      "optic": [],
+      "foregrip": [],
+      "muzzle": [
+        "PRT-089",
+        "PRT-106",
+        "PRT-107",
+        "PRT-108"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-001",
+      "AMMO-002",
+      "AMMO-003"
+    ]
+  },
+  {
+    "code": "WPN-031",
+    "name": "저지",
+    "tags": [
+      "권총"
+    ],
+    "weight": 82,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [],
+      "optic": [],
+      "foregrip": [],
+      "muzzle": []
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-019",
+      "AMMO-020",
+      "AMMO-021"
+    ]
+  },
+  {
+    "code": "WPN-032",
+    "name": "M1911",
+    "tags": [
+      "권총"
+    ],
+    "weight": 110,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-044",
+        "PRT-045"
+      ],
+      "optic": [],
+      "foregrip": [],
+      "muzzle": [
+        "PRT-138",
+        "PRT-108"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-004",
+      "AMMO-005",
+      "AMMO-006"
+    ]
+  },
+  {
+    "code": "WPN-033",
+    "name": "데저트 이글",
+    "tags": [
+      "권총"
+    ],
+    "weight": 200,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-046"
+      ],
+      "optic": [
+        "PRT-050"
+      ],
+      "foregrip": [],
+      "muzzle": []
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-013",
+      "AMMO-014",
+      "AMMO-015"
+    ]
+  },
+  {
+    "code": "WPN-034",
+    "name": "GGX 18",
+    "tags": [
+      "권총"
+    ],
+    "weight": 63,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [
+        "PRT-041",
+        "PRT-042",
+        "PRT-043"
+      ],
+      "optic": [
+        "PRT-069"
+      ],
+      "foregrip": [],
+      "muzzle": [
+        "PRT-089",
+        "PRT-106",
+        "PRT-107",
+        "PRT-108"
+      ]
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-001",
+      "AMMO-002",
+      "AMMO-003"
+    ]
+  },
+  {
+    "code": "WPN-035",
+    "name": "9K333 버바",
+    "tags": [
+      "발사기"
+    ],
+    "weight": 1725,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [],
+      "optic": [],
+      "foregrip": [],
+      "muzzle": []
+    },
+    "compatibleAmmoCodes": []
+  },
+  {
+    "code": "WPN-036",
+    "name": "RPG-7",
+    "tags": [
+      "발사기"
+    ],
+    "weight": 630,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [],
+      "optic": [
+        "PRT-070"
+      ],
+      "foregrip": [],
+      "muzzle": []
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-033"
+    ]
+  },
+  {
+    "code": "WPN-037",
+    "name": "MAAWS",
+    "tags": [
+      "발사기"
+    ],
+    "weight": 700,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [],
+      "optic": [],
+      "foregrip": [],
+      "muzzle": []
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-032"
+    ]
+  },
+  {
+    "code": "WPN-038",
+    "name": "MGL-40",
+    "tags": [
+      "발사기"
+    ],
+    "weight": 530,
+    "price": 0,
+    "description": {
+      "white": "흰색 설명",
+      "gray": "회색 설명"
+    },
+    "inventory": {
+      "width": 1,
+      "height": 1,
+      "stackLimit": 1
+    },
+    "attachmentSlots": {
+      "magazine": [],
+      "optic": [],
+      "foregrip": [],
+      "muzzle": []
+    },
+    "compatibleAmmoCodes": [
+      "AMMO-031"
+    ]
+  }
+]

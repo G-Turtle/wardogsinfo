@@ -1,0 +1,137 @@
+// Generated from bag-slots.json for file:// previews.
+window.localBagSlots = {
+  "ITEM-016": {
+    "slots": [
+      {
+        "id": "pocket-1",
+        "type": "container",
+        "width": 1,
+        "height": 2
+      },
+      {
+        "id": "pocket-2",
+        "type": "container",
+        "width": 1,
+        "height": 2
+      },
+      {
+        "id": "pocket-3",
+        "type": "container",
+        "width": 1,
+        "height": 2
+      }
+    ]
+  },
+  "ITEM-017": {
+    "slots": [
+      {
+        "id": "pocket-1",
+        "type": "container",
+        "width": 2,
+        "height": 4
+      }
+    ]
+  },
+  "ITEM-018": {
+    "slots": [
+      {
+        "id": "pocket-1",
+        "type": "container",
+        "width": 2,
+        "height": 2
+      },
+      {
+        "id": "pocket-2",
+        "type": "container",
+        "width": 2,
+        "height": 2
+      },
+      {
+        "id": "pocket-3",
+        "type": "container",
+        "width": 2,
+        "height": 2
+      }
+    ]
+  },
+  "ITEM-019": {
+    "slots": [
+      {
+        "id": "pocket-1",
+        "type": "container",
+        "width": 3,
+        "height": 5
+      }
+    ]
+  },
+  "ITEM-020": {
+    "slots": [
+      {
+        "id": "pocket-1",
+        "type": "container",
+        "width": 1,
+        "height": 3
+      },
+      {
+        "id": "pocket-2",
+        "type": "container",
+        "width": 3,
+        "height": 5
+      },
+      {
+        "id": "pocket-3",
+        "type": "container",
+        "width": 1,
+        "height": 3
+      }
+    ]
+  },
+  "ITEM-021": {
+    "slots": [
+      {
+        "id": "pocket-1",
+        "type": "container",
+        "width": 4,
+        "height": 6
+      }
+    ]
+  },
+  "ITEM-022": {
+    "slots": [
+      {
+        "id": "sling",
+        "type": "equipment",
+        "label": "슬링",
+        "accepts": { "tags": [ "저격소총" ] }
+      },
+      {
+        "id": "main",
+        "type": "container",
+        "width": 4,
+        "height": 6
+      }
+    ]
+  },
+  "ITEM-023": {
+    "slots": [
+      {
+        "id": "sling",
+        "type": "equipment",
+        "label": "슬링",
+        "accepts": { "tags": [ "저격소총" ] }
+      },
+      {
+        "id": "main",
+        "type": "container",
+        "width": 4,
+        "height": 6
+      },
+      {
+        "id": "sling",
+        "type": "equipment",
+        "label": "슬링",
+        "accepts": { "tags": [ "저격소총" ] }
+      }
+    ]
+  }
+};
