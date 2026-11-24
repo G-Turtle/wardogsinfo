@@ -3,7 +3,8 @@ const sectionButtons = sectionNav.querySelectorAll('button');
 const equipmentSection = document.querySelector('#equipment');
 const equipmentButton = sectionNav.querySelector('[aria-controls="equipment"]');
 const loadoutBag = document.querySelector('#loadout-bag');
-const loadoutBagFrame = loadoutBag.querySelector('.loadout-bag-frame');
+const loadoutBagContent = loadoutBag.querySelector('.loadout-bag-content');
+const loadoutBagFrame = loadoutBagContent.querySelector('.loadout-bag-frame');
 const loadoutBagTrigger = loadoutBag.querySelector('.loadout-bag-trigger');
 const loadoutBagFeedback = loadoutBag.querySelector('.loadout-bag-feedback');
 const bagPickerDialog = document.querySelector('#loadout-bag-picker');
@@ -22,6 +23,7 @@ const loadoutViews = loadoutNav.querySelectorAll('[data-loadout-view]');
 const loadoutEquipmentView = loadoutNav.querySelector('[data-loadout-view="equipment"]');
 const loadoutGearView = loadoutNav.querySelector('[data-loadout-view="gear"]');
 const loadoutOverview = loadoutSection.querySelector('.loadout-overview');
+const overviewBackpackPanel = loadoutOverview.querySelector('.loadout-overview-backpack-panel');
 const loadoutGear = loadoutSection.querySelector('#loadout-gear');
 const backpackCategory = loadoutGear.querySelector('.gear-picker [data-slot="backpack"]');
 const gearSlotButtons = Array.from(loadoutGear.querySelectorAll('.loadout-gear-button'));
@@ -246,6 +248,9 @@ function updateSectionVisibility() {
   const inLoadout = selectedSection === loadoutButton;
   const loadoutView = selectedLoadoutView.dataset.loadoutView;
   const inLoadoutEquipment = inLoadout && loadoutView === 'equipment';
+  const bagFrameHost = inLoadout && loadoutView === 'overview' ? overviewBackpackPanel : loadoutBagContent;
+  if (loadoutBagFrame.parentElement !== bagFrameHost) bagFrameHost.prepend(loadoutBagFrame);
+
   loadoutNav.hidden = !inLoadout;
   loadoutOverview.hidden = loadoutView !== 'overview';
   loadoutGear.hidden = loadoutView !== 'gear';

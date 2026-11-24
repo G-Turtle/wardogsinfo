@@ -207,6 +207,7 @@ body {
 }
 
 .loadout-bag-frame {
+  --bag-badge-scale: 1;
   container-type: size;
   display: grid;
   place-items: center;
@@ -557,8 +558,8 @@ body {
 .loadout-bag-item-stack {
   position: absolute;
   inset-inline-end: 0;
-  padding: 0.0625rem 0.1875rem;
-  font-size: clamp(0.5rem, 0.16 * var(--bag-cell-size), 0.75rem);
+  padding: calc(0.125rem * var(--bag-badge-scale)) calc(0.375rem * var(--bag-badge-scale));
+  font-size: calc(1rem * var(--bag-badge-scale));
   line-height: 1.15;
   font-variant-numeric: tabular-nums;
 }
@@ -1477,7 +1478,7 @@ button.weapon-ammo-stage-slot:disabled {
 }
 
 @media (hover: hover) {
-  .loadout-overview .loadout-slot:not(.loadout-overview-backpack-panel, .loadout-overview-quick-slot):hover {
+  .loadout-overview .loadout-slot:not(.loadout-overview-quick-slot):hover {
     transform: scale(1.05);
     filter: brightness(1.5);
     border-color: var(--overview-slot-highlight-border);
@@ -1563,15 +1564,37 @@ button.weapon-ammo-stage-slot:disabled {
 }
 
 .loadout-overview-backpack-panel {
+  position: relative;
+  display: grid;
   place-items: center;
   width: calc(0.95 * min(100%, 1.4 * var(--overview-item-row-max)));
-  border-color: var(--overview-slot-highlight-border);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--overview-slot-highlight-border);
+  border-radius: 0.1875rem;
+  background: #202020;
 }
 
-.loadout-overview .loadout-overview-backpack-panel img {
+.loadout-overview-backpack-panel > img {
   width: 80%;
   height: 80%;
-  padding: 0;
+  min-height: 0;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.18) brightness(2.6);
+  mix-blend-mode: screen;
+}
+
+.loadout-overview-backpack-panel > .loadout-bag-frame {
+  --bag-badge-scale: 0.9;
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+  border: 0;
+  background: transparent;
+}
+
+.loadout-overview-backpack-panel:has(> .loadout-bag-frame:not(:empty)) > img {
+  display: none;
 }
 
 .loadout-overview-quick-slots {
