@@ -390,6 +390,7 @@ function selectPatch(patchId) {
   patchDetailPanel.querySelectorAll('[data-patch-detail]').forEach((article) => {
     article.hidden = article.dataset.patchDetail !== patchId;
   });
+  patchDetailPanel.scrollTop = 0;
 }
 
 function showPatchStatus(listMessage, detailMessage) {

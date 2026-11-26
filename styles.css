@@ -57,6 +57,7 @@ body {
   --loadout-gear-frame-height: 41.625rem;
   --loadout-item-frame-height: calc(var(--loadout-gear-frame-height) + var(--loadout-slot-panel-height) + var(--loadout-picker-gap));
   flex: 1;
+  min-height: 0;
   display: flex;
   align-items: flex-end;
   background-color: #0e0e0f;
@@ -273,8 +274,11 @@ body {
   flex: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 3fr) minmax(0, 6fr);
+  height: calc(100% - 4.5rem);
+  max-height: calc(100% - 4.5rem);
   min-width: 0;
   min-height: 0;
+  overflow: hidden;
   margin: 2.25rem 3rem;
   border: 1px solid rgb(128 128 128 / 50%);
   background: rgb(12 12 12 / 70%);
@@ -284,6 +288,10 @@ body {
 .patch-list button[hidden],
 .patch-detail-panel article[hidden] {
   display: none;
+}
+
+.section-content:has(> .patch-notes:not([hidden])) {
+  overflow: hidden;
 }
 
 .patch-notes > * {
@@ -305,6 +313,7 @@ body {
 .patch-list-panel {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .patch-season-panel > h2,
@@ -322,6 +331,10 @@ body {
 .patch-season-timeline {
   position: relative;
   flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
   padding: 1.4rem 0.75rem 1.4rem 1rem;
 }
 
@@ -406,6 +419,8 @@ body {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
   scrollbar-color: #696969 transparent;
 }
 
@@ -466,8 +481,38 @@ body {
 }
 
 .patch-detail-panel {
+  min-height: 0;
+  max-height: 100%;
+  overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
   scrollbar-color: #696969 transparent;
+}
+
+:is(.patch-season-timeline, .patch-list, .patch-detail-panel) {
+  scrollbar-width: thin;
+  scrollbar-color: #696969 transparent;
+}
+
+:is(.patch-season-timeline, .patch-list, .patch-detail-panel)::-webkit-scrollbar {
+  width: 0.55rem;
+}
+
+:is(.patch-season-timeline, .patch-list, .patch-detail-panel)::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+:is(.patch-season-timeline, .patch-list, .patch-detail-panel)::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: #696969;
+  background-clip: padding-box;
+}
+
+:is(.patch-season-timeline, .patch-list, .patch-detail-panel)::-webkit-scrollbar-thumb:hover {
+  background: #858585;
+  background-clip: padding-box;
 }
 
 .patch-detail-empty {
