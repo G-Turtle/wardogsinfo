@@ -5,8 +5,8 @@
     "tags": [
       "방탄복"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 100,
+    "price": 200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -24,8 +24,8 @@
     "tags": [
       "방탄복"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 160,
+    "price": 500,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -43,8 +43,8 @@
     "tags": [
       "방탄복"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 300,
+    "price": 2000,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -62,8 +62,8 @@
     "tags": [
       "방탄복"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 450,
+    "price": 4500,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -81,8 +81,8 @@
     "tags": [
       "방탄복"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 300,
+    "price": 400,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -100,8 +100,8 @@
     "tags": [
       "방탄복"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 450,
+    "price": 1000,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -119,8 +119,8 @@
     "tags": [
       "방탄복"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 1050,
+    "price": 2500,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -138,8 +138,8 @@
     "tags": [
       "방탄복"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 1800,
+    "price": 5000,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -157,8 +157,8 @@
     "tags": [
       "방탄복"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 100,
+    "price": 2500,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -176,8 +176,8 @@
     "tags": [
       "방탄복"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 100,
+    "price": 2800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -195,8 +195,8 @@
     "tags": [
       "방탄복"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 150,
+    "price": 3000,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -214,8 +214,8 @@
     "tags": [
       "방탄복"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 150,
+    "price": 3500,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -233,8 +233,8 @@
     "tags": [
       "조끼"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 82,
+    "price": 100,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -252,8 +252,8 @@
     "tags": [
       "조끼"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 165,
+    "price": 250,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -271,8 +271,8 @@
     "tags": [
       "조끼"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 360,
+    "price": 400,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -290,7 +290,7 @@
     "tags": [
       "가방"
     ],
-    "weight": 0,
+    "weight": 30,
     "price": 0,
     "description": {
       "white": "흰색 설명",
@@ -309,8 +309,8 @@
     "tags": [
       "가방"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 50,
+    "price": 350,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -328,8 +328,8 @@
     "tags": [
       "가방"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 80,
+    "price": 650,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -347,8 +347,8 @@
     "tags": [
       "가방"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 88,
+    "price": 800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -366,8 +366,8 @@
     "tags": [
       "가방"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 130,
+    "price": 1200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -385,8 +385,8 @@
     "tags": [
       "가방"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 150,
+    "price": 1600,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -404,8 +404,8 @@
     "tags": [
       "가방"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 150,
+    "price": 2400,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -423,8 +423,8 @@
     "tags": [
       "가방"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 150,
+    "price": 4000,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -442,8 +442,8 @@
     "tags": [
       "기동"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 250,
+    "price": 1250,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -461,8 +461,8 @@
     "tags": [
       "기동"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 900,
+    "price": 2250,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -524,7 +524,7 @@
       "빠른 사용 슬롯"
     ],
     "weight": 6,
-    "price": 0,
+    "price": 250,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -544,7 +544,7 @@
       "빠른 사용 슬롯"
     ],
     "weight": 39,
-    "price": 0,
+    "price": 425,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -564,7 +564,7 @@
       "빠른 사용 슬롯"
     ],
     "weight": 16,
-    "price": 0,
+    "price": 800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -579,12 +579,18 @@
   {
     "code": "ITEM-031",
     "name": "제세동기",
+    "defaultFeed": {
+      "ammoCode": "ITEM-063"
+    },
+    "compatibleAmmoCodes": [
+      "ITEM-063"
+    ],
     "tags": [
       "의료",
       "빠른 사용 슬롯"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 260,
+    "price": 1600,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -604,7 +610,7 @@
       "특수 아이템"
     ],
     "weight": 345,
-    "price": 0,
+    "price": 1800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -623,8 +629,8 @@
       "전술",
       "빠른 사용 슬롯"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 54,
+    "price": 50,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -643,8 +649,8 @@
       "전술",
       "빠른 사용 슬롯"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 54,
+    "price": 50,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -663,8 +669,8 @@
       "전술",
       "빠른 사용 슬롯"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 54,
+    "price": 50,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -683,8 +689,8 @@
       "전술",
       "빠른 사용 슬롯"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 54,
+    "price": 50,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -703,8 +709,8 @@
       "전술",
       "빠른 사용 슬롯"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 54,
+    "price": 100,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -723,8 +729,8 @@
       "전술",
       "빠른 사용 슬롯"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 54,
+    "price": 100,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -743,8 +749,8 @@
       "살상",
       "빠른 사용 슬롯"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 40,
+    "price": 200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -764,7 +770,7 @@
       "빠른 사용 슬롯"
     ],
     "weight": 99,
-    "price": 0,
+    "price": 240,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -784,7 +790,7 @@
       "빠른 사용 슬롯"
     ],
     "weight": 20,
-    "price": 0,
+    "price": 400,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -804,7 +810,7 @@
       "빠른 사용 슬롯"
     ],
     "weight": 860,
-    "price": 0,
+    "price": 650,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -824,7 +830,7 @@
       "빠른 사용 슬롯"
     ],
     "weight": 160,
-    "price": 0,
+    "price": 900,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -844,7 +850,7 @@
       "자원"
     ],
     "weight": 57,
-    "price": 0,
+    "price": 300,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -859,12 +865,18 @@
   {
     "code": "ITEM-045",
     "name": "원격격발기",
+    "defaultFeed": {
+      "ammoCode": "ITEM-044"
+    },
+    "compatibleAmmoCodes": [
+      "ITEM-044"
+    ],
     "tags": [
       "장비",
       "빠른 사용 슬롯"
     ],
-    "weight": 2,
-    "price": 0,
+    "weight": 59,
+    "price": 200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -884,7 +896,7 @@
       "빠른 사용 슬롯"
     ],
     "weight": 280,
-    "price": 0,
+    "price": 885,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -903,8 +915,8 @@
       "물류",
       "자원"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 3,
+    "price": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -923,8 +935,8 @@
       "물류",
       "자원"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 2,
+    "price": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -943,8 +955,8 @@
       "물류",
       "자원"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 3,
+    "price": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -963,8 +975,8 @@
       "물류",
       "자원"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 3,
+    "price": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -983,8 +995,8 @@
       "물류",
       "빠른 사용 슬롯"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 54,
+    "price": 50,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1003,8 +1015,8 @@
       "물류",
       "빠른 사용 슬롯"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 54,
+    "price": 50,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1024,7 +1036,7 @@
       "특수 아이템"
     ],
     "weight": 500,
-    "price": 0,
+    "price": 150,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1044,7 +1056,7 @@
       "빠른 사용 슬롯"
     ],
     "weight": 32,
-    "price": 0,
+    "price": 100,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1064,7 +1076,7 @@
       "특수 아이템"
     ],
     "weight": 123,
-    "price": 0,
+    "price": 800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1084,7 +1096,7 @@
       "특수 아이템"
     ],
     "weight": 318,
-    "price": 0,
+    "price": 2400,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1104,7 +1116,7 @@
       "특수 아이템"
     ],
     "weight": 30,
-    "price": 0,
+    "price": 180,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1124,7 +1136,7 @@
       "특수 아이템"
     ],
     "weight": 28,
-    "price": 0,
+    "price": 350,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1144,7 +1156,7 @@
       "특수 아이템"
     ],
     "weight": 23,
-    "price": 0,
+    "price": 1450,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1164,7 +1176,7 @@
       "빠른 사용 슬롯"
     ],
     "weight": 100,
-    "price": 0,
+    "price": 180,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1179,12 +1191,18 @@
   {
     "code": "ITEM-061",
     "name": "경량형 드릴",
+    "defaultFeed": {
+      "ammoCode": "ITEM-063"
+    },
+    "compatibleAmmoCodes": [
+      "ITEM-063"
+    ],
     "tags": [
       "수리 도구",
       "특수 아이템"
     ],
     "weight": 150,
-    "price": 0,
+    "price": 100,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1199,12 +1217,18 @@
   {
     "code": "ITEM-062",
     "name": "대형 드릴",
+    "defaultFeed": {
+      "ammoCode": "ITEM-063"
+    },
+    "compatibleAmmoCodes": [
+      "ITEM-063"
+    ],
     "tags": [
       "수리 도구",
       "특수 아이템"
     ],
     "weight": 690,
-    "price": 0,
+    "price": 200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1222,8 +1246,8 @@
     "tags": [
       "자원"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 63,
+    "price": 100,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1241,8 +1265,8 @@
     "tags": [
       "자원"
     ],
-    "weight": 0,
-    "price": 0,
+    "weight": 200,
+    "price": 300,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"

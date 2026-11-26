@@ -2,6 +2,10 @@
   {
     "code": "WPN-001",
     "name": "부시마스터 M17S",
+    "defaultFeed": {
+      "ammoCode": "AMMO-007",
+      "magazineCode": "PRT-001"
+    },
     "tags": [
       "돌격소총"
     ],
@@ -35,6 +39,10 @@
   {
     "code": "WPN-002",
     "name": "A-91",
+    "defaultFeed": {
+      "ammoCode": "AMMO-007",
+      "magazineCode": "PRT-001"
+    },
     "tags": [
       "돌격소총"
     ],
@@ -68,6 +76,10 @@
   {
     "code": "WPN-003",
     "name": "KH-2002",
+    "defaultFeed": {
+      "ammoCode": "AMMO-007",
+      "magazineCode": "PRT-001"
+    },
     "tags": [
       "돌격소총"
     ],
@@ -105,7 +117,7 @@
       "돌격소총"
     ],
     "weight": 300,
-    "price": 0,
+    "price": 800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -170,7 +182,7 @@
       "돌격소총"
     ],
     "weight": 327,
-    "price": 0,
+    "price": 1200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -236,7 +248,7 @@
       "돌격소총"
     ],
     "weight": 395,
-    "price": 0,
+    "price": 2000,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -302,7 +314,7 @@
       "돌격소총"
     ],
     "weight": 292,
-    "price": 0,
+    "price": 2800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -369,7 +381,7 @@
       "돌격소총"
     ],
     "weight": 350,
-    "price": 0,
+    "price": 3200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -432,7 +444,7 @@
       "돌격소총"
     ],
     "weight": 425,
-    "price": 0,
+    "price": 6000,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -496,7 +508,7 @@
       "기관단총"
     ],
     "weight": 210,
-    "price": 0,
+    "price": 1000,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -543,7 +555,7 @@
       "기관단총"
     ],
     "weight": 290,
-    "price": 0,
+    "price": 1200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -604,7 +616,7 @@
       "기관단총"
     ],
     "weight": 140,
-    "price": 0,
+    "price": 1375,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -666,7 +678,7 @@
       "기관단총"
     ],
     "weight": 254,
-    "price": 0,
+    "price": 1800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -726,7 +738,7 @@
       "기관단총"
     ],
     "weight": 300,
-    "price": 0,
+    "price": 5600,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -784,7 +796,7 @@
       "산탄총"
     ],
     "weight": 320,
-    "price": 0,
+    "price": 400,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -812,7 +824,7 @@
       "산탄총"
     ],
     "weight": 352,
-    "price": 0,
+    "price": 1200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -870,7 +882,7 @@
       "경기관총"
     ],
     "weight": 750,
-    "price": 0,
+    "price": 2800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -937,7 +949,7 @@
       "경기관총"
     ],
     "weight": 750,
-    "price": 0,
+    "price": 3600,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -992,7 +1004,7 @@
       "경기관총"
     ],
     "weight": 630,
-    "price": 0,
+    "price": 7250,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1055,7 +1067,7 @@
       "지정사수소총"
     ],
     "weight": 385,
-    "price": 0,
+    "price": 2400,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1114,7 +1126,7 @@
       "지정사수소총"
     ],
     "weight": 530,
-    "price": 0,
+    "price": 4800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1175,7 +1187,7 @@
       "지정사수소총"
     ],
     "weight": 390,
-    "price": 0,
+    "price": 6250,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1240,7 +1252,7 @@
       "지정사수소총"
     ],
     "weight": 420,
-    "price": 0,
+    "price": 7400,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1300,7 +1312,7 @@
       "저격소총"
     ],
     "weight": 295,
-    "price": 0,
+    "price": 1200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1353,7 +1365,7 @@
       "저격소총"
     ],
     "weight": 410,
-    "price": 0,
+    "price": 4500,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1390,7 +1402,7 @@
       "저격소총"
     ],
     "weight": 580,
-    "price": 0,
+    "price": 5200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1450,7 +1462,7 @@
       "저격소총"
     ],
     "weight": 630,
-    "price": 0,
+    "price": 6400,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1511,7 +1523,7 @@
       "저격소총"
     ],
     "weight": 1250,
-    "price": 0,
+    "price": 14800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1570,7 +1582,7 @@
       "장비"
     ],
     "weight": 130,
-    "price": 0,
+    "price": 1350,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1597,7 +1609,7 @@
       "권총"
     ],
     "weight": 63,
-    "price": 0,
+    "price": 200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1635,7 +1647,7 @@
       "권총"
     ],
     "weight": 82,
-    "price": 0,
+    "price": 250,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1664,7 +1676,7 @@
       "권총"
     ],
     "weight": 110,
-    "price": 0,
+    "price": 300,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1699,7 +1711,7 @@
       "권총"
     ],
     "weight": 200,
-    "price": 0,
+    "price": 750,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1732,7 +1744,7 @@
       "권총"
     ],
     "weight": 63,
-    "price": 0,
+    "price": 1000,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1772,7 +1784,7 @@
       "발사기"
     ],
     "weight": 1725,
-    "price": 0,
+    "price": 600,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1793,11 +1805,14 @@
   {
     "code": "WPN-036",
     "name": "RPG-7",
+    "defaultFeed": {
+      "ammoCode": "AMMO-033"
+    },
     "tags": [
       "발사기"
     ],
     "weight": 630,
-    "price": 0,
+    "price": 1800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1822,11 +1837,14 @@
   {
     "code": "WPN-037",
     "name": "MAAWS",
+    "defaultFeed": {
+      "ammoCode": "AMMO-032"
+    },
     "tags": [
       "발사기"
     ],
     "weight": 700,
-    "price": 0,
+    "price": 2400,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1849,11 +1867,14 @@
   {
     "code": "WPN-038",
     "name": "MGL-40",
+    "defaultFeed": {
+      "ammoCode": "AMMO-031"
+    },
     "tags": [
       "발사기"
     ],
     "weight": 530,
-    "price": 0,
+    "price": 7500,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"

@@ -1,10 +1,15 @@
 :root {
   color-scheme: dark;
+  overflow: hidden;
   font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
   background: #0b0b0b;
   color: #f4f4f4;
   --accent: #f8c54a;
-  --page-gutter: clamp(0.625rem, 2vw, 1.5rem);
+  --layout-width: 1920px;
+  --layout-height: 1080px;
+  --page-gutter: 1.5rem;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
   --layout-max-width: 78rem;
   --grid-line-width: 1px;
   --grid-line-color: #141414;
@@ -16,23 +21,41 @@
 }
 
 body {
+  margin: 0;
+}
+
+.site-canvas,
+.catalog-dialog {
+  position: fixed;
+  inset: 50% auto auto 50%;
+  width: var(--layout-width);
+  height: var(--layout-height);
+  transform: translate(-50%, -50%) scale(var(--layout-scale, 1));
+  overflow: clip;
+}
+
+.site-canvas {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
 }
 
 .section-content {
   --weapon-picker-scale: 0.9;
   --weapon-filter-height: 1.65rem;
-  --weapon-slot-title-size: clamp(0.5625rem, 2.6vw, 0.9375rem);
-  --loadout-bag-base-width: clamp(13rem, 25vw, 24rem);
-  --loadout-picker-base-width: min(64rem, 100% - var(--loadout-bag-base-width) - 3 * var(--page-gutter));
+  --weapon-slot-title-size: 0.9375rem;
+  --loadout-bag-base-width: 24rem;
+  --loadout-picker-base-width: 64rem;
   --loadout-bag-gap: calc(0.2 * (100% - 2 * var(--page-gutter) -
     var(--weapon-picker-scale) * (var(--loadout-picker-base-width) + var(--loadout-bag-base-width))));
   --loadout-bag-width: calc(2 * var(--weapon-picker-scale) * var(--loadout-bag-base-width));
-  --loadout-picker-width: min(var(--loadout-picker-base-width),
-    (100% - 2 * var(--page-gutter) - var(--loadout-bag-width) - var(--loadout-bag-gap)) / var(--weapon-picker-scale));
+  --loadout-picker-width: 64.6875rem;
+  --loadout-picker-zoom: 0.9;
+  --loadout-picker-inset: 2.25rem;
+  --loadout-slot-top: 1.0625rem;
+  --loadout-slot-panel-height: 11.125rem;
+  --loadout-picker-gap: 1rem;
+  --loadout-gear-frame-height: 41.625rem;
+  --loadout-item-frame-height: calc(var(--loadout-gear-frame-height) + var(--loadout-slot-panel-height) + var(--loadout-picker-gap));
   flex: 1;
   display: flex;
   align-items: flex-end;
@@ -45,6 +68,8 @@ body {
 }
 
 .site-header {
+  --site-title-width: 19rem;
+  --site-nav-gap: 95px;
   background: #151515;
   box-shadow: inset 0 -1px #595959;
 }
@@ -65,7 +90,7 @@ body {
   display: flex;
   align-items: center;
   gap: 4.875rem;
-  flex: 0 0 clamp(14rem, 21vw, 19rem);
+  flex: 0 0 var(--site-title-width);
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.25;
@@ -73,7 +98,129 @@ body {
 }
 
 #site-nav {
-  margin-inline-start: 95px;
+  margin-inline-start: var(--site-nav-gap);
+}
+
+#stats-nav .header-inner {
+  position: relative;
+  padding-inline-start: var(--stats-nav-inset, calc(var(--site-title-width) + var(--site-nav-gap)));
+}
+
+.stats-heading {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 110px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#stats-title {
+  flex: none;
+}
+
+.stats-weapon-trigger {
+  min-height: 2rem;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid #666;
+  border-radius: 0.125rem;
+  background: #2b2b2b;
+  color: var(--accent);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.stats-weapon-trigger:hover {
+  background: #383838;
+}
+
+.attachment-stats {
+  align-self: flex-start;
+  min-width: 0;
+  max-width: calc(100% - 2 * var(--page-gutter));
+  margin: var(--page-gutter);
+}
+
+.attachment-stats-status {
+  margin: 0;
+  color: #ccc;
+}
+
+.attachment-stats-scroll {
+  overflow-x: auto;
+}
+
+.attachment-stats-table {
+  zoom: 2.5;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-block-start: 1px solid #555;
+  border-inline-start: 1px solid #555;
+  background: #191919;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.attachment-stats-table :is(th, td) {
+  width: 6.03rem;
+  min-width: 6.03rem;
+  padding: 0.625rem 0.5625rem;
+  border-inline-end: 1px solid #555;
+  border-block-end: 1px solid #555;
+  text-align: center;
+}
+
+.attachment-stats-table th {
+  background: #292929;
+  font-size: 50%;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.attachment-stats-table .stat-improved {
+  --stat-bg-weak: #0b4222;
+  --stat-bg-strong: #08733a;
+  --stat-outline: #46f078;
+  color: #cbffd6;
+}
+
+.attachment-stats-table .stat-worsened {
+  --stat-bg-weak: #59101d;
+  --stat-bg-strong: #a51c31;
+  --stat-outline: #ff5268;
+  color: #ffd1d7;
+}
+
+.attachment-stats-table :is(.stat-improved, .stat-worsened) {
+  background-color: color-mix(in srgb, var(--stat-bg-strong) var(--stat-intensity), var(--stat-bg-weak));
+}
+
+.attachment-stats-table .stat-strongest {
+  box-shadow: inset 0 0 0 2px var(--stat-outline);
+}
+
+.attachment-stats-table .stat-neutral {
+  background-color: #303030;
+  color: #d0d0d0;
+}
+
+.attachment-stats-table th:first-child {
+  position: sticky;
+  inset-inline-start: 0;
+  width: 3.75rem;
+  min-width: 3.75rem;
+  padding-inline: 0.4375rem;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.attachment-stats-table img {
+  display: block;
+  width: 4.69rem;
+  height: 5rem;
+  margin-inline: auto;
+  object-fit: contain;
 }
 
 .site-logo {
@@ -121,9 +268,307 @@ body {
   outline-offset: -5px;
 }
 
+.patch-notes {
+  align-self: stretch;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr) minmax(0, 6fr);
+  min-width: 0;
+  min-height: 0;
+  margin: 2.25rem 3rem;
+  border: 1px solid rgb(128 128 128 / 50%);
+  background: rgb(12 12 12 / 70%);
+}
+
+.patch-notes[hidden],
+.patch-list button[hidden],
+.patch-detail-panel article[hidden] {
+  display: none;
+}
+
+.patch-notes > * {
+  min-width: 0;
+  min-height: 0;
+}
+
+.patch-notes > * + * {
+  border-inline-start: 1px solid rgb(128 128 128 / 50%);
+}
+
+.patch-notes h2,
+.patch-notes h3,
+.patch-notes p {
+  margin-block-start: 0;
+}
+
+.patch-season-panel,
+.patch-list-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.patch-season-panel > h2,
+.patch-list-panel > h2 {
+  flex: none;
+  min-height: 4.25rem;
+  margin: 0;
+  padding: 1.2rem 1.5rem;
+  border-block-end: 1px solid rgb(128 128 128 / 50%);
+  background: linear-gradient(110deg, rgb(37 37 37 / 70%), rgb(20 20 20 / 30%));
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.patch-season-timeline {
+  position: relative;
+  flex: 1;
+  padding: 1.4rem 0.75rem 1.4rem 1rem;
+}
+
+.patch-season-timeline::before {
+  position: absolute;
+  inset-block: 3.25rem;
+  inset-inline-start: 2.15rem;
+  width: 1px;
+  background: rgb(238 238 238 / 78%);
+  content: "";
+}
+
+.patch-season-timeline button {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.35rem minmax(0, 1fr);
+  align-items: center;
+  width: 100%;
+  min-height: 6.25rem;
+  padding: 0.75rem 0.7rem 0.75rem 0;
+  border: 0;
+  border-inline-start: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: #d6d6d6;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.patch-season-timeline button:hover {
+  color: #f4f4f4;
+  background: linear-gradient(90deg, rgb(255 255 255 / 5%), transparent 88%);
+}
+
+.patch-season-timeline button:active,
+.patch-list button:active {
+  transform: translateY(1px);
+}
+
+.patch-season-timeline button:focus-visible,
+.patch-list button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -4px;
+}
+
+.patch-season-timeline button[aria-pressed="true"] {
+  border-inline-start-color: var(--accent);
+  background: linear-gradient(90deg, rgb(248 197 74 / 22%), rgb(248 197 74 / 7%) 66%, transparent);
+  color: var(--accent);
+}
+
+.patch-season-node {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 0.95rem;
+  height: 0.95rem;
+  margin-inline: auto;
+  border: 2px solid #adadad;
+  border-radius: 50%;
+  background: #101011;
+}
+
+.patch-season-timeline button[aria-pressed="true"] .patch-season-node {
+  border-color: #ffd777;
+  background: radial-gradient(circle, #fff4bd 0 18%, #f8c54a 38%, #b96d0c 78%);
+  box-shadow: 0 0 0.55rem rgb(248 197 74 / 85%), 0 0 1.35rem rgb(248 197 74 / 34%);
+}
+
+.patch-season-label {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.patch-season-label strong {
+  font-size: 1.1rem;
+}
+
+.patch-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-color: #696969 transparent;
+}
+
+.patch-list:empty {
+  flex: 0;
+}
+
+.patch-list button {
+  display: grid;
+  gap: 0.65rem;
+  width: 100%;
+  min-height: 6.2rem;
+  padding: 1.25rem 1.45rem;
+  border: 0;
+  border-block-end: 1px solid #2c2c2c;
+  border-inline-start: 3px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: #d8d8d8;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.patch-list button:hover {
+  background: rgb(255 255 255 / 4%);
+  color: #f4f4f4;
+}
+
+.patch-list button[aria-pressed="true"] {
+  border-inline-start-color: var(--accent);
+  background: linear-gradient(90deg, rgb(248 197 74 / 16%), rgb(248 197 74 / 3%) 75%, transparent);
+  color: #f4f4f4;
+}
+
+.patch-list button strong {
+  font-size: 1.08rem;
+  line-height: 1.35;
+}
+
+.patch-list button > span {
+  display: flex;
+  gap: 0.7rem;
+  color: #9c9c9c;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.patch-list button[aria-pressed="true"] > span {
+  color: #c9b47c;
+}
+
+.patch-list-empty {
+  margin: 0;
+  padding: 1.5rem;
+  color: #9c9c9c;
+}
+
+.patch-detail-panel {
+  overflow-y: auto;
+  scrollbar-color: #696969 transparent;
+}
+
+.patch-detail-empty {
+  padding: 2rem 2.25rem;
+  color: #9c9c9c;
+}
+
+.patch-detail-panel article {
+  min-height: 100%;
+}
+
+.patch-detail-panel article > header {
+  padding: 2rem 2.25rem 1.35rem;
+  border-block-end: 1px solid rgb(128 128 128 / 50%);
+  background: linear-gradient(120deg, rgb(29 29 29 / 74%), transparent 72%);
+}
+
+.patch-detail-panel header h2 {
+  margin-block-end: 0.8rem;
+  color: #f1f1f1;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.patch-detail-panel header p {
+  display: flex;
+  gap: 1.25rem;
+  margin-block-end: 0;
+  color: #a8a8a8;
+  font-size: 0.98rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.patch-detail-panel header p span {
+  color: var(--accent);
+}
+
+.patch-detail-copy {
+  max-width: 58rem;
+  padding: 2rem 2.25rem 3rem;
+}
+
+.patch-detail-intro {
+  margin-block-end: 2.4rem;
+  color: #bcbcbc;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.patch-detail-copy section + section {
+  margin-block-start: 2.6rem;
+}
+
+.patch-detail-copy h3 {
+  margin-block-end: 1.15rem;
+  padding-inline-start: 0.8rem;
+  border-inline-start: 4px solid var(--accent);
+  color: #efefef;
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+.patch-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.patch-highlight-grid span {
+  display: grid;
+  place-items: center;
+  min-height: 4.6rem;
+  border: 1px solid #595959;
+  background: linear-gradient(145deg, rgb(48 48 48 / 60%), rgb(18 18 18 / 60%));
+  color: #dedede;
+  font-weight: 700;
+}
+
+.patch-detail-copy ul {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0;
+  padding-inline-start: 1.4rem;
+  color: #d0d0d0;
+  line-height: 1.65;
+}
+
+.patch-detail-copy li::marker {
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .patch-season-timeline button,
+  .patch-list button {
+    transition: none;
+  }
+}
+
 .weapon-picker {
-  --arrow-width: clamp(1.625rem, 4vw, 3rem);
-  --picker-padding: clamp(0.375rem, 1vw, 0.625rem);
+  --arrow-width: 3rem;
+  --picker-padding: 0.625rem;
   --picker-columns: 3;
   --picker-rows: 2;
   --item-picker-cell-ratio: 5 / 7;
@@ -135,7 +580,7 @@ body {
 
 .weapon-picker-in-loadout {
   --weapon-ammo-width: 94%;
-  --weapon-slot-gap: clamp(0.5rem, 1vw, 0.875rem);
+  --weapon-slot-gap: 0.875rem;
   display: grid;
   grid-template-rows: auto 1fr;
   scale: var(--weapon-picker-scale);
@@ -151,8 +596,8 @@ body {
 }
 
 .weapon-loadout-slots {
-  --slot-panel-padding: clamp(0.375rem, 1.3vw, 0.875rem);
-  --slot-panel-gap: clamp(0.375rem, 1.35vw, 0.875rem);
+  --slot-panel-padding: 0.875rem;
+  --slot-panel-gap: 0.875rem;
   width: var(--weapon-ammo-width);
   margin-inline: auto;
   margin-block-end: var(--weapon-slot-gap);
@@ -163,16 +608,12 @@ body {
 .weapon-loadout-slots h3 {
   width: calc(var(--slot-panel-padding) + (100% - 2 * var(--slot-panel-padding) - 2 * var(--slot-panel-gap)) / 6);
   margin: 0;
-  padding: 0.5rem min(1vw, var(--slot-panel-padding));
+  padding: 0.5rem var(--slot-panel-padding);
   border-bottom: 1px solid #414141;
   background: #232323;
   color: #d4d4d4;
   font-size: var(--weapon-slot-title-size);
   white-space: nowrap;
-}
-
-:root:has(.loadout-bag:not([hidden])) {
-  scrollbar-gutter: stable;
 }
 
 .loadout-bag {
@@ -237,58 +678,56 @@ body {
   cursor: pointer;
 }
 
-:root:has(.loadout-bag-picker[open]) {
-  overflow: hidden;
-}
-
-.loadout-bag-picker {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+.catalog-dialog {
   max-width: none;
   max-height: none;
   margin: 0;
   padding: var(--page-gutter);
-  overflow: hidden;
   border: 0;
-  background: linear-gradient(to bottom, transparent var(--bag-picker-dim-start, 0px),
-    rgb(0 0 0 / 50%) var(--bag-picker-dim-start, 0px));
+  background: linear-gradient(to bottom, transparent var(--catalog-dialog-dim-start, 0px),
+    rgb(0 0 0 / 50%) var(--catalog-dialog-dim-start, 0px));
   color: #f4f4f4;
 }
 
-.loadout-bag-picker[open] {
-  display: grid;
-  place-items: center;
+.catalog-dialog[open] {
+  display: flex;
 }
 
-.loadout-bag-picker::backdrop {
+.catalog-dialog::backdrop {
   background: transparent;
 }
 
-.loadout-bag-picker-panel {
+.catalog-dialog-panel {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
-  width: min(52rem, 100%);
-  max-height: 100%;
+  flex: none;
+  width: 52rem;
+  max-height: calc(var(--layout-height) - 2 * var(--page-gutter));
+  margin: auto;
   border: 1px solid #666;
   border-radius: 0.1875rem;
   background: #242629;
 }
 
-.loadout-bag-picker-panel h2 {
+.catalog-dialog-panel h2 {
   margin: 0;
-  padding: clamp(0.625rem, 2vw, 1rem);
+  padding: 1rem;
   border-bottom: 1px solid #515151;
   background: #2c2c2c;
-  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  font-size: 1.5rem;
   text-align: center;
 }
 
-.loadout-bag-picker-body {
+.catalog-dialog-body {
   min-height: 0;
-  padding: clamp(0.5rem, 2vw, 1.25rem);
+  padding: 1.25rem;
   overflow: auto;
+}
+
+.catalog-dialog-body.weapon-picker {
+  --weapon-filter-height: 1.65rem;
+  width: auto;
+  margin: 0;
 }
 
 .loadout-bag-picker-status {
@@ -312,18 +751,17 @@ body {
 }
 
 .loadout-bag-picker-grid .weapon-card {
-  position: relative;
-  min-height: clamp(6.25rem, 16vw, 9.25rem);
+  min-height: 9.25rem;
 }
 
-.loadout-bag-picker-panel form {
+.catalog-dialog-panel form {
   display: flex;
   justify-content: center;
   padding: 0.75rem;
   border-top: 1px solid #515151;
 }
 
-.loadout-bag-picker-cancel {
+.catalog-dialog-cancel {
   min-width: 7rem;
   padding: 0.5rem 1rem;
   border: 1px solid #777;
@@ -334,27 +772,22 @@ body {
   cursor: pointer;
 }
 
-.loadout-bag-picker-cancel:hover {
+.catalog-dialog-cancel:hover {
   background: #484848;
 }
 
 .loadout-bag-trigger:focus-visible,
-.loadout-bag-picker button:focus-visible {
+.stats-weapon-trigger:focus-visible,
+.catalog-dialog button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: -3px;
-}
-
-@media (max-width: 36rem) {
-  .loadout-bag-picker-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
 .loadout-bag-summary {
   --loadout-bag-summary-border: #929292;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(0.25rem, 0.65vw, 0.625rem);
+  gap: 0.625rem;
   margin-block-start: calc(var(--loadout-bag-scale) * 10px);
 }
 
@@ -366,8 +799,13 @@ body {
 }
 
 .loadout-weight {
+  --loadout-weight-color: #fff;
   grid-template-rows: auto 1fr auto;
   background: rgb(0 0 0 / 50%);
+}
+
+.loadout-weight.is-previewing {
+  --loadout-weight-color: var(--accent);
 }
 
 .loadout-weight h4 {
@@ -385,6 +823,7 @@ body {
   align-items: baseline;
   gap: 0.5rem;
   padding: 0.625rem;
+  color: var(--loadout-weight-color);
   font-size: 0.875rem;
   font-weight: 700;
 }
@@ -403,10 +842,12 @@ body {
 .loadout-weight-gauge span {
   height: 0.3125rem;
   --weight-fill: 0%;
-  background: linear-gradient(to right, #fff var(--weight-fill), #393939 var(--weight-fill));
+  background: linear-gradient(to right, var(--loadout-weight-color) var(--weight-fill), #393939 var(--weight-fill));
 }
 
 .loadout-bag-cost {
+  position: relative;
+  container-type: inline-size;
   grid-template-rows: 1fr 1.25rem;
   min-height: 4.8125rem;
   background: #2c2b2b;
@@ -422,12 +863,44 @@ body {
 }
 
 .loadout-bag-cost-value {
-  font-size: 2.5rem;
+  font-size: clamp(1rem, 18cqi, 2.5rem);
 }
 
 .loadout-bag-cost-label {
   background: var(--loadout-bag-summary-border);
   font-size: 0.75rem;
+}
+
+.loadout-bag-cost-back {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.loadout-bag-cost-back:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.loadout-overview .loadout-bag-cost {
+  --loadout-bag-summary-border: #74d785;
+}
+
+.loadout-overview .loadout-bag-cost-label {
+  color: #181818;
+}
+
+.loadout-bag-cost-overview-label,
+.loadout-overview .loadout-bag-cost-back,
+.loadout-overview .loadout-bag-cost-default-label {
+  display: none;
+}
+
+.loadout-overview .loadout-bag-cost-overview-label {
+  display: inline;
 }
 
 .loadout-bag-slots {
@@ -587,49 +1060,34 @@ body {
   opacity: 0.65;
 }
 
-@media (width > 48rem) {
-  .section-content:has(> .loadout-bag:not([hidden])) {
-    --loadout-bag-start: min(100% - var(--loadout-bag-width) - var(--page-gutter),
-      var(--page-gutter) + var(--weapon-picker-scale) * var(--loadout-picker-width) + var(--loadout-bag-gap));
-    display: grid;
-    grid-template-columns: var(--loadout-bag-start) minmax(0, 1fr);
-    grid-template-rows: 1fr;
-    align-items: start;
-  }
-
-  .loadout-bag {
-    grid-area: 1 / 2;
-  }
-
-  .section-content:has(> .loadout-bag:not([hidden])) > :is(.loadout, .weapon-picker) {
-    grid-area: 1 / 1;
-  }
-
-  .section-content:has(> .loadout-bag:not([hidden])) > .loadout {
-    max-width: calc(100% - var(--loadout-picker-inset, var(--gear-gutter)) - var(--gear-gutter));
-  }
-
-  .section-content:has(> .loadout-bag:not([hidden])) > .item-picker {
-    max-width: calc(100% - var(--loadout-picker-inset, var(--page-gutter)) - var(--page-gutter));
-  }
-
-  .section-content:has(> .loadout-bag:not([hidden])) > .weapon-picker-in-loadout {
-    align-self: stretch;
-    width: min(64rem, (100% - 2 * var(--page-gutter)) / var(--weapon-picker-scale));
-  }
+.section-content:has(> .loadout-bag:not([hidden])) {
+  --loadout-bag-start: min(100% - var(--loadout-bag-width) - var(--page-gutter),
+    var(--page-gutter) + var(--weapon-picker-scale) * var(--loadout-picker-width) + var(--loadout-bag-gap));
+  display: grid;
+  grid-template-columns: var(--loadout-bag-start) minmax(0, 1fr);
+  grid-template-rows: 1fr;
+  align-items: start;
 }
 
-@media (max-width: 48rem) {
-  .section-content:has(> .loadout-bag:not([hidden])) {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.loadout-bag {
+  grid-area: 1 / 2;
+}
 
-  .loadout-bag {
-    order: 0;
-    align-self: flex-end;
-    width: calc(var(--loadout-bag-scale) * min(16rem * 2 * var(--weapon-picker-scale), 100% - 2 * var(--page-gutter)));
-  }
+.section-content:has(> .loadout-bag:not([hidden])) > :is(.loadout, .weapon-picker) {
+  grid-area: 1 / 1;
+}
+
+.section-content:has(> .loadout-bag:not([hidden])) > .loadout {
+  max-width: calc(100% - var(--loadout-picker-inset) - 1rem);
+}
+
+.section-content:has(> .loadout-bag:not([hidden])) > .item-picker {
+  max-width: calc(100% - var(--loadout-picker-inset) - var(--page-gutter));
+}
+
+.section-content:has(> .loadout-bag:not([hidden])) > .weapon-picker-in-loadout {
+  align-self: stretch;
+  width: min(64rem, (100% - 2 * var(--page-gutter)) / var(--weapon-picker-scale));
 }
 
 .weapon-loadout-slots-grid {
@@ -640,8 +1098,8 @@ body {
 }
 
 .weapon-loadout-slot {
-  --weapon-slot-feed-size: clamp(1rem, 2vw, 2rem);
-  --weapon-slot-padding: clamp(0.25rem, 0.9vw, 0.625rem);
+  --weapon-slot-feed-size: 2rem;
+  --weapon-slot-padding: 0.625rem;
   position: relative;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
@@ -701,7 +1159,6 @@ body {
   aspect-ratio: 1;
   border: 1px solid #656565;
   background: #222;
-  pointer-events: none;
 }
 
 .weapon-slot-feed img,
@@ -742,7 +1199,7 @@ body {
   background: #1b1b1b;
   color: #838383;
   font: inherit;
-  font-size: clamp(0.6875rem, 1.3vw, 0.8125rem);
+  font-size: 0.8125rem;
 }
 
 .weapon-loadout-slot-actions button[data-available] {
@@ -781,7 +1238,7 @@ body {
 
 .weapon-preparation-stages {
   display: grid;
-  margin-block-end: clamp(0.25rem, 0.55vw, 0.5rem);
+  margin-block-end: 0.5rem;
 }
 
 .weapon-preparation-stages > * {
@@ -791,7 +1248,7 @@ body {
 .weapon-ammo-stages {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 3fr) auto minmax(0, 1fr);
-  gap: clamp(0.25rem, 1vw, 0.75rem);
+  gap: 0.75rem;
   padding: 0.375rem;
   border: 1px solid #515151;
   background: rgb(32 32 32 / 76%);
@@ -806,7 +1263,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr;
   min-width: 0;
-  min-height: clamp(5rem, 11vw, 9.25rem);
+  min-height: 9.25rem;
   background: #1c1c1c;
 }
 
@@ -815,7 +1272,7 @@ body {
   padding: 0.25rem 0.375rem;
   background: #333;
   color: #c6c6c6;
-  font-size: clamp(0.625rem, 1.1vw, 0.8125rem);
+  font-size: 0.8125rem;
   font-weight: 600;
 }
 
@@ -883,8 +1340,8 @@ button.weapon-ammo-stage-slot:disabled {
 .weapon-attachment-slots {
   display: flex;
   align-items: center;
-  gap: clamp(0.25rem, 0.9vw, 0.75rem);
-  padding-inline: clamp(0.375rem, 1.25vw, 0.875rem);
+  gap: 0.75rem;
+  padding-inline: 0.875rem;
 }
 
 .weapon-attachment-slot {
@@ -900,7 +1357,7 @@ button.weapon-ammo-stage-slot:disabled {
   inset: auto 0 0;
   background: #353535;
   color: #ddd;
-  font-size: clamp(0.5625rem, 0.9vw, 0.75rem);
+  font-size: 0.75rem;
   line-height: var(--attachment-label-height);
   text-align: center;
 }
@@ -943,7 +1400,7 @@ button.weapon-ammo-stage-slot:disabled {
 .weapon-ammo-operator {
   align-self: center;
   color: #aaa;
-  font-size: clamp(0.875rem, 2vw, 1.375rem);
+  font-size: 1.375rem;
 }
 
 .weapon-ammo-stage-result {
@@ -978,7 +1435,7 @@ button.weapon-ammo-stage-slot:disabled {
 .weapon-ammo-selector .weapon-name {
   padding-inline: 0.25rem;
   overflow: hidden;
-  font-size: clamp(0.5625rem, 0.9vw, 0.8125rem);
+  font-size: 0.8125rem;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -990,7 +1447,7 @@ button.weapon-ammo-stage-slot:disabled {
 
 .weapon-ammo-stage-preview .weapon-price,
 .weapon-ammo-selector .weapon-price {
-  font-size: clamp(0.5625rem, 0.9vw, 0.8125rem);
+  font-size: 0.8125rem;
 }
 
 .weapon-ammo-selector .weapon-page-arrow:disabled {
@@ -1003,12 +1460,6 @@ button.weapon-ammo-stage-slot:disabled {
   color: var(--accent);
 }
 
-@media (max-width: 36rem) {
-  .weapon-ammo-stages {
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
-  }
-}
-
 .weapon-filters {
   display: flex;
   flex-wrap: wrap;
@@ -1018,7 +1469,7 @@ button.weapon-ammo-stage-slot:disabled {
 
 .weapon-filters button {
   min-height: var(--weapon-filter-height);
-  padding: 0.125rem clamp(0.375rem, 1.1vw, 0.875rem);
+  padding: 0.125rem 0.875rem;
   border: 1px solid #505050;
   border-radius: 0;
   background: #222;
@@ -1087,7 +1538,7 @@ button.weapon-ammo-stage-slot:disabled {
 .weapon-grid {
   display: grid;
   grid-template-columns: repeat(var(--picker-columns), minmax(0, 1fr));
-  grid-template-rows: repeat(var(--picker-rows), minmax(clamp(6.75rem, 16vw, 12.75rem), 1fr));
+  grid-template-rows: repeat(var(--picker-rows), minmax(12.75rem, 1fr));
   gap: var(--picker-padding);
   margin: 0;
   padding: var(--picker-padding);
@@ -1134,9 +1585,9 @@ button.weapon-ammo-stage-slot:disabled {
 }
 
 .weapon-name {
-  padding: 0.1875rem clamp(0.25rem, 0.6vw, 0.4375rem);
+  padding: 0.1875rem 0.4375rem;
   color: #d0d0d0;
-  font-size: clamp(0.75rem, 1.25vw, 0.9375rem);
+  font-size: 0.9375rem;
   line-height: 1.25;
   overflow-wrap: anywhere;
 }
@@ -1164,7 +1615,7 @@ button.weapon-ammo-stage-slot:disabled {
   padding-inline: 0.25rem;
   background: #181818;
   color: #ededed;
-  font-size: clamp(0.75rem, 1.1vw, 0.875rem);
+  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
   overflow-wrap: anywhere;
 }
@@ -1230,7 +1681,7 @@ button.weapon-ammo-stage-slot:disabled {
 
 .weapon-page-label::before,
 .weapon-page-label::after {
-  width: clamp(0.75rem, 3vw, 2rem);
+  width: 2rem;
   height: 0.375rem;
   border-bottom: 1px solid #808080;
   content: "";
@@ -1251,7 +1702,7 @@ button.weapon-ammo-stage-slot:disabled {
 }
 
 :is(.item-picker, .gear-picker) .weapon-filters {
-  margin-block-end: clamp(0.5rem, 1.25vw, 1rem);
+  margin-block-end: 1rem;
 }
 
 :is(.item-picker, .gear-picker) .weapon-picker-frame {
@@ -1279,7 +1730,7 @@ button.weapon-ammo-stage-slot:disabled {
 }
 
 :is(.item-picker, .gear-picker) .weapon-name {
-  font-size: clamp(0.6875rem, 1.1vw, 0.875rem);
+  font-size: 0.875rem;
 }
 
 .item-picker .item-card-medical .weapon-card-footer {
@@ -1294,49 +1745,6 @@ button.weapon-ammo-stage-slot:disabled {
     linear-gradient(#aaa, #aaa) center / 35% 100% no-repeat,
     linear-gradient(#aaa, #aaa) center / 100% 35% no-repeat;
   content: "";
-}
-
-@media (width > 48rem) {
-  body:has(.item-picker:not([hidden])) {
-    height: 100dvh;
-    min-height: 0;
-  }
-
-  .section-content:has(> .item-picker:not([hidden])) {
-    container-type: size;
-  }
-
-  .item-picker {
-    /* Fit the panel below the headers while keeping the card proportions. */
-    --item-picker-height: calc(100cqh - 2 * var(--page-gutter) - 0.5rem);
-    width: min(64rem, 100% - 2 * var(--page-gutter), var(--item-picker-height) * 1.1);
-  }
-}
-
-@media (max-width: 48rem) {
-  .header-inner {
-    flex-direction: column;
-  }
-
-  .site-title {
-    flex: auto;
-    min-height: 3.25rem;
-    font-size: 1.125rem;
-  }
-
-  .section-buttons {
-    width: 100%;
-  }
-
-  .item-picker {
-    --picker-columns: 4;
-  }
-}
-
-@media (max-width: 32rem) {
-  .item-picker {
-    --picker-columns: 3;
-  }
 }
 
 .loadout {
@@ -1395,7 +1803,7 @@ button.weapon-ammo-stage-slot:disabled {
 }
 
 .loadout-parts {
-  --part-size: clamp(2.125rem, 3.5vw, 3rem);
+  --part-size: 3rem;
   display: grid;
   grid-template-columns: repeat(2, var(--part-size));
   grid-auto-rows: var(--part-size);
@@ -1412,19 +1820,24 @@ button.weapon-ammo-stage-slot:disabled {
 
 .loadout-overview {
   container-type: inline-size;
+  position: relative;
   --overview-top-gap: 50px;
   --overview-row-gap: 1.5625rem;
   margin-top: var(--overview-top-gap);
-  margin-left: clamp(0rem, (100vw - 30rem) / 2, 6.875rem);
-  --overview-part-size: clamp(2.5rem, 8vw, 4.25rem);
+  margin-left: 6.875rem;
+  --overview-part-size: 4.25rem;
   --overview-part-gap: 0.375rem;
   --overview-weapon-row-height: calc(2 * var(--overview-part-size) + var(--overview-part-gap));
-  --overview-column-gap: clamp(0.75rem, 3vw, 1.5rem);
+  --overview-column-gap: 1.5rem;
   --overview-gear-slot-max: 10rem;
   --overview-slot-scale: 0.9;
   --overview-gear-slot-size: calc(var(--overview-slot-scale) *
     min(var(--overview-gear-slot-max), (100cqw - 5 * var(--overview-column-gap)) / 5));
   --overview-item-gap: calc(2 * var(--overview-column-gap));
+  --overview-item-offset: 450px;
+  --overview-extra-inline-space: max(0px, var(--layout-width) - 2 * var(--page-gutter) - var(--layout-max-width));
+  --overview-item-available-width: calc(100% + var(--overview-extra-inline-space));
+  --overview-item-shift: clamp(0px, var(--overview-item-available-width) - 33rem, var(--overview-item-offset));
   --overview-slot-highlight-border: #989898;
   grid-template-columns:
     min(calc(3 * var(--overview-gear-slot-max) + 2 * var(--overview-column-gap)),
@@ -1441,14 +1854,11 @@ button.weapon-ammo-stage-slot:disabled {
 .loadout-overview .loadout-weapon-row {
   grid-column: 1;
   margin-top: 0;
-  column-gap: clamp(0.75rem, 1.875vw, 1.3125rem);
+  column-gap: 1.3125rem;
 }
 
 .loadout-overview-item-slots {
-  --overview-item-offset: 450px;
   --overview-item-row-max: calc(2 * var(--overview-gear-slot-max) + var(--overview-item-gap));
-  --overview-extra-inline-space: max(0px, 100vw - 2 * var(--page-gutter) - var(--layout-max-width));
-  --overview-item-available-width: calc(100% + var(--overview-extra-inline-space));
   --overview-item-width: min(33rem, var(--overview-item-available-width));
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -1457,9 +1867,26 @@ button.weapon-ammo-stage-slot:disabled {
   grid-row: 1 / span 4;
   align-self: start;
   width: var(--overview-item-width);
-  margin-inline-start: clamp(0px, var(--overview-item-available-width) - var(--overview-item-width), var(--overview-item-offset));
+  margin-inline-start: var(--overview-item-shift);
   position: relative;
   top: calc(5px - var(--overview-top-gap) - var(--loadout-top-gap) / 2);
+}
+
+.loadout-overview > .loadout-bag-summary {
+  position: absolute;
+  grid-column: 2 / 3;
+  grid-row: 1 / 4;
+  grid-template-columns: minmax(0, 1fr);
+  justify-self: center;
+  margin-block-start: 0;
+  inset-inline-start: calc((var(--overview-item-shift) - var(--overview-column-gap)) / 2);
+  inset-block-start: 50%;
+  width: min(15rem, var(--overview-item-shift) + var(--overview-column-gap) - 1rem);
+  translate: -50% -50%;
+}
+
+.loadout-overview > .loadout-bag-summary .loadout-bag-cost {
+  grid-row: 1;
 }
 
 .loadout-overview-item-row {
@@ -1545,7 +1972,7 @@ button.weapon-ammo-stage-slot:disabled {
 }
 
 .loadout-overview-gear-button {
-  --gear-slot-inset: clamp(0.125rem, 0.55vw, 0.375rem);
+  --gear-slot-inset: 0.375rem;
   padding: 0;
   color: inherit;
   font: inherit;
@@ -1600,7 +2027,7 @@ button.weapon-ammo-stage-slot:disabled {
 .loadout-overview-quick-slots {
   display: flex;
   flex-wrap: wrap;
-  gap: clamp(0.25rem, 0.5vw, 0.375rem);
+  gap: 0.375rem;
   margin: -0.1875rem -0.125rem;
   padding: 0.1875rem 0.125rem;
   list-style: none;
@@ -1678,36 +2105,12 @@ button.weapon-ammo-stage-slot:disabled {
   --grid-spacing: 18px;
 }
 
-.loadout:has(#loadout-gear:not([hidden])) {
-  --gear-gutter: clamp(0.625rem, 1.5vw, 1rem);
-  width: min(64.6875rem, 100% - 2 * var(--gear-gutter));
-  margin-block-start: 1.0625rem;
-  margin-inline-start: var(--gear-gutter);
-}
-
-@media (min-width: 64rem) {
-  .section-content {
-    /* Reserve space for the headers and scale both gear panels together. */
-    --loadout-picker-zoom: 0.9;
-  }
-
-  @supports (zoom: calc(1px / 1px)) {
-    .section-content {
-      --loadout-picker-zoom: clamp(0.65, (100dvh - 10rem) / 59rem, 0.9);
-    }
-  }
-
-  .loadout:has(#loadout-gear:not([hidden])) {
-    zoom: var(--loadout-picker-zoom);
-  }
-}
-
 .loadout-gear {
-  --gear-slot-gap: clamp(0.5rem, 5vw - 0.75rem, 2.625rem);
+  --gear-slot-gap: 2.625rem;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: var(--gear-slot-gap);
-  padding: clamp(0.375rem, 1.6vw, 1.0625rem);
+  padding: 1.0625rem;
   border: 3px solid #5b5b5b;
   border-radius: 0.25rem;
   background: rgb(0 0 0 / 42%);
@@ -1717,9 +2120,9 @@ button.weapon-ammo-stage-slot:disabled {
   --picker-columns: 6;
   --picker-rows: 3;
   --picker-card-border: #292929;
-  --arrow-width: clamp(1.625rem, 4.5vw, 3rem);
+  --arrow-width: 3rem;
   width: 100%;
-  margin: clamp(0.75rem, 1.5vw, 1rem) 0 0;
+  margin: 1rem 0 0;
 }
 
 .gear-picker .weapon-picker-frame {
@@ -1735,6 +2138,7 @@ button.weapon-ammo-stage-slot:disabled {
   width: 68%;
 }
 
+.catalog-dialog .weapon-card,
 .gear-picker .weapon-card,
 .item-picker .weapon-card,
 .weapon-picker-in-loadout .weapon-card {
@@ -1749,75 +2153,50 @@ button.weapon-ammo-stage-slot:disabled {
   cursor: pointer;
 }
 
-@media (min-width: 100rem) and (min-height: 56.25rem) {
-  body:has(.weapon-picker-ammo-mode) {
-    height: 100dvh;
-    min-height: 0;
-  }
+.section-content:has(> .weapon-picker-ammo-mode) {
+  min-height: 0;
+  overflow: clip;
+}
 
-  .section-content:has(> .weapon-picker-ammo-mode) {
-    min-height: 0;
-    overflow: clip;
-  }
+.section-content:has(> .loadout-bag:not([hidden])) > .weapon-picker-ammo-mode {
+  align-self: start;
+  height: calc((var(--loadout-picker-zoom) * (var(--loadout-slot-top) + var(--weapon-filter-height) +
+    var(--loadout-picker-gap) + var(--loadout-item-frame-height)) - var(--page-gutter)) /
+    var(--weapon-picker-scale));
+  margin-block-end: 0;
+}
 
-  .section-content {
-    --loadout-picker-width: 64.6875rem;
-    --loadout-picker-inset: 2.25rem;
-    --loadout-slot-top: 1.0625rem;
-    --loadout-slot-panel-height: 11.125rem;
-    --loadout-picker-gap: 1rem;
-    --loadout-gear-frame-height: 41.625rem;
-    --loadout-item-frame-height: calc(var(--loadout-gear-frame-height) + var(--loadout-slot-panel-height) + var(--loadout-picker-gap));
-  }
+.loadout:has(#loadout-gear:not([hidden])),
+.item-picker {
+  width: var(--loadout-picker-width);
+  margin-block-start: var(--loadout-slot-top);
+  margin-inline-start: var(--loadout-picker-inset);
+  zoom: var(--loadout-picker-zoom);
+}
 
-  .section-content:has(> .loadout-bag:not([hidden])) > .weapon-picker-ammo-mode {
-    align-self: start;
-    height: calc((var(--loadout-picker-zoom) * (var(--loadout-slot-top) + var(--weapon-filter-height) +
-      var(--loadout-picker-gap) + var(--loadout-item-frame-height)) - var(--page-gutter)) /
-      var(--weapon-picker-scale));
-    margin-block-end: 0;
-  }
+.loadout-gear {
+  height: var(--loadout-slot-panel-height);
+}
 
-  .loadout:has(#loadout-gear:not([hidden])),
-  .item-picker {
-    width: var(--loadout-picker-width);
-    margin-inline-start: var(--loadout-picker-inset);
-  }
+.gear-picker {
+  margin-block-start: var(--loadout-picker-gap);
+}
 
-  .loadout:has(#loadout-gear:not([hidden])) {
-    margin-block-start: var(--loadout-slot-top);
-  }
+.gear-picker .weapon-picker-frame {
+  height: var(--loadout-gear-frame-height);
+}
 
-  .loadout-gear {
-    height: var(--loadout-slot-panel-height);
-  }
+.item-picker .weapon-picker-frame {
+  /* Fill the space above the shared bottom edge where the gear slots sit. */
+  height: var(--loadout-item-frame-height);
+}
 
-  .gear-picker {
-    margin-block-start: var(--loadout-picker-gap);
-  }
+:is(.item-picker, .gear-picker) .weapon-grid {
+  grid-template-rows: repeat(var(--picker-rows), minmax(0, 1fr));
+}
 
-  .item-picker:not([hidden]) {
-    --arrow-width: clamp(1.625rem, 4.5vw, 3rem);
-    margin-block-start: var(--loadout-slot-top);
-    zoom: var(--loadout-picker-zoom);
-  }
-
-  .gear-picker .weapon-picker-frame {
-    height: var(--loadout-gear-frame-height);
-  }
-
-  .item-picker .weapon-picker-frame {
-    /* Fill the space above the shared bottom edge where the gear slots sit. */
-    height: var(--loadout-item-frame-height);
-  }
-
-  :is(.item-picker, .gear-picker) .weapon-grid {
-    grid-template-rows: repeat(var(--picker-rows), minmax(0, 1fr));
-  }
-
-  :is(.item-picker, .gear-picker) .weapon-grid > li {
-    aspect-ratio: auto;
-  }
+:is(.item-picker, .gear-picker) .weapon-grid > li {
+  aspect-ratio: auto;
 }
 
 .loadout-gear-cell {
@@ -1839,7 +2218,7 @@ button.weapon-ammo-stage-slot:disabled {
   --gear-slot-face: linear-gradient(#151515, #151515);
   --gear-slot-label: #313131;
   --gear-slot-hover-inset: #626262;
-  --gear-slot-inset: clamp(0.125rem, 0.55vw, 0.375rem);
+  --gear-slot-inset: 0.375rem;
   position: relative;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
@@ -1857,7 +2236,7 @@ button.weapon-ammo-stage-slot:disabled {
     var(--gear-slot-surface);
   color: #a4a4a4;
   font: inherit;
-  font-size: clamp(0.6875rem, 1.4vw, 0.9375rem);
+  font-size: 0.9375rem;
   line-height: 1.067;
   text-align: left;
   cursor: pointer;
@@ -1951,7 +2330,7 @@ button.weapon-ammo-stage-slot:disabled {
   border-radius: 0.1875rem;
   background: #326b24;
   color: #fff;
-  font-size: clamp(0.625rem, 1vw, 0.75rem);
+  font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1978,17 +2357,5 @@ button.weapon-ammo-stage-slot:disabled {
 @media (prefers-reduced-motion: reduce) {
   .loadout-gear-button {
     transition: none;
-  }
-}
-
-@media (max-width: 48rem) {
-  .loadout {
-    --loadout-top-gap: 1rem;
-  }
-
-  #site-nav,
-  #loadout-nav .section-buttons {
-    max-width: 100%;
-    margin-inline-start: 0;
   }
 }

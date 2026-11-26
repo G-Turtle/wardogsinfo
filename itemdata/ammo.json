@@ -6,7 +6,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 10,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -33,7 +34,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 15,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -60,7 +62,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 20,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -87,7 +90,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 10,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -110,7 +114,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 15,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -133,7 +138,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 20,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -156,7 +162,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 15,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -185,7 +192,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 25,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -214,7 +222,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 40,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -243,7 +252,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 15,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -265,7 +275,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 25,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -287,7 +298,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 40,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -309,7 +321,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 20,
+    "priceQuantity": 5,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -331,7 +344,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 35,
+    "priceQuantity": 5,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -353,7 +367,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 90,
+    "priceQuantity": 5,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -375,7 +390,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 30,
+    "priceQuantity": 5,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -401,7 +417,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 55,
+    "priceQuantity": 5,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -427,7 +444,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 90,
+    "priceQuantity": 5,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -453,7 +471,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 33,
+    "priceQuantity": 6,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -475,7 +494,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 50,
+    "priceQuantity": 6,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -497,7 +517,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 66,
+    "priceQuantity": 6,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -519,7 +540,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 40,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -542,7 +564,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 90,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -565,7 +588,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 150,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -588,7 +612,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 40,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -614,7 +639,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 70,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -640,7 +666,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 180,
+    "priceQuantity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -666,7 +693,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 200,
+    "priceQuantity": 5,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -686,7 +714,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 60,
+    "priceQuantity": 6,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -709,7 +738,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 200,
+    "priceQuantity": 6,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -732,7 +762,7 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 100,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -754,7 +784,7 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -776,7 +806,7 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -798,7 +828,8 @@
       "탄약"
     ],
     "weight": 0,
-    "price": 0,
+    "price": 75,
+    "priceQuantity": 5,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"

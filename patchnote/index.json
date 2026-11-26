@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "seasons": [
+    {
+      "id": "season-3",
+      "name": "시즌 3",
+      "file": "season-3.json"
+    },
+    {
+      "id": "season-2",
+      "name": "시즌 2",
+      "file": "season-2.json"
+    },
+    {
+      "id": "season-1",
+      "name": "시즌 1",
+      "file": "season-1.json"
+    }
+  ]
+}

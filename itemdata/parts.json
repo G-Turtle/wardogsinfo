@@ -6,7 +6,8 @@
       "탄창"
     ],
     "weight": 31,
-    "price": 0,
+    "price": 10,
+    "capacity": 20,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -24,7 +25,13 @@
       "WPN-005",
       "WPN-007",
       "WPN-017"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -16,
+      "horizontalRecoil": -15,
+      "adsSpeed": 15,
+      "equipSpeed": 16
+    }
   },
   {
     "code": "PRT-002",
@@ -33,7 +40,8 @@
       "탄창"
     ],
     "weight": 53,
-    "price": 0,
+    "price": 55,
+    "capacity": 30,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -51,7 +59,13 @@
       "WPN-005",
       "WPN-007",
       "WPN-017"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": -2
+    }
   },
   {
     "code": "PRT-003",
@@ -60,7 +74,8 @@
       "탄창"
     ],
     "weight": 101,
-    "price": 0,
+    "price": 180,
+    "capacity": 60,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -78,7 +93,13 @@
       "WPN-005",
       "WPN-007",
       "WPN-017"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 19,
+      "horizontalRecoil": 21,
+      "adsSpeed": -19,
+      "equipSpeed": -7
+    }
   },
   {
     "code": "PRT-004",
@@ -87,7 +108,8 @@
       "탄창"
     ],
     "weight": 55,
-    "price": 0,
+    "price": 35,
+    "capacity": 30,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -100,7 +122,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-004"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-005",
@@ -109,7 +137,8 @@
       "탄창"
     ],
     "weight": 93,
-    "price": 0,
+    "price": 150,
+    "capacity": 60,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -122,7 +151,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-004"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 19,
+      "horizontalRecoil": 21,
+      "adsSpeed": -19,
+      "equipSpeed": -7
+    }
   },
   {
     "code": "PRT-006",
@@ -131,7 +166,8 @@
       "탄창"
     ],
     "weight": 208,
-    "price": 0,
+    "price": 200,
+    "capacity": 75,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -144,7 +180,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-004"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 22,
+      "horizontalRecoil": 24,
+      "adsSpeed": -26,
+      "equipSpeed": -7
+    }
   },
   {
     "code": "PRT-007",
@@ -153,7 +195,8 @@
       "탄창"
     ],
     "weight": 71,
-    "price": 0,
+    "price": 60,
+    "capacity": 35,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -166,7 +209,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-006"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-008",
@@ -175,7 +224,8 @@
       "탄창"
     ],
     "weight": 116,
-    "price": 0,
+    "price": 110,
+    "capacity": 50,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -188,7 +238,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-006"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 19,
+      "horizontalRecoil": 21,
+      "adsSpeed": -19,
+      "equipSpeed": -7
+    }
   },
   {
     "code": "PRT-009",
@@ -197,7 +253,8 @@
       "탄창"
     ],
     "weight": 84,
-    "price": 0,
+    "price": 50,
+    "capacity": 28,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -210,7 +267,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-008"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-010",
@@ -219,7 +282,8 @@
       "탄창"
     ],
     "weight": 53,
-    "price": 0,
+    "price": 60,
+    "capacity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -233,7 +297,13 @@
     "compatibleWeaponCodes": [
       "WPN-009",
       "WPN-022"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -16,
+      "horizontalRecoil": -15,
+      "adsSpeed": 15,
+      "equipSpeed": 24
+    }
   },
   {
     "code": "PRT-011",
@@ -242,7 +312,8 @@
       "탄창"
     ],
     "weight": 76,
-    "price": 0,
+    "price": 150,
+    "capacity": 20,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -256,7 +327,13 @@
     "compatibleWeaponCodes": [
       "WPN-009",
       "WPN-022"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-012",
@@ -265,7 +342,8 @@
       "탄창"
     ],
     "weight": 109,
-    "price": 0,
+    "price": 250,
+    "capacity": 30,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -279,7 +357,13 @@
     "compatibleWeaponCodes": [
       "WPN-009",
       "WPN-022"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 22,
+      "horizontalRecoil": 24,
+      "adsSpeed": -26,
+      "equipSpeed": -7
+    }
   },
   {
     "code": "PRT-013",
@@ -288,7 +372,8 @@
       "탄창"
     ],
     "weight": 124,
-    "price": 0,
+    "price": 200,
+    "capacity": 53,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -301,7 +386,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-010"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-014",
@@ -310,7 +401,8 @@
       "탄창"
     ],
     "weight": 20,
-    "price": 0,
+    "price": 25,
+    "capacity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -323,7 +415,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-011"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -17,
+      "horizontalRecoil": -17,
+      "adsSpeed": 14,
+      "equipSpeed": 20
+    }
   },
   {
     "code": "PRT-015",
@@ -332,7 +430,8 @@
       "탄창"
     ],
     "weight": 100,
-    "price": 0,
+    "price": 100,
+    "capacity": 30,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -345,7 +444,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-011"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-016",
@@ -354,7 +459,8 @@
       "탄창"
     ],
     "weight": 130,
-    "price": 0,
+    "price": 200,
+    "capacity": 50,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -367,7 +473,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-011"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 20,
+      "horizontalRecoil": 18,
+      "adsSpeed": -20,
+      "equipSpeed": -7
+    }
   },
   {
     "code": "PRT-017",
@@ -376,7 +488,8 @@
       "탄창"
     ],
     "weight": 25,
-    "price": 0,
+    "price": 30,
+    "capacity": 15,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -389,7 +502,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-012"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -17,
+      "horizontalRecoil": -17,
+      "adsSpeed": 14,
+      "equipSpeed": 20
+    }
   },
   {
     "code": "PRT-018",
@@ -398,7 +517,8 @@
       "탄창"
     ],
     "weight": 30,
-    "price": 0,
+    "price": 70,
+    "capacity": 20,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -411,7 +531,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-012"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-019",
@@ -420,7 +546,8 @@
       "탄창"
     ],
     "weight": 48,
-    "price": 0,
+    "price": 100,
+    "capacity": 30,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -433,7 +560,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-012"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 12,
+      "horizontalRecoil": 14,
+      "adsSpeed": -11,
+      "equipSpeed": -7
+    }
   },
   {
     "code": "PRT-020",
@@ -442,7 +575,8 @@
       "탄창"
     ],
     "weight": 146,
-    "price": 0,
+    "price": 180,
+    "capacity": 50,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -455,7 +589,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-012"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 20,
+      "horizontalRecoil": 18,
+      "adsSpeed": -20,
+      "equipSpeed": -7
+    }
   },
   {
     "code": "PRT-021",
@@ -464,7 +604,8 @@
       "탄창"
     ],
     "weight": 35,
-    "price": 0,
+    "price": 70,
+    "capacity": 20,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -477,7 +618,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-013"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -13,
+      "horizontalRecoil": -12,
+      "adsSpeed": 13,
+      "equipSpeed": 10
+    }
   },
   {
     "code": "PRT-022",
@@ -486,7 +633,8 @@
       "탄창"
     ],
     "weight": 51,
-    "price": 0,
+    "price": 100,
+    "capacity": 30,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -499,7 +647,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-013"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-023",
@@ -508,7 +662,8 @@
       "탄창"
     ],
     "weight": 149,
-    "price": 0,
+    "price": 230,
+    "capacity": 50,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -521,7 +676,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-013"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 20,
+      "horizontalRecoil": 18,
+      "adsSpeed": -20,
+      "equipSpeed": -7
+    }
   },
   {
     "code": "PRT-024",
@@ -530,7 +691,8 @@
       "탄창"
     ],
     "weight": 23,
-    "price": 0,
+    "price": 30,
+    "capacity": 13,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -543,7 +705,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-014"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -17,
+      "horizontalRecoil": -17,
+      "adsSpeed": 17,
+      "equipSpeed": 21
+    }
   },
   {
     "code": "PRT-025",
@@ -552,7 +720,8 @@
       "탄창"
     ],
     "weight": 89,
-    "price": 0,
+    "price": 80,
+    "capacity": 30,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -565,7 +734,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-014"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-026",
@@ -574,7 +749,8 @@
       "탄창"
     ],
     "weight": 159,
-    "price": 0,
+    "price": 280,
+    "capacity": 40,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -587,7 +763,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-014"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 20,
+      "horizontalRecoil": 18,
+      "adsSpeed": -20,
+      "equipSpeed": -7
+    }
   },
   {
     "code": "PRT-027",
@@ -596,7 +778,8 @@
       "탄창"
     ],
     "weight": 162,
-    "price": 0,
+    "price": 200,
+    "capacity": 100,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -609,7 +792,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-017"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-028",
@@ -618,7 +807,8 @@
       "탄창"
     ],
     "weight": 314,
-    "price": 0,
+    "price": 250,
+    "capacity": 200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -631,7 +821,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-017"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 17,
+      "horizontalRecoil": 17,
+      "adsSpeed": -20,
+      "equipSpeed": -7
+    }
   },
   {
     "code": "PRT-029",
@@ -640,7 +836,8 @@
       "탄창"
     ],
     "weight": 390,
-    "price": 0,
+    "price": 100,
+    "capacity": 100,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -653,7 +850,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-018"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": -10,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-030",
@@ -662,7 +865,8 @@
       "탄창"
     ],
     "weight": 165,
-    "price": 0,
+    "price": 110,
+    "capacity": 50,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -675,7 +879,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-019"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-031",
@@ -684,7 +894,8 @@
       "탄창"
     ],
     "weight": 23,
-    "price": 0,
+    "price": 20,
+    "capacity": 5,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -697,7 +908,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-021"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-032",
@@ -706,7 +923,8 @@
       "탄창"
     ],
     "weight": 34,
-    "price": 0,
+    "price": 40,
+    "capacity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -719,7 +937,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-021"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": -6,
+      "equipSpeed": -10
+    }
   },
   {
     "code": "PRT-033",
@@ -728,7 +952,8 @@
       "탄창"
     ],
     "weight": 40,
-    "price": 0,
+    "price": 60,
+    "capacity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -741,7 +966,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-023"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-034",
@@ -750,7 +981,8 @@
       "탄창"
     ],
     "weight": 73,
-    "price": 0,
+    "price": 110,
+    "capacity": 20,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -763,7 +995,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-023"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 7,
+      "horizontalRecoil": 5,
+      "adsSpeed": -8,
+      "equipSpeed": -5
+    }
   },
   {
     "code": "PRT-035",
@@ -772,7 +1010,8 @@
       "탄창"
     ],
     "weight": 104,
-    "price": 0,
+    "price": 180,
+    "capacity": 30,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -785,7 +1024,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-023"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 22,
+      "horizontalRecoil": 24,
+      "adsSpeed": -20,
+      "equipSpeed": -7
+    }
   },
   {
     "code": "PRT-036",
@@ -794,7 +1039,8 @@
       "탄창"
     ],
     "weight": 34,
-    "price": 0,
+    "price": 40,
+    "capacity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -807,7 +1053,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-026"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-037",
@@ -816,7 +1068,8 @@
       "탄창"
     ],
     "weight": 38,
-    "price": 0,
+    "price": 30,
+    "capacity": 5,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -829,7 +1082,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-027"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-038",
@@ -838,7 +1097,8 @@
       "탄창"
     ],
     "weight": 45,
-    "price": 0,
+    "price": 60,
+    "capacity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -851,7 +1111,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-027"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": -6,
+      "equipSpeed": -10
+    }
   },
   {
     "code": "PRT-039",
@@ -860,7 +1126,8 @@
       "탄창"
     ],
     "weight": 127,
-    "price": 0,
+    "price": 15,
+    "capacity": 5,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -873,7 +1140,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-040",
@@ -882,7 +1155,8 @@
       "탄창"
     ],
     "weight": 220,
-    "price": 0,
+    "price": 30,
+    "capacity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -895,7 +1169,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": -6,
+      "equipSpeed": -10
+    }
   },
   {
     "code": "PRT-041",
@@ -904,7 +1184,8 @@
       "탄창"
     ],
     "weight": 28,
-    "price": 0,
+    "price": 30,
+    "capacity": 17,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -918,7 +1199,13 @@
     "compatibleWeaponCodes": [
       "WPN-030",
       "WPN-034"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-042",
@@ -927,7 +1214,8 @@
       "탄창"
     ],
     "weight": 52,
-    "price": 0,
+    "price": 70,
+    "capacity": 33,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -941,7 +1229,13 @@
     "compatibleWeaponCodes": [
       "WPN-030",
       "WPN-034"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 2,
+      "horizontalRecoil": 4,
+      "adsSpeed": -6,
+      "equipSpeed": -2
+    }
   },
   {
     "code": "PRT-043",
@@ -950,7 +1244,8 @@
       "탄창"
     ],
     "weight": 146,
-    "price": 0,
+    "price": 110,
+    "capacity": 50,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -964,7 +1259,13 @@
     "compatibleWeaponCodes": [
       "WPN-030",
       "WPN-034"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 4,
+      "horizontalRecoil": 7,
+      "adsSpeed": -10,
+      "equipSpeed": -5
+    }
   },
   {
     "code": "PRT-044",
@@ -973,7 +1274,8 @@
       "탄창"
     ],
     "weight": 22,
-    "price": 0,
+    "price": 20,
+    "capacity": 7,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -986,7 +1288,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-032"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-045",
@@ -995,7 +1303,8 @@
       "탄창"
     ],
     "weight": 38,
-    "price": 0,
+    "price": 35,
+    "capacity": 10,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1008,7 +1317,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-032"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 2,
+      "horizontalRecoil": 4,
+      "adsSpeed": -6,
+      "equipSpeed": -2
+    }
   },
   {
     "code": "PRT-046",
@@ -1017,7 +1332,8 @@
       "탄창"
     ],
     "weight": 43,
-    "price": 0,
+    "price": 50,
+    "capacity": 7,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1030,7 +1346,13 @@
     "slot": "magazine",
     "compatibleWeaponCodes": [
       "WPN-033"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-047",
@@ -1039,7 +1361,7 @@
       "광학 조준경"
     ],
     "weight": 13,
-    "price": 0,
+    "price": 340,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1074,7 +1396,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": 10
+    }
   },
   {
     "code": "PRT-048",
@@ -1083,7 +1408,7 @@
       "광학 조준경"
     ],
     "weight": 13,
-    "price": 0,
+    "price": 480,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1117,7 +1442,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": 0
+    }
   },
   {
     "code": "PRT-049",
@@ -1126,7 +1454,7 @@
       "광학 조준경"
     ],
     "weight": 41,
-    "price": 0,
+    "price": 520,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1161,7 +1489,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": 15
+    }
   },
   {
     "code": "PRT-050",
@@ -1170,7 +1501,7 @@
       "광학 조준경"
     ],
     "weight": 12,
-    "price": 0,
+    "price": 580,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1206,7 +1537,10 @@
       "WPN-027",
       "WPN-028",
       "WPN-033"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": 15
+    }
   },
   {
     "code": "PRT-051",
@@ -1215,7 +1549,7 @@
       "광학 조준경"
     ],
     "weight": 25,
-    "price": 0,
+    "price": 620,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1250,7 +1584,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": 10
+    }
   },
   {
     "code": "PRT-052",
@@ -1259,7 +1596,7 @@
       "광학 조준경"
     ],
     "weight": 31,
-    "price": 0,
+    "price": 640,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1294,7 +1631,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -5
+    }
   },
   {
     "code": "PRT-053",
@@ -1303,7 +1643,7 @@
       "광학 조준경"
     ],
     "weight": 20,
-    "price": 0,
+    "price": 650,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1338,7 +1678,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": 3
+    }
   },
   {
     "code": "PRT-054",
@@ -1347,7 +1690,7 @@
       "광학 조준경"
     ],
     "weight": 40,
-    "price": 0,
+    "price": 690,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1382,7 +1725,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -5
+    }
   },
   {
     "code": "PRT-055",
@@ -1391,7 +1737,7 @@
       "광학 조준경"
     ],
     "weight": 43,
-    "price": 0,
+    "price": 740,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1421,7 +1767,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -10
+    }
   },
   {
     "code": "PRT-056",
@@ -1430,7 +1779,7 @@
       "광학 조준경"
     ],
     "weight": 26,
-    "price": 0,
+    "price": 790,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1460,7 +1809,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -10
+    }
   },
   {
     "code": "PRT-057",
@@ -1469,7 +1821,7 @@
       "광학 조준경"
     ],
     "weight": 66,
-    "price": 0,
+    "price": 800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1499,7 +1851,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -10
+    }
   },
   {
     "code": "PRT-058",
@@ -1508,7 +1863,7 @@
       "광학 조준경"
     ],
     "weight": 3,
-    "price": 0,
+    "price": 820,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1542,7 +1897,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": 13
+    }
   },
   {
     "code": "PRT-059",
@@ -1551,7 +1909,7 @@
       "광학 조준경"
     ],
     "weight": 48,
-    "price": 0,
+    "price": 840,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1585,7 +1943,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": 15
+    }
   },
   {
     "code": "PRT-060",
@@ -1594,7 +1955,7 @@
       "광학 조준경"
     ],
     "weight": 42,
-    "price": 0,
+    "price": 880,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1624,7 +1985,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -5
+    }
   },
   {
     "code": "PRT-061",
@@ -1633,7 +1997,7 @@
       "광학 조준경"
     ],
     "weight": 70,
-    "price": 0,
+    "price": 680,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1652,7 +2016,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -15
+    }
   },
   {
     "code": "PRT-062",
@@ -1661,7 +2028,7 @@
       "광학 조준경"
     ],
     "weight": 63,
-    "price": 0,
+    "price": 860,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1680,7 +2047,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -12
+    }
   },
   {
     "code": "PRT-063",
@@ -1689,7 +2059,7 @@
       "광학 조준경"
     ],
     "weight": 98,
-    "price": 0,
+    "price": 1050,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1708,7 +2078,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -15
+    }
   },
   {
     "code": "PRT-064",
@@ -1717,7 +2090,7 @@
       "광학 조준경"
     ],
     "weight": 98,
-    "price": 0,
+    "price": 1200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1736,7 +2109,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -15
+    }
   },
   {
     "code": "PRT-065",
@@ -1745,7 +2121,7 @@
       "광학 조준경"
     ],
     "weight": 73,
-    "price": 0,
+    "price": 1650,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1764,7 +2140,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -5
+    }
   },
   {
     "code": "PRT-066",
@@ -1773,7 +2152,7 @@
       "광학 조준경"
     ],
     "weight": 66,
-    "price": 0,
+    "price": 1800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1792,7 +2171,10 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -20
+    }
   },
   {
     "code": "PRT-067",
@@ -1801,7 +2183,7 @@
       "광학 조준경"
     ],
     "weight": 110,
-    "price": 0,
+    "price": 950,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1814,7 +2196,10 @@
     "slot": "optic",
     "compatibleWeaponCodes": [
       "WPN-023"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -15
+    }
   },
   {
     "code": "PRT-068",
@@ -1823,7 +2208,7 @@
       "광학 조준경"
     ],
     "weight": 27,
-    "price": 0,
+    "price": 780,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1836,7 +2221,10 @@
     "slot": "optic",
     "compatibleWeaponCodes": [
       "WPN-025"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -15
+    }
   },
   {
     "code": "PRT-069",
@@ -1845,7 +2233,7 @@
       "광학 조준경"
     ],
     "weight": 100,
-    "price": 0,
+    "price": 200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1858,7 +2246,10 @@
     "slot": "optic",
     "compatibleWeaponCodes": [
       "WPN-034"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -2
+    }
   },
   {
     "code": "PRT-070",
@@ -1867,7 +2258,7 @@
       "광학 조준경"
     ],
     "weight": 62,
-    "price": 0,
+    "price": 850,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1880,7 +2271,10 @@
     "slot": "optic",
     "compatibleWeaponCodes": [
       "WPN-036"
-    ]
+    ],
+    "stats": {
+      "adsSpeed": -15
+    }
   },
   {
     "code": "PRT-071",
@@ -1889,7 +2283,7 @@
       "전방 손잡이"
     ],
     "weight": 105,
-    "price": 0,
+    "price": 380,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1915,7 +2309,14 @@
       "WPN-017",
       "WPN-019",
       "WPN-022"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -15,
+      "horizontalRecoil": -8,
+      "adsSpeed": -10,
+      "spread": -15,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-072",
@@ -1924,7 +2325,7 @@
       "전방 손잡이"
     ],
     "weight": 11,
-    "price": 0,
+    "price": 540,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1950,7 +2351,14 @@
       "WPN-017",
       "WPN-019",
       "WPN-022"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -18,
+      "horizontalRecoil": -7,
+      "adsSpeed": -2,
+      "spread": -16,
+      "equipSpeed": -2
+    }
   },
   {
     "code": "PRT-073",
@@ -1959,7 +2367,7 @@
       "전방 손잡이"
     ],
     "weight": 9,
-    "price": 0,
+    "price": 640,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -1985,7 +2393,14 @@
       "WPN-017",
       "WPN-019",
       "WPN-022"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 5,
+      "horizontalRecoil": -18,
+      "adsSpeed": 17,
+      "spread": -18,
+      "equipSpeed": 13
+    }
   },
   {
     "code": "PRT-074",
@@ -1994,7 +2409,7 @@
       "전방 손잡이"
     ],
     "weight": 8,
-    "price": 0,
+    "price": 680,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2020,7 +2435,14 @@
       "WPN-017",
       "WPN-019",
       "WPN-022"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -5,
+      "horizontalRecoil": -23,
+      "adsSpeed": 14,
+      "spread": -20,
+      "equipSpeed": 10
+    }
   },
   {
     "code": "PRT-075",
@@ -2029,7 +2451,7 @@
       "전방 손잡이"
     ],
     "weight": 12,
-    "price": 0,
+    "price": 720,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2055,7 +2477,14 @@
       "WPN-017",
       "WPN-019",
       "WPN-022"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -25,
+      "horizontalRecoil": -13,
+      "adsSpeed": 10,
+      "spread": -19,
+      "equipSpeed": 7
+    }
   },
   {
     "code": "PRT-076",
@@ -2064,7 +2493,7 @@
       "전방 손잡이"
     ],
     "weight": 8,
-    "price": 0,
+    "price": 800,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2090,7 +2519,14 @@
       "WPN-017",
       "WPN-019",
       "WPN-022"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -6,
+      "horizontalRecoil": -25,
+      "adsSpeed": 15,
+      "spread": -22,
+      "equipSpeed": 10
+    }
   },
   {
     "code": "PRT-077",
@@ -2099,7 +2535,7 @@
       "전방 손잡이"
     ],
     "weight": 13,
-    "price": 0,
+    "price": 820,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2125,7 +2561,14 @@
       "WPN-017",
       "WPN-019",
       "WPN-022"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -30,
+      "horizontalRecoil": -15,
+      "adsSpeed": -10,
+      "spread": -17,
+      "equipSpeed": -8
+    }
   },
   {
     "code": "PRT-078",
@@ -2134,7 +2577,7 @@
       "전방 손잡이"
     ],
     "weight": 12,
-    "price": 0,
+    "price": 840,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2160,7 +2603,14 @@
       "WPN-017",
       "WPN-019",
       "WPN-022"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -8,
+      "horizontalRecoil": -29,
+      "adsSpeed": 13,
+      "spread": -24,
+      "equipSpeed": 15
+    }
   },
   {
     "code": "PRT-079",
@@ -2169,7 +2619,7 @@
       "전방 손잡이"
     ],
     "weight": 15,
-    "price": 0,
+    "price": 950,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2188,7 +2638,14 @@
       "WPN-016",
       "WPN-017",
       "WPN-019"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -30,
+      "horizontalRecoil": -3,
+      "adsSpeed": -15,
+      "spread": -9,
+      "equipSpeed": 9
+    }
   },
   {
     "code": "PRT-080",
@@ -2197,7 +2654,7 @@
       "전방 손잡이"
     ],
     "weight": 26,
-    "price": 0,
+    "price": 1500,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2221,7 +2678,14 @@
       "WPN-014",
       "WPN-017",
       "WPN-019"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -12,
+      "horizontalRecoil": -10,
+      "adsSpeed": -10,
+      "spread": -6,
+      "equipSpeed": -2
+    }
   },
   {
     "code": "PRT-081",
@@ -2230,7 +2694,7 @@
       "전방 손잡이"
     ],
     "weight": 70,
-    "price": 0,
+    "price": 1050,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2243,7 +2707,14 @@
     "slot": "foregrip",
     "compatibleWeaponCodes": [
       "WPN-017"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -80,
+      "horizontalRecoil": -75,
+      "adsSpeed": 12,
+      "spread": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-082",
@@ -2252,7 +2723,7 @@
       "전방 손잡이"
     ],
     "weight": 70,
-    "price": 0,
+    "price": 1350,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2265,7 +2736,14 @@
     "slot": "foregrip",
     "compatibleWeaponCodes": [
       "WPN-018"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -80,
+      "horizontalRecoil": -78,
+      "adsSpeed": 12,
+      "spread": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-083",
@@ -2274,7 +2752,7 @@
       "전방 손잡이"
     ],
     "weight": 70,
-    "price": 0,
+    "price": 1450,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2287,7 +2765,14 @@
     "slot": "foregrip",
     "compatibleWeaponCodes": [
       "WPN-019"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -60,
+      "horizontalRecoil": -70,
+      "adsSpeed": 12,
+      "spread": -24,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-084",
@@ -2296,7 +2781,7 @@
       "전방 손잡이"
     ],
     "weight": 47,
-    "price": 0,
+    "price": 810,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2309,7 +2794,14 @@
     "slot": "foregrip",
     "compatibleWeaponCodes": [
       "WPN-020"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -35,
+      "horizontalRecoil": -60,
+      "adsSpeed": 14,
+      "spread": -55,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-085",
@@ -2318,7 +2810,7 @@
       "전방 손잡이"
     ],
     "weight": 50,
-    "price": 0,
+    "price": 1120,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2331,7 +2823,14 @@
     "slot": "foregrip",
     "compatibleWeaponCodes": [
       "WPN-021"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -35,
+      "horizontalRecoil": -65,
+      "adsSpeed": 14,
+      "spread": -55,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-086",
@@ -2340,7 +2839,7 @@
       "전방 손잡이"
     ],
     "weight": 55,
-    "price": 0,
+    "price": 1400,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2355,7 +2854,14 @@
       "WPN-022",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -35,
+      "horizontalRecoil": -50,
+      "adsSpeed": 17,
+      "spread": -55,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-087",
@@ -2364,7 +2870,7 @@
       "전방 손잡이"
     ],
     "weight": 79,
-    "price": 0,
+    "price": 1480,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2377,7 +2883,14 @@
     "slot": "foregrip",
     "compatibleWeaponCodes": [
       "WPN-023"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -40,
+      "horizontalRecoil": -65,
+      "adsSpeed": 12,
+      "spread": 0,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-088",
@@ -2386,7 +2899,7 @@
       "전방 손잡이"
     ],
     "weight": 47,
-    "price": 0,
+    "price": 1250,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2399,7 +2912,14 @@
     "slot": "foregrip",
     "compatibleWeaponCodes": [
       "WPN-026"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -55,
+      "horizontalRecoil": -65,
+      "adsSpeed": 16,
+      "spread": -55,
+      "equipSpeed": 0
+    }
   },
   {
     "code": "PRT-089",
@@ -2408,7 +2928,7 @@
       "총구"
     ],
     "weight": 9,
-    "price": 0,
+    "price": 380,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2430,7 +2950,13 @@
       "WPN-013",
       "WPN-030",
       "WPN-034"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 2,
+      "horizontalRecoil": -20,
+      "adsSpeed": -4,
+      "spread": -5
+    }
   },
   {
     "code": "PRT-090",
@@ -2439,7 +2965,7 @@
       "총구"
     ],
     "weight": 9,
-    "price": 0,
+    "price": 600,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2452,7 +2978,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-004"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 2,
+      "spread": -1
+    }
   },
   {
     "code": "PRT-091",
@@ -2461,7 +2993,7 @@
       "총구"
     ],
     "weight": 22,
-    "price": 0,
+    "price": 680,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2474,7 +3006,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-004"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -20,
+      "horizontalRecoil": -3,
+      "adsSpeed": -4,
+      "spread": -4
+    }
   },
   {
     "code": "PRT-092",
@@ -2483,7 +3021,7 @@
       "총구"
     ],
     "weight": 70,
-    "price": 0,
+    "price": 1160,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2496,7 +3034,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-004"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -10,
+      "horizontalRecoil": -6,
+      "adsSpeed": -10,
+      "spread": -9
+    }
   },
   {
     "code": "PRT-093",
@@ -2505,7 +3049,7 @@
       "총구"
     ],
     "weight": 80,
-    "price": 0,
+    "price": 1260,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2518,7 +3062,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-004"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -14,
+      "horizontalRecoil": -8,
+      "adsSpeed": -12,
+      "spread": -12
+    }
   },
   {
     "code": "PRT-094",
@@ -2527,7 +3077,7 @@
       "총구"
     ],
     "weight": 15,
-    "price": 0,
+    "price": 350,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2542,7 +3092,13 @@
       "WPN-005",
       "WPN-006",
       "WPN-007"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -1,
+      "horizontalRecoil": -22,
+      "adsSpeed": -5,
+      "spread": -4
+    }
   },
   {
     "code": "PRT-095",
@@ -2551,7 +3107,7 @@
       "총구"
     ],
     "weight": 10,
-    "price": 0,
+    "price": 770,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2567,7 +3123,13 @@
       "WPN-006",
       "WPN-007",
       "WPN-017"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -18,
+      "horizontalRecoil": -2,
+      "adsSpeed": -5,
+      "spread": -4
+    }
   },
   {
     "code": "PRT-096",
@@ -2576,7 +3138,7 @@
       "총구"
     ],
     "weight": 9,
-    "price": 0,
+    "price": 820,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2592,7 +3154,13 @@
       "WPN-006",
       "WPN-007",
       "WPN-017"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 2,
+      "spread": -1
+    }
   },
   {
     "code": "PRT-097",
@@ -2601,7 +3169,7 @@
       "총구"
     ],
     "weight": 12,
-    "price": 0,
+    "price": 1000,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2617,7 +3185,13 @@
       "WPN-006",
       "WPN-007",
       "WPN-017"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -20,
+      "horizontalRecoil": -2,
+      "adsSpeed": -6,
+      "spread": -4
+    }
   },
   {
     "code": "PRT-098",
@@ -2626,7 +3200,7 @@
       "총구"
     ],
     "weight": 72,
-    "price": 0,
+    "price": 1200,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2643,7 +3217,13 @@
       "WPN-007",
       "WPN-009",
       "WPN-017"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -12,
+      "horizontalRecoil": -7,
+      "adsSpeed": -10,
+      "spread": -10
+    }
   },
   {
     "code": "PRT-099",
@@ -2652,7 +3232,7 @@
       "총구"
     ],
     "weight": 50,
-    "price": 0,
+    "price": 1310,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2668,7 +3248,13 @@
       "WPN-006",
       "WPN-007",
       "WPN-017"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -12,
+      "horizontalRecoil": -8,
+      "adsSpeed": -12,
+      "spread": -12
+    }
   },
   {
     "code": "PRT-100",
@@ -2677,7 +3263,7 @@
       "총구"
     ],
     "weight": 12,
-    "price": 0,
+    "price": 400,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2700,7 +3286,13 @@
       "WPN-025",
       "WPN-026",
       "WPN-027"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 0,
+      "spread": 0
+    }
   },
   {
     "code": "PRT-101",
@@ -2709,7 +3301,7 @@
       "총구"
     ],
     "weight": 14,
-    "price": 0,
+    "price": 760,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2730,7 +3322,13 @@
       "WPN-025",
       "WPN-026",
       "WPN-027"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 1,
+      "horizontalRecoil": -17,
+      "adsSpeed": -3,
+      "spread": -3
+    }
   },
   {
     "code": "PRT-102",
@@ -2739,7 +3337,7 @@
       "총구"
     ],
     "weight": 5,
-    "price": 0,
+    "price": 780,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2752,7 +3350,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-008"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -8,
+      "horizontalRecoil": -6,
+      "adsSpeed": -8,
+      "spread": -10
+    }
   },
   {
     "code": "PRT-103",
@@ -2761,7 +3365,7 @@
       "총구"
     ],
     "weight": 12,
-    "price": 0,
+    "price": 1040,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2778,7 +3382,13 @@
       "WPN-019",
       "WPN-022",
       "WPN-027"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -22,
+      "horizontalRecoil": -4,
+      "adsSpeed": -6,
+      "spread": -4
+    }
   },
   {
     "code": "PRT-104",
@@ -2787,7 +3397,7 @@
       "총구"
     ],
     "weight": 9,
-    "price": 0,
+    "price": 1100,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2800,7 +3410,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-008"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -10,
+      "horizontalRecoil": 5,
+      "adsSpeed": -2,
+      "spread": -10
+    }
   },
   {
     "code": "PRT-105",
@@ -2809,7 +3425,7 @@
       "총구"
     ],
     "weight": 38,
-    "price": 0,
+    "price": 1350,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2822,7 +3438,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-008"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -7,
+      "horizontalRecoil": -6,
+      "adsSpeed": -10,
+      "spread": -10
+    }
   },
   {
     "code": "PRT-106",
@@ -2831,7 +3453,7 @@
       "총구"
     ],
     "weight": 12,
-    "price": 0,
+    "price": 580,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2849,7 +3471,13 @@
       "WPN-013",
       "WPN-030",
       "WPN-034"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 2,
+      "spread": -1
+    }
   },
   {
     "code": "PRT-107",
@@ -2858,7 +3486,7 @@
       "총구"
     ],
     "weight": 10,
-    "price": 0,
+    "price": 720,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2876,7 +3504,13 @@
       "WPN-013",
       "WPN-030",
       "WPN-034"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -18,
+      "horizontalRecoil": -4,
+      "adsSpeed": -5,
+      "spread": -5
+    }
   },
   {
     "code": "PRT-108",
@@ -2885,7 +3519,7 @@
       "총구"
     ],
     "weight": 60,
-    "price": 0,
+    "price": 1090,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2905,7 +3539,13 @@
       "WPN-030",
       "WPN-032",
       "WPN-034"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -10,
+      "horizontalRecoil": -6,
+      "adsSpeed": -8,
+      "spread": -9
+    }
   },
   {
     "code": "PRT-109",
@@ -2914,7 +3554,7 @@
       "총구"
     ],
     "weight": 8,
-    "price": 0,
+    "price": 750,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2927,7 +3567,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-011"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 2,
+      "spread": -1
+    }
   },
   {
     "code": "PRT-110",
@@ -2936,7 +3582,7 @@
       "총구"
     ],
     "weight": 50,
-    "price": 0,
+    "price": 1290,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2949,7 +3595,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-011"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -3,
+      "horizontalRecoil": -3,
+      "adsSpeed": -10,
+      "spread": -5
+    }
   },
   {
     "code": "PRT-111",
@@ -2958,7 +3610,7 @@
       "총구"
     ],
     "weight": 10,
-    "price": 0,
+    "price": 550,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2971,7 +3623,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-012"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 2,
+      "spread": -1
+    }
   },
   {
     "code": "PRT-112",
@@ -2980,7 +3638,7 @@
       "총구"
     ],
     "weight": 40,
-    "price": 0,
+    "price": 1110,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -2993,7 +3651,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-012"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -6,
+      "horizontalRecoil": -5,
+      "adsSpeed": -8,
+      "spread": -8
+    }
   },
   {
     "code": "PRT-113",
@@ -3002,7 +3666,7 @@
       "총구"
     ],
     "weight": 38,
-    "price": 0,
+    "price": 1130,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3015,7 +3679,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-013"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -6,
+      "horizontalRecoil": -5,
+      "adsSpeed": -8,
+      "spread": -10
+    }
   },
   {
     "code": "PRT-114",
@@ -3024,7 +3694,7 @@
       "총구"
     ],
     "weight": 6,
-    "price": 0,
+    "price": 860,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3037,7 +3707,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-014"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 2,
+      "spread": -1
+    }
   },
   {
     "code": "PRT-115",
@@ -3046,7 +3722,7 @@
       "총구"
     ],
     "weight": 12,
-    "price": 0,
+    "price": 970,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3059,7 +3735,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-014"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -22,
+      "horizontalRecoil": -12,
+      "adsSpeed": -4,
+      "spread": -2
+    }
   },
   {
     "code": "PRT-116",
@@ -3068,7 +3750,7 @@
       "총구"
     ],
     "weight": 100,
-    "price": 0,
+    "price": 540,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3081,7 +3763,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-016"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": -2,
+      "spread": 0
+    }
   },
   {
     "code": "PRT-117",
@@ -3090,7 +3778,7 @@
       "총구"
     ],
     "weight": 14,
-    "price": 0,
+    "price": 740,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3103,7 +3791,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-016"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -20,
+      "horizontalRecoil": 2,
+      "adsSpeed": -7,
+      "spread": -5
+    }
   },
   {
     "code": "PRT-118",
@@ -3112,7 +3806,7 @@
       "총구"
     ],
     "weight": 100,
-    "price": 0,
+    "price": 1150,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3125,7 +3819,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-016"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": -2,
+      "spread": 0
+    }
   },
   {
     "code": "PRT-119",
@@ -3134,7 +3834,7 @@
       "총구"
     ],
     "weight": 80,
-    "price": 0,
+    "price": 1170,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3147,7 +3847,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-016"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -12,
+      "horizontalRecoil": -5,
+      "adsSpeed": -10,
+      "spread": -8
+    }
   },
   {
     "code": "PRT-120",
@@ -3156,7 +3862,7 @@
       "총구"
     ],
     "weight": 10,
-    "price": 0,
+    "price": 620,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3169,7 +3875,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-017"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -14,
+      "horizontalRecoil": -2,
+      "adsSpeed": -3,
+      "spread": -3
+    }
   },
   {
     "code": "PRT-121",
@@ -3178,7 +3890,7 @@
       "총구"
     ],
     "weight": 16,
-    "price": 0,
+    "price": 980,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3192,7 +3904,13 @@
     "compatibleWeaponCodes": [
       "WPN-017",
       "WPN-018"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -26,
+      "horizontalRecoil": -10,
+      "adsSpeed": -7,
+      "spread": -2
+    }
   },
   {
     "code": "PRT-122",
@@ -3201,7 +3919,7 @@
       "총구"
     ],
     "weight": 10,
-    "price": 0,
+    "price": 840,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3214,7 +3932,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-018"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 2,
+      "spread": -1
+    }
   },
   {
     "code": "PRT-123",
@@ -3223,7 +3947,7 @@
       "총구"
     ],
     "weight": 55,
-    "price": 0,
+    "price": 1180,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3240,7 +3964,13 @@
       "WPN-021",
       "WPN-025",
       "WPN-026"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -18,
+      "horizontalRecoil": -10,
+      "adsSpeed": -12,
+      "spread": -11
+    }
   },
   {
     "code": "PRT-124",
@@ -3249,7 +3979,7 @@
       "총구"
     ],
     "weight": 49,
-    "price": 0,
+    "price": 1330,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3265,7 +3995,13 @@
       "WPN-021",
       "WPN-025",
       "WPN-026"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -12,
+      "horizontalRecoil": -18,
+      "adsSpeed": -5,
+      "spread": -5
+    }
   },
   {
     "code": "PRT-125",
@@ -3274,7 +4010,7 @@
       "총구"
     ],
     "weight": 53,
-    "price": 0,
+    "price": 1400,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3287,7 +4023,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-019"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -5,
+      "horizontalRecoil": -6,
+      "adsSpeed": -10,
+      "spread": -10
+    }
   },
   {
     "code": "PRT-126",
@@ -3296,7 +4038,7 @@
       "총구"
     ],
     "weight": 18,
-    "price": 0,
+    "price": 810,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3309,7 +4051,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-020"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -20,
+      "horizontalRecoil": -10,
+      "adsSpeed": -6,
+      "spread": -5
+    }
   },
   {
     "code": "PRT-127",
@@ -3318,7 +4066,7 @@
       "총구"
     ],
     "weight": 14,
-    "price": 0,
+    "price": 940,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3331,7 +4079,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-020"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -20,
+      "horizontalRecoil": 3,
+      "adsSpeed": -8,
+      "spread": -4
+    }
   },
   {
     "code": "PRT-128",
@@ -3340,7 +4094,7 @@
       "총구"
     ],
     "weight": 75,
-    "price": 0,
+    "price": 1450,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3359,7 +4113,13 @@
       "WPN-026",
       "WPN-027",
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -16,
+      "horizontalRecoil": -10,
+      "adsSpeed": -15,
+      "spread": -12
+    }
   },
   {
     "code": "PRT-129",
@@ -3368,7 +4128,7 @@
       "총구"
     ],
     "weight": 20,
-    "price": 0,
+    "price": 650,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3381,7 +4141,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-021"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -18,
+      "horizontalRecoil": -2,
+      "adsSpeed": -3,
+      "spread": -3
+    }
   },
   {
     "code": "PRT-130",
@@ -3390,7 +4156,7 @@
       "총구"
     ],
     "weight": 12,
-    "price": 0,
+    "price": 930,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3403,7 +4169,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-022"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 2,
+      "spread": -1
+    }
   },
   {
     "code": "PRT-131",
@@ -3412,7 +4184,7 @@
       "총구"
     ],
     "weight": 65,
-    "price": 0,
+    "price": 1080,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3425,7 +4197,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-022"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -5,
+      "horizontalRecoil": -4,
+      "adsSpeed": -8,
+      "spread": -8
+    }
   },
   {
     "code": "PRT-132",
@@ -3434,7 +4212,7 @@
       "총구"
     ],
     "weight": 7,
-    "price": 0,
+    "price": 730,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3447,7 +4225,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-023"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": 0,
+      "horizontalRecoil": 0,
+      "adsSpeed": 3,
+      "spread": 0
+    }
   },
   {
     "code": "PRT-133",
@@ -3456,7 +4240,7 @@
       "총구"
     ],
     "weight": 12,
-    "price": 0,
+    "price": 950,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3469,7 +4253,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-023"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -15,
+      "horizontalRecoil": 5,
+      "adsSpeed": -5,
+      "spread": -12
+    }
   },
   {
     "code": "PRT-134",
@@ -3478,7 +4268,7 @@
       "총구"
     ],
     "weight": 59,
-    "price": 0,
+    "price": 1000,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3491,7 +4281,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-024"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -4,
+      "horizontalRecoil": -4,
+      "adsSpeed": -4,
+      "spread": -7
+    }
   },
   {
     "code": "PRT-135",
@@ -3500,7 +4296,7 @@
       "총구"
     ],
     "weight": 34,
-    "price": 0,
+    "price": 1020,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3513,7 +4309,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-027"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -4,
+      "horizontalRecoil": -3,
+      "adsSpeed": -5,
+      "spread": -10
+    }
   },
   {
     "code": "PRT-136",
@@ -3522,7 +4324,7 @@
       "총구"
     ],
     "weight": 120,
-    "price": 0,
+    "price": 1250,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3535,7 +4337,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -10,
+      "horizontalRecoil": -6,
+      "adsSpeed": -12,
+      "spread": -10
+    }
   },
   {
     "code": "PRT-137",
@@ -3544,7 +4352,7 @@
       "총구"
     ],
     "weight": 45,
-    "price": 0,
+    "price": 1380,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3557,7 +4365,13 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-028"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -20,
+      "horizontalRecoil": -8,
+      "adsSpeed": -5,
+      "spread": -1
+    }
   },
   {
     "code": "PRT-138",
@@ -3566,7 +4380,7 @@
       "총구"
     ],
     "weight": 10,
-    "price": 0,
+    "price": 990,
     "description": {
       "white": "흰색 설명",
       "gray": "회색 설명"
@@ -3579,6 +4393,12 @@
     "slot": "muzzle",
     "compatibleWeaponCodes": [
       "WPN-032"
-    ]
+    ],
+    "stats": {
+      "verticalRecoil": -14,
+      "horizontalRecoil": -2,
+      "adsSpeed": -3,
+      "spread": -2
+    }
   }
 ]

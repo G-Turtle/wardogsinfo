@@ -1,7 +1,24 @@
+const siteCanvas = document.querySelector('.site-canvas');
 const sectionNav = document.querySelector('#site-nav');
 const sectionButtons = sectionNav.querySelectorAll('button');
+const patchNotesSection = document.querySelector('#patch-notes');
+const patchNotesButton = sectionNav.querySelector('[aria-controls="patch-notes"]');
+const patchSeasonTimeline = patchNotesSection.querySelector('.patch-season-timeline');
+const patchList = patchNotesSection.querySelector('.patch-list');
+const patchListEmpty = patchNotesSection.querySelector('.patch-list-empty');
+const patchDetailPanel = patchNotesSection.querySelector('.patch-detail-panel');
+const patchDetailEmpty = patchNotesSection.querySelector('.patch-detail-empty');
 const equipmentSection = document.querySelector('#equipment');
 const equipmentButton = sectionNav.querySelector('[aria-controls="equipment"]');
+const statsButton = sectionNav.querySelector('[aria-controls="stats-nav"]');
+const statsNav = document.querySelector('#stats-nav');
+const statsViews = statsNav.querySelectorAll('[data-stats-slot]');
+const attachmentStatsPanel = document.querySelector('#attachment-stats');
+const attachmentStatsStatus = attachmentStatsPanel.querySelector('.attachment-stats-status');
+const attachmentStatsScroll = attachmentStatsPanel.querySelector('.attachment-stats-scroll');
+const attachmentStatsTable = attachmentStatsPanel.querySelector('.attachment-stats-table');
+const statsWeaponTrigger = statsNav.querySelector('.stats-weapon-trigger');
+const statsWeaponDialog = document.querySelector('#stats-weapon-dialog');
 const loadoutBag = document.querySelector('#loadout-bag');
 const loadoutBagContent = loadoutBag.querySelector('.loadout-bag-content');
 const loadoutBagFrame = loadoutBagContent.querySelector('.loadout-bag-frame');
@@ -11,6 +28,8 @@ const bagPickerDialog = document.querySelector('#loadout-bag-picker');
 const bagPickerList = bagPickerDialog.querySelector('.loadout-bag-picker-grid');
 const bagPickerStatus = bagPickerDialog.querySelector('.loadout-bag-picker-status');
 const loadoutBagSummary = loadoutBag.querySelector('.loadout-bag-summary');
+const loadoutBagCostValue = loadoutBagSummary.querySelector('.loadout-bag-cost-value');
+const loadoutWeightPanel = loadoutBagSummary.querySelector('.loadout-weight');
 const loadoutWeightValue = loadoutBagSummary.querySelector('.loadout-weight-value');
 const loadoutWeightStage = loadoutBagSummary.querySelector('.loadout-weight-stage');
 const loadoutWeightSegments = loadoutBagSummary.querySelectorAll('.loadout-weight-gauge span');
@@ -20,6 +39,7 @@ const loadoutSection = document.querySelector('#loadout');
 const loadoutButton = sectionNav.querySelector('[aria-controls~="loadout"]');
 const loadoutNav = document.querySelector('#loadout-nav');
 const loadoutViews = loadoutNav.querySelectorAll('[data-loadout-view]');
+const loadoutOverviewView = loadoutNav.querySelector('[data-loadout-view="overview"]');
 const loadoutEquipmentView = loadoutNav.querySelector('[data-loadout-view="equipment"]');
 const loadoutGearView = loadoutNav.querySelector('[data-loadout-view="gear"]');
 const loadoutOverview = loadoutSection.querySelector('.loadout-overview');
@@ -38,6 +58,11 @@ const gearSlotViews = [...gearSlotButtons, ...overviewGearButtons].map((button) 
   return { ...createSlotView(button, '.loadout-gear-label'), price };
 });
 let selectedSection = sectionNav.querySelector('[aria-pressed="true"]');
+const patchSeasonRequests = new Map();
+let patchSeasonSelectionRequest = 0;
+let selectedStatsView = statsNav.querySelector('[data-stats-slot][aria-pressed="true"]');
+let selectedStatsWeapon;
+let attachmentStatsRequest = 0;
 let selectedLoadoutView = loadoutNav.querySelector('[data-loadout-view][aria-pressed="true"]');
 let selectedGearSlot = loadoutGear.querySelector('[aria-pressed="true"]');
 
@@ -61,12 +86,17 @@ const weaponSlotViews = [...weaponLoadoutButtons, ...overviewWeaponSlots].map(
 );
 let selectedWeaponLoadoutSlot = weaponLoadoutSlots.querySelector('[aria-pressed="true"]');
 const cardTemplate = document.querySelector('#weapon-card-template');
-const priceFormat = new Intl.NumberFormat('ko-KR');
+const priceFormat = new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 });
 const catalogRequests = new Map();
 const equippedWeapons = new Map();
 const equippedMagazines = new Map();
+let weaponEquipRequest = 0;
 const bagInventories = new Map();
 let bagItemDrag;
+let siteScale;
+let actualLoadoutWeight = 0;
+let weightPreview;
+const weightPreviewHandlers = new WeakMap();
 const weightStages = [
   { start: 0, label: '초경량' },
   { start: 1000, label: '경무장' },
@@ -85,28 +115,61 @@ const ammoCodesByCategory = {
 
 const weaponPicker = createCatalogPicker(weaponCatalog, 'weapons', 'localWeapons', '무기', {
   onSelect: equipWeapon,
+  onWeightPreview: getWeaponEquipWeight,
+});
+const statsWeaponCatalog = weaponCatalog.cloneNode(true);
+statsWeaponCatalog.querySelectorAll('[data-category]').forEach((button) => {
+  if (button.hasAttribute('data-item-codes')) button.remove();
+  else button.removeAttribute('data-slot');
+});
+const statsWeaponGrid = statsWeaponCatalog.querySelector('.weapon-grid');
+statsWeaponGrid.id = 'stats-weapon-grid';
+statsWeaponCatalog.querySelectorAll('.weapon-page-arrow').forEach((button) => {
+  button.setAttribute('aria-controls', statsWeaponGrid.id);
+});
+statsWeaponDialog.querySelector('.catalog-dialog-body').append(statsWeaponCatalog);
+const statsWeaponPicker = createCatalogPicker(statsWeaponCatalog, 'weapons', 'localWeapons', '무기', {
+  actionLabel: '선택',
+  onSelect: (weapon) => {
+    selectedStatsWeapon = weapon;
+    statsWeaponTrigger.textContent = weapon.name;
+    statsWeaponDialog.close();
+    updateAttachmentStats();
+  },
 });
 const weaponSetupPicker = createWeaponSetupPicker(weaponAmmoPreparation);
 const itemPicker = createCatalogPicker(itemSection, 'items', 'localItems', '아이템', {
   emptyMessage: '',
   onSelect: placeSelectedItem,
+  onWeightPreview: getBagItemAdditionWeight,
 });
 const ammoPicker = createCatalogPicker(ammoSection, 'ammo', 'localAmmo', '탄약', {
   emptyMessage: '',
   loadCategory: loadAmmoCategory,
   onSelect: placeSelectedItem,
+  onWeightPreview: getBagItemAdditionWeight,
 });
 const gearPicker = createCatalogPicker(loadoutGear.querySelector('.gear-picker'), 'items', 'localItems', '장구', {
   onSelect: equipGear,
+  onWeightPreview: (item, slot) => equippedGear.has(slot) ? null : getGearWeight(slot, item),
 });
 
 loadoutBagTrigger.addEventListener('click', () => openBagPicker());
+bagPickerDialog.addEventListener('close', () => clearWeightPreview(bagPickerDialog));
 loadoutBagFrame.addEventListener('pointermove', moveBagItemDrag);
 loadoutBagFrame.addEventListener('pointerup', dropBagItem);
 loadoutBagFrame.addEventListener('pointercancel', cancelBagItemDrag);
 loadoutBagFrame.addEventListener('lostpointercapture', cancelBagItemDrag);
 window.addEventListener('blur', cancelBagItemDrag);
+window.addEventListener('blur', () => clearWeightPreview());
+document.addEventListener('pointerover', (event) => {
+  if (event.pointerType !== 'touch') updateWeightPreview(event.target, event.ctrlKey);
+});
+document.addEventListener('pointerout', (event) => {
+  if (event.pointerType !== 'touch') updateWeightPreview(event.relatedTarget, event.ctrlKey);
+});
 window.addEventListener('keydown', (event) => {
+  if (event.key === 'Control' && weightPreview) updateWeightPreview(weightPreview.element, event.ctrlKey);
   if (event.key === 'Escape') cancelBagItemDrag();
 
   const drag = bagItemDrag;
@@ -121,9 +184,30 @@ window.addEventListener('keydown', (event) => {
   drag.rotation = drag.rotation === 0 ? 1 : 0;
   updateBagDragPreview(drag);
 });
-window.addEventListener('resize', () => {
-  if (bagPickerDialog.open) updateBagPickerBackdrop();
+window.addEventListener('keyup', (event) => {
+  if (event.key === 'Control' && weightPreview) updateWeightPreview(weightPreview.element, event.ctrlKey);
 });
+fitSiteCanvas();
+window.addEventListener('resize', fitSiteCanvas);
+initializePatchNotes();
+
+const headerLayoutObserver = new ResizeObserver(alignStatsNavigation);
+headerLayoutObserver.observe(sectionNav.parentElement);
+headerLayoutObserver.observe(sectionNav.previousElementSibling);
+
+function alignStatsNavigation() {
+  const headerLeft = sectionNav.parentElement.getBoundingClientRect().left;
+  const buttonLeft = sectionButtons[0].getBoundingClientRect().left;
+  statsNav.style.setProperty('--stats-nav-inset', `${(buttonLeft - headerLeft) / siteScale}px`);
+}
+
+function fitSiteCanvas() {
+  cancelBagItemDrag();
+  const viewport = document.documentElement;
+  siteScale = Math.min(1, viewport.clientWidth / siteCanvas.offsetWidth,
+    viewport.clientHeight / siteCanvas.offsetHeight);
+  viewport.style.setProperty('--layout-scale', siteScale);
+}
 
 sectionButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -134,6 +218,225 @@ sectionButtons.forEach((button) => {
   });
 });
 
+async function initializePatchNotes() {
+  try {
+    const index = await fetchPatchJson('./patchnote/index.json');
+    if (!Array.isArray(index.seasons)) throw new Error('Invalid patch note index');
+
+    patchSeasonTimeline.replaceChildren();
+    index.seasons.forEach((season, indexValue) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.dataset.season = season.id;
+      button.setAttribute('aria-pressed', String(indexValue === 0));
+
+      const node = document.createElement('span');
+      node.className = 'patch-season-node';
+      node.setAttribute('aria-hidden', 'true');
+
+      const label = document.createElement('span');
+      label.className = 'patch-season-label';
+      const name = document.createElement('strong');
+      name.textContent = season.name;
+      label.append(name);
+      button.append(node, label);
+      button.addEventListener('click', () => selectPatchSeason(season));
+      patchSeasonTimeline.append(button);
+    });
+
+    if (index.seasons.length) await selectPatchSeason(index.seasons[0]);
+    else showPatchStatus('등록된 시즌이 없습니다.', '표시할 패치가 없습니다.');
+  } catch (error) {
+    console.error(error);
+    showPatchStatus('패치노트를 불러올 수 없습니다.', '잠시 후 다시 시도해 주세요.');
+  }
+}
+
+async function selectPatchSeason(season) {
+  const request = ++patchSeasonSelectionRequest;
+  patchSeasonTimeline.querySelectorAll('[data-season]').forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.season === season.id));
+  });
+  showPatchStatus('패치 내역을 불러오는 중…', '');
+
+  try {
+    const seasonData = await loadPatchSeason(season);
+    if (request !== patchSeasonSelectionRequest) return;
+    if (!Array.isArray(seasonData.patches)) throw new Error(`Invalid patch season: ${season.id}`);
+    renderPatchList(seasonData.patches);
+  } catch (error) {
+    if (request !== patchSeasonSelectionRequest) return;
+    console.error(error);
+    showPatchStatus('패치 내역을 불러올 수 없습니다.', '잠시 후 다시 시도해 주세요.');
+  }
+}
+
+function loadPatchSeason(season) {
+  if (!patchSeasonRequests.has(season.id)) {
+    const request = fetchPatchJson(`./patchnote/${season.file}`)
+      .catch((error) => {
+        patchSeasonRequests.delete(season.id);
+        throw error;
+      });
+    patchSeasonRequests.set(season.id, request);
+  }
+  return patchSeasonRequests.get(season.id);
+}
+
+async function fetchPatchJson(path) {
+  const response = await fetch(path);
+  if (!response.ok) throw new Error(`Could not load patch notes (${response.status})`);
+  return response.json();
+}
+
+function renderPatchList(patches) {
+  patchList.replaceChildren();
+  patchDetailPanel.querySelectorAll('article').forEach((article) => article.remove());
+
+  if (!patches.length) {
+    showPatchStatus('이 시즌에는 표시할 패치가 없습니다.', '선택한 시즌에 등록된 패치가 없습니다.');
+    return;
+  }
+
+  patchListEmpty.hidden = true;
+  patches.forEach((patch, index) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.dataset.patch = patch.id;
+    button.setAttribute('aria-pressed', String(index === 0));
+
+    const title = document.createElement('strong');
+    title.textContent = patch.title;
+    const metadata = document.createElement('span');
+    const date = document.createElement('time');
+    date.dateTime = patch.date;
+    date.textContent = formatPatchDate(patch.date);
+    const divider = document.createElement('span');
+    divider.setAttribute('aria-hidden', 'true');
+    divider.textContent = '/';
+    const version = document.createTextNode(`v${patch.version}`);
+    metadata.append(date, divider, version);
+    button.append(title, metadata);
+    button.addEventListener('click', () => selectPatch(patch.id));
+    patchList.append(button);
+
+    patchDetailPanel.append(createPatchArticle(patch, index !== 0));
+  });
+  patchDetailEmpty.hidden = true;
+}
+
+function createPatchArticle(patch, hidden) {
+  const article = document.createElement('article');
+  article.dataset.patchDetail = patch.id;
+  article.hidden = hidden;
+
+  const header = document.createElement('header');
+  const title = document.createElement('h2');
+  title.textContent = patch.title;
+  const metadata = document.createElement('p');
+  const version = document.createElement('span');
+  version.textContent = `v${patch.version}`;
+  const date = document.createElement('time');
+  date.dateTime = patch.date;
+  date.textContent = formatPatchDate(patch.date);
+  metadata.append(version, date);
+  header.append(title, metadata);
+
+  const copy = document.createElement('div');
+  copy.className = 'patch-detail-copy';
+  if (patch.summary) {
+    const summary = document.createElement('p');
+    summary.className = 'patch-detail-intro';
+    summary.textContent = patch.summary;
+    copy.append(summary);
+  }
+  if (Array.isArray(patch.highlights) && patch.highlights.length) {
+    const section = document.createElement('section');
+    const heading = document.createElement('h3');
+    heading.textContent = '이번 업데이트';
+    const highlights = document.createElement('div');
+    highlights.className = 'patch-highlight-grid';
+    patch.highlights.forEach((highlight) => {
+      const item = document.createElement('span');
+      item.textContent = highlight;
+      highlights.append(item);
+    });
+    section.append(heading, highlights);
+    copy.append(section);
+  }
+  if (Array.isArray(patch.sections)) {
+    patch.sections.forEach((patchSection) => {
+      const section = document.createElement('section');
+      const heading = document.createElement('h3');
+      heading.textContent = patchSection.title;
+      const list = document.createElement('ul');
+      (patchSection.items ?? []).forEach((text) => {
+        const item = document.createElement('li');
+        item.textContent = text;
+        list.append(item);
+      });
+      section.append(heading, list);
+      copy.append(section);
+    });
+  }
+  article.append(header, copy);
+  return article;
+}
+
+function selectPatch(patchId) {
+  patchList.querySelectorAll('[data-patch]').forEach((button) => {
+    button.setAttribute('aria-pressed', String(button.dataset.patch === patchId));
+  });
+  patchDetailPanel.querySelectorAll('[data-patch-detail]').forEach((article) => {
+    article.hidden = article.dataset.patchDetail !== patchId;
+  });
+}
+
+function showPatchStatus(listMessage, detailMessage) {
+  patchList.replaceChildren();
+  patchListEmpty.textContent = listMessage;
+  patchListEmpty.hidden = !listMessage;
+  patchDetailPanel.querySelectorAll('article').forEach((article) => article.remove());
+  patchDetailEmpty.textContent = detailMessage;
+  patchDetailEmpty.hidden = !detailMessage;
+}
+
+function formatPatchDate(date) {
+  return typeof date === 'string' ? date.replaceAll('-', '.') : '';
+}
+
+statsViews.forEach((button) => {
+  button.addEventListener('click', () => {
+    selectedStatsView.setAttribute('aria-pressed', 'false');
+    button.setAttribute('aria-pressed', 'true');
+    selectedStatsView = button;
+    updateAttachmentStats();
+  });
+});
+
+statsWeaponTrigger.addEventListener('click', () => {
+  statsWeaponDialog.style.setProperty('--catalog-dialog-dim-start', `${statsNav.offsetTop}px`);
+  statsWeaponDialog.showModal();
+  statsWeaponPicker.open();
+});
+
+attachmentStatsScroll.addEventListener('wheel', (event) => {
+  const { deltaMode, deltaX, deltaY } = event;
+  if (event.ctrlKey || event.shiftKey || Math.abs(deltaY) <= Math.abs(deltaX)) return;
+
+  const { scrollLeft, scrollWidth, clientWidth } = attachmentStatsScroll;
+  const maxScrollLeft = scrollWidth - clientWidth;
+  if (maxScrollLeft <= 0) return;
+
+  const deltaScale = deltaMode === WheelEvent.DOM_DELTA_LINE ? 16
+    : deltaMode === WheelEvent.DOM_DELTA_PAGE ? clientWidth : 1;
+  const nextScrollLeft = Math.max(0, Math.min(maxScrollLeft, scrollLeft + deltaY * deltaScale));
+  if (nextScrollLeft === scrollLeft) return;
+
+  event.preventDefault();
+  attachmentStatsScroll.scrollLeft = nextScrollLeft;
+}, { passive: false });
+
 loadoutViews.forEach((button) => {
   button.addEventListener('click', () => {
     selectedLoadoutView.setAttribute('aria-pressed', 'false');
@@ -141,6 +444,11 @@ loadoutViews.forEach((button) => {
     selectedLoadoutView = button;
     updateSectionVisibility();
   });
+});
+
+loadoutBagSummary.querySelector('.loadout-bag-cost-back').addEventListener('click', () => {
+  loadoutOverviewView.click();
+  loadoutOverviewView.focus();
 });
 
 weaponLoadoutButtons.forEach((button) => {
@@ -167,6 +475,8 @@ function selectWeaponLoadoutSlot(button) {
 }
 
 function showWeaponSetup(mode, stage) {
+  weaponEquipRequest++;
+  clearWeightPreview(equipmentSection);
   const show = Boolean(mode);
   const activeSlot = selectedWeaponLoadoutSlot.dataset.slot;
   weaponAmmoPreparation.hidden = !show;
@@ -196,6 +506,8 @@ overviewWeaponSlots.forEach((button) => {
 });
 
 weaponSlotViews.forEach(({ element }) => {
+  bindWeightPreview(element, () => element.hasAttribute('data-equipped-item')
+    ? -getWeaponSlotWeight(element.dataset.slot) : null);
   element.addEventListener('contextmenu', (event) => {
     if (!element.hasAttribute('data-equipped-item')) return;
 
@@ -203,6 +515,21 @@ weaponSlotViews.forEach(({ element }) => {
     setEquippedWeapon(element.dataset.slot, null);
   });
 });
+
+for (const [slot, feed] of weaponLoadoutFeeds) {
+  bindWeightPreview(feed, () => equippedWeapons.get(slot)?.attachmentSlots?.magazine?.length
+    ? getRemovalWeight(equippedMagazines.get(slot))
+    : -getWeaponSlotWeight(slot));
+  feed.addEventListener('contextmenu', (event) => {
+    if (!equippedWeapons.get(slot)?.attachmentSlots?.magazine?.length) return;
+
+    event.stopPropagation();
+    if (!equippedMagazines.has(slot)) return;
+
+    event.preventDefault();
+    setEquippedMagazine(slot, null);
+  });
+}
 
 gearSlotButtons.forEach((button) => {
   button.addEventListener('click', () => {
@@ -223,6 +550,11 @@ overviewGearButtons.forEach((button) => {
 });
 
 gearSlotViews.forEach(({ element }) => {
+  bindWeightPreview(element, () => {
+    const slot = element.dataset.slot;
+    const item = equippedGear.get(slot);
+    return item ? -getGearWeight(slot, item) : null;
+  });
   element.addEventListener('contextmenu', (event) => {
     const slot = element.dataset.slot;
     if (!equippedGear.has(slot)) return;
@@ -243,14 +575,107 @@ function openSelectedGearPicker() {
   gearPicker.open();
 }
 
+async function updateAttachmentStats() {
+  const request = ++attachmentStatsRequest;
+  const label = selectedStatsView.textContent;
+  const codes = selectedStatsWeapon?.attachmentSlots?.[selectedStatsView.dataset.statsSlot];
+  const emptyMessage = `호환되는 ${label} 부품이 없습니다.`;
+  attachmentStatsTable.hidden = true;
+  attachmentStatsTable.setAttribute('aria-label', `호환 ${label} 비교`);
+  if (!selectedStatsWeapon) return;
+  if (!codes?.length) {
+    attachmentStatsStatus.textContent = emptyMessage;
+    return;
+  }
+
+  attachmentStatsStatus.textContent = `${label} 목록을 불러오는 중…`;
+  try {
+    const parts = await loadCatalog('parts', 'localParts');
+    if (request !== attachmentStatsRequest) return;
+
+    const attachments = getItemsByCode(parts, codes);
+    if (attachments.length) renderAttachmentStats(attachments, label);
+    attachmentStatsStatus.textContent = attachments.length ? '' : emptyMessage;
+    attachmentStatsTable.hidden = !attachments.length;
+    attachmentStatsScroll.scrollLeft = 0;
+  } catch (error) {
+    if (request !== attachmentStatsRequest) return;
+
+    console.error(error);
+    attachmentStatsStatus.textContent = `${label} 목록을 불러올 수 없습니다.`;
+  }
+}
+
+function renderAttachmentStats(attachments, label) {
+  const [nameRow, imageRow, ...statRows] = attachmentStatsTable.rows;
+  const availableStats = new Set(attachments.flatMap((attachment) => Object.keys(attachment.stats ?? {})));
+  for (const row of attachmentStatsTable.rows) row.replaceChildren(row.cells[0]);
+  for (const row of statRows) row.hidden = !availableStats.has(row.dataset.stat);
+  const visibleStatRows = statRows.filter((row) => !row.hidden);
+
+  for (const attachment of attachments) {
+    const name = document.createElement('th');
+    name.scope = 'col';
+    name.textContent = attachment.name;
+    nameRow.append(name);
+
+    const image = document.createElement('img');
+    image.alt = '';
+    image.addEventListener('error', () => {
+      image.alt = `기본 ${label} 아이콘`;
+      image.src = `./assets/ui/파츠_${label}.png`;
+    }, { once: true });
+    image.src = catalogImageUrl(attachment);
+    imageRow.insertCell().append(image);
+  }
+
+  for (const row of visibleStatRows) {
+    const values = attachments.map((attachment) => attachment.stats?.[row.dataset.stat]);
+    const rangesBySign = new Map([1, -1].map((sign) => {
+      const magnitudes = values.filter((value) => Number.isFinite(value) && Math.sign(value) === sign).map(Math.abs);
+      return [sign, { min: Math.min(...magnitudes), max: Math.max(...magnitudes) }];
+    }));
+    const lowerIsBetter = row.hasAttribute('data-lower-is-better');
+
+    for (const value of values) {
+      const cell = row.insertCell();
+      if (!Number.isFinite(value)) {
+        cell.textContent = '—';
+        continue;
+      }
+
+      cell.textContent = `${value > 0 ? '+' : ''}${value}`;
+      if (value === 0) {
+        cell.classList.add('stat-neutral');
+        continue;
+      }
+
+      const improved = lowerIsBetter ? value < 0 : value > 0;
+      const { min, max } = rangesBySign.get(Math.sign(value));
+      const magnitude = Math.abs(value);
+      const intensity = max === min ? 100 : 100 * (magnitude - min) / (max - min);
+      cell.classList.add(improved ? 'stat-improved' : 'stat-worsened');
+      if (magnitude === max) cell.classList.add('stat-strongest');
+      cell.style.setProperty('--stat-intensity', `${intensity}%`);
+    }
+  }
+}
+
 function updateSectionVisibility() {
   cancelBagItemDrag();
+  clearWeightPreview();
   const inLoadout = selectedSection === loadoutButton;
   const loadoutView = selectedLoadoutView.dataset.loadoutView;
   const inLoadoutEquipment = inLoadout && loadoutView === 'equipment';
-  const bagFrameHost = inLoadout && loadoutView === 'overview' ? overviewBackpackPanel : loadoutBagContent;
+  const inLoadoutOverview = inLoadout && loadoutView === 'overview';
+  const bagFrameHost = inLoadoutOverview ? overviewBackpackPanel : loadoutBagContent;
   if (loadoutBagFrame.parentElement !== bagFrameHost) bagFrameHost.prepend(loadoutBagFrame);
+  const bagSummaryHost = inLoadoutOverview ? loadoutOverview : loadoutBag;
+  if (loadoutBagSummary.parentElement !== bagSummaryHost) bagSummaryHost.append(loadoutBagSummary);
 
+  patchNotesSection.hidden = selectedSection !== patchNotesButton;
+  statsNav.hidden = selectedSection !== statsButton;
+  attachmentStatsPanel.hidden = statsNav.hidden;
   loadoutNav.hidden = !inLoadout;
   loadoutOverview.hidden = loadoutView !== 'overview';
   loadoutGear.hidden = loadoutView !== 'gear';
@@ -299,10 +724,25 @@ function renderEquippedSlot({ element, image, label, emptyImage, emptyLabel }, i
   else delete element.dataset.equippedItem;
 }
 
-function equipWeapon(item, slot) {
+async function equipWeapon(item, slot) {
   if (weaponLoadoutSlots.hidden || selectedWeaponLoadoutSlot.dataset.slot !== slot) return;
 
-  setEquippedWeapon(slot, item);
+  const request = ++weaponEquipRequest;
+  let defaultFeed;
+  if (item.defaultFeed && equippedWeapons.get(slot)?.code !== item.code) {
+    try {
+      defaultFeed = await loadDefaultWeaponFeed(item);
+    } catch (error) {
+      if (request !== weaponEquipRequest) return;
+
+      console.error(error);
+      weaponCatalog.querySelector('[role="status"]').textContent = '기본 장착 아이템을 불러올 수 없습니다.';
+      return;
+    }
+    if (request !== weaponEquipRequest) return;
+  }
+
+  setEquippedWeapon(slot, item, defaultFeed);
   const { ammo: ammoAction } = weaponSetupActions.get(slot);
   if (!ammoAction.disabled) {
     showWeaponSetup('ammo');
@@ -310,13 +750,19 @@ function equipWeapon(item, slot) {
   }
 }
 
-function setEquippedWeapon(slot, item) {
+function setEquippedWeapon(slot, item, defaultFeed) {
+  weaponEquipRequest++;
   const previousCode = equippedWeapons.get(slot)?.code;
   if (item) equippedWeapons.set(slot, item);
   else equippedWeapons.delete(slot);
   if (previousCode !== item?.code) {
     weaponSetupPicker.forget(slot);
     equippedMagazines.delete(slot);
+    if (defaultFeed) {
+      const { ammo, magazine } = defaultFeed;
+      weaponSetupPicker.setPreparation(slot, ammo, magazine);
+      if (magazine) equippedMagazines.set(slot, createLoadedMagazine(magazine, ammo));
+    }
   }
 
   weaponSlotViews.forEach((view) => {
@@ -339,7 +785,36 @@ function setEquippedWeapon(slot, item) {
     showWeaponSetup();
     openSelectedWeaponPicker();
   }
-  renderLoadoutWeight();
+  renderLoadoutSummary();
+}
+
+async function loadDefaultWeaponFeed({ defaultFeed: { ammoCode, magazineCode } }) {
+  const [[ammo], parts] = await Promise.all([
+    loadWeaponAmmo([ammoCode]),
+    magazineCode ? loadCatalog('parts', 'localParts') : [],
+  ]);
+  const magazine = parts.find(({ code }) => code === magazineCode);
+  if (!ammo || (magazineCode && !magazine)) throw new Error('Default equipment feed item is missing');
+
+  return { ammo, magazine };
+}
+
+function createLoadedMagazine(magazine, ammo) {
+  return { ...magazine, name: `${magazine.name} (${ammo.name})`, loadedAmmo: ammo };
+}
+
+async function getWeaponEquipWeight(item, slot) {
+  if (equippedWeapons.get(slot)?.code === item.code) return 0;
+
+  const weaponDelta = getItemWeight(item) - getWeaponSlotWeight(slot);
+  if (!item.defaultFeed) return weaponDelta;
+
+  try {
+    const { ammo, magazine } = await loadDefaultWeaponFeed(item);
+    return weaponDelta + (magazine ? getItemWeight(magazine) : getItemWeight(ammo, 1));
+  } catch {
+    return null;
+  }
 }
 
 function renderWeaponFeed(slot) {
@@ -348,11 +823,12 @@ function renderWeaponFeed(slot) {
   feed.hidden = !weapon;
   if (!weapon) return;
 
-  const magazine = equippedMagazines.get(slot);
-  const feedType = weapon.attachmentSlots?.magazine?.length ? '탄창' : '탄약';
+  const hasMagazines = Boolean(weapon.attachmentSlots?.magazine?.length);
+  const installed = getInstalledWeaponPart(slot, hasMagazines ? 'magazine' : 'ammo');
+  const feedType = hasMagazines ? '탄창' : '탄약';
   const image = feed.firstElementChild;
-  image.src = magazine ? catalogImageUrl(magazine) : `./assets/ui/파츠_${feedType}.png`;
-  image.alt = magazine?.name ?? feedType;
+  image.src = installed ? catalogImageUrl(installed) : `./assets/ui/파츠_${feedType}.png`;
+  image.alt = installed?.name ?? feedType;
 }
 
 function setEquippedMagazine(slot, magazine) {
@@ -360,7 +836,7 @@ function setEquippedMagazine(slot, magazine) {
   else equippedMagazines.delete(slot);
   renderWeaponFeed(slot);
   renderOverviewWeaponParts(slot);
-  renderLoadoutWeight();
+  renderLoadoutSummary({ keepWeightPreview: Boolean(magazine) });
 }
 
 function renderOverviewWeaponParts(slot) {
@@ -387,7 +863,7 @@ function renderOverviewWeaponParts(slot) {
       button = createOverviewWeaponPartButton(slot);
       cell.append(button);
     }
-    const installed = stage === 'magazine' ? equippedMagazines.get(slot) : weaponSetupPicker.getPart(slot, stage);
+    const installed = getInstalledWeaponPart(slot, stage);
     cell.removeAttribute('aria-label');
     button.dataset.partStage = stage;
     button.setAttribute('aria-label', installed ? `${label} 선택: ${installed.name}` : `${label} 선택`);
@@ -403,6 +879,10 @@ function createOverviewWeaponPartButton(slot) {
   const image = document.createElement('img');
   image.alt = '';
   button.append(image);
+  bindWeightPreview(button, () => {
+    const stage = button.dataset.partStage;
+    return getRemovalWeight(getInstalledWeaponPart(slot, stage), stage === 'ammo' ? 1 : undefined);
+  });
 
   button.addEventListener('click', () => {
     const stage = button.dataset.partStage;
@@ -440,16 +920,81 @@ function setEquippedGear(slot, item) {
     loadoutBagFeedback.textContent = '';
     renderBagSlots(item?.code);
   }
-  renderLoadoutWeight();
+  renderLoadoutSummary();
 }
 
-function renderLoadoutWeight() {
-  const equippedItems = [...equippedWeapons.values(), ...equippedMagazines.values(), ...equippedGear.values()];
-  const equippedWeight = equippedItems.reduce((sum, item) => sum + (item.weight ?? 0), 0);
-  const bagCode = equippedGear.get('backpack')?.code;
-  const bagContents = bagInventories.get(bagCode) ?? [];
-  const total = bagContents.reduce((sum, { item, count }) => sum + (item.weight ?? 0) * count, equippedWeight);
+function getItemWeight(item, count = item?.priceQuantity ?? 1) {
+  return (item?.weight ?? 0) * count;
+}
 
+function getRemovalWeight(item, count) {
+  return item ? -getItemWeight(item, count) : null;
+}
+
+function getBagContentsWeight(contents) {
+  return contents.reduce((sum, { item, count }) => sum + getItemWeight(item, count), 0);
+}
+
+function getGearWeight(slot, item) {
+  const contents = slot === 'backpack' ? bagInventories.get(item.code) ?? [] : [];
+  return getItemWeight(item) + getBagContentsWeight(contents);
+}
+
+function getInstalledWeaponPart(slot, stage) {
+  return stage === 'magazine' ? equippedMagazines.get(slot) : weaponSetupPicker.getPart(slot, stage);
+}
+
+function getInstalledWeaponParts(slot, weapon) {
+  const stages = ['optic', 'foregrip', 'muzzle'];
+  if (!weapon.attachmentSlots?.magazine?.length) stages.push('ammo');
+  return stages.map((stage) => ({
+    item: getInstalledWeaponPart(slot, stage),
+    count: stage === 'ammo' ? 1 : undefined,
+  })).filter(({ item }) => item);
+}
+
+function getWeaponSlotWeight(slot) {
+  const weapon = equippedWeapons.get(slot);
+  if (!weapon) return 0;
+
+  const parts = getInstalledWeaponParts(slot, weapon);
+  const baseWeight = getItemWeight(weapon) + getItemWeight(getInstalledWeaponPart(slot, 'magazine'));
+  return parts.reduce((sum, { item, count }) => sum + getItemWeight(item, count), baseWeight);
+}
+
+function bindWeightPreview(element, getDelta) {
+  weightPreviewHandlers.set(element, getDelta);
+}
+
+function updateWeightPreview(element, ctrlKey = false) {
+  while (element && !weightPreviewHandlers.has(element)) element = element.parentElement;
+  if (weightPreview?.element === element && weightPreview?.ctrlKey === ctrlKey) return;
+
+  clearWeightPreview();
+  if (!element || bagItemDrag) return;
+
+  renderWeightPreview(element, ctrlKey);
+}
+
+async function renderWeightPreview(element, ctrlKey) {
+  const preview = { element, ctrlKey };
+  weightPreview = preview;
+  const delta = await weightPreviewHandlers.get(element)(ctrlKey);
+  if (weightPreview !== preview) return;
+
+  if (Number.isFinite(delta)) renderLoadoutWeight(Math.max(0, actualLoadoutWeight + delta), true);
+  else renderLoadoutWeight(actualLoadoutWeight);
+}
+
+function clearWeightPreview(container) {
+  if (!weightPreview || (container && !container.contains(weightPreview.element))) return;
+
+  weightPreview = undefined;
+  renderLoadoutWeight(actualLoadoutWeight);
+}
+
+function renderLoadoutWeight(total, isPreview = false) {
+  loadoutWeightPanel.classList.toggle('is-previewing', isPreview);
   loadoutWeightValue.textContent = (Math.round(total / 10) / 10).toFixed(1);
   loadoutWeightStage.textContent = weightStages.findLast(({ start }) => total >= start).label;
   loadoutWeightSegments.forEach((segment, index) => {
@@ -460,16 +1005,32 @@ function renderLoadoutWeight() {
   });
 }
 
-function updateBagPickerBackdrop() {
-  const navTop = Math.max(0, loadoutNav.getBoundingClientRect().top);
-  bagPickerDialog.style.setProperty('--bag-picker-dim-start', `${navTop}px`);
+function renderLoadoutSummary({ keepWeightPreview = false } = {}) {
+  const parts = [...equippedWeapons].flatMap(([slot, weapon]) => getInstalledWeaponParts(slot, weapon));
+  const equippedItems = [...equippedWeapons.values(), ...equippedMagazines.values(), ...equippedGear.values()];
+  const bagCode = equippedGear.get('backpack')?.code;
+  const bagContents = bagInventories.get(bagCode) ?? [];
+  const entries = [...equippedItems.map((item) => ({ item })), ...parts, ...bagContents];
+  actualLoadoutWeight = entries.reduce((sum, { item, count }) => sum + getItemWeight(item, count), 0);
+  if (keepWeightPreview && weightPreview) {
+    renderWeightPreview(weightPreview.element, weightPreview.ctrlKey);
+  } else {
+    weightPreview = undefined;
+    renderLoadoutWeight(actualLoadoutWeight);
+  }
+  const prices = entries.map(({ item, count }) => getItemPrice(item, count));
+  const knownTotal = prices.reduce((sum, price) => sum + (price ?? 0), 0);
+  const hasUnknownPrices = prices.includes(null);
+  loadoutBagCostValue.textContent = `${formatCatalogPrice(knownTotal)}${hasUnknownPrices ? '+' : ''}`;
+  loadoutBagCostValue.title = hasUnknownPrices ? '가격을 확인하지 못한 아이템이 있습니다.' : '';
 }
 
 async function openBagPicker(pendingItem) {
   if (loadoutBag.hidden || equippedGear.has('backpack') || bagPickerDialog.open) return;
 
+  clearWeightPreview();
   const request = ++bagPickerRequest;
-  updateBagPickerBackdrop();
+  bagPickerDialog.style.setProperty('--catalog-dialog-dim-start', `${loadoutNav.offsetTop}px`);
   bagPickerList.replaceChildren();
   bagPickerStatus.textContent = '가방 목록을 불러오는 중…';
   bagPickerDialog.showModal();
@@ -494,7 +1055,7 @@ async function openBagPicker(pendingItem) {
       bagPickerDialog.close();
       equipGear(item, 'backpack');
       if (selectedLoadoutView !== loadoutGearView) loadoutBag.querySelector('h3').focus({ preventScroll: true });
-    })));
+    }, '장착', () => getGearWeight('backpack', item) + getBagAdditionWeight(pendingItem))));
     if (choices.length) bagPickerStatus.textContent = '';
     else bagPickerStatus.textContent = pendingItem ? '이 아이템을 담을 수 있는 가방이 없습니다.' : '선택할 가방이 없습니다.';
   } catch (error) {
@@ -511,6 +1072,24 @@ function placeSelectedItem(item) {
   return placeItemInBag(item);
 }
 
+function getBagAdditionWeight(item) {
+  return getItemWeight(item, item?.inventory?.stackIncrement ?? 1);
+}
+
+async function getBagItemAdditionWeight(item) {
+  const bagCode = equippedGear.get('backpack')?.code;
+  if (!bagCode) return getBagAdditionWeight(item);
+
+  try {
+    const layouts = await loadBagLayouts();
+    const slots = getBagSlots(layouts, bagCode);
+    const contents = bagInventories.get(bagCode) ?? [];
+    return planBagItemAddition(slots, contents, item) ? getBagAdditionWeight(item) : null;
+  } catch {
+    return null;
+  }
+}
+
 async function placeItemInBag(item) {
   const bag = equippedGear.get('backpack');
   if (!bag) {
@@ -523,6 +1102,7 @@ async function placeItemInBag(item) {
     if (equippedGear.get('backpack') !== bag) return;
 
     if (storeBagItem(bag.code, getBagSlots(layouts, bag.code), item)) {
+      renderLoadoutSummary({ keepWeightPreview: true });
       loadoutBagFeedback.textContent = '';
       renderBagSlots(bag.code);
     } else {
@@ -627,12 +1207,12 @@ function storeBagItem(bagCode, slots, item) {
   addition.stackUpdates.forEach(({ stack, added }) => { stack.count += added; });
   contents.push(...addition.newStacks);
   bagInventories.set(bagCode, contents);
-  renderLoadoutWeight();
   return true;
 }
 
 async function renderBagSlots(bagCode) {
   cancelBagItemDrag();
+  clearWeightPreview(loadoutBagFrame);
   const request = ++bagLayoutRequest;
   loadoutBagFrame.replaceChildren();
   if (!bagCode) return;
@@ -716,7 +1296,7 @@ function createBagItem(entry, bag) {
   image.draggable = false;
   const price = document.createElement('span');
   price.className = 'loadout-bag-item-price';
-  price.textContent = formatCatalogPrice(item.price * entry.count);
+  price.textContent = formatCatalogPrice(getItemPrice(item, entry.count));
   tile.append(image, price);
 
   const stack = stackLimit > 1 ? document.createElement('span') : null;
@@ -726,6 +1306,7 @@ function createBagItem(entry, bag) {
     tile.append(stack);
   }
 
+  bindWeightPreview(tile, (ctrlKey) => -getItemWeight(item, ctrlKey ? entry.count : Math.min(entry.count, stackIncrement)));
   tile.addEventListener('pointerdown', (event) => startBagItemDrag(event, tile, image, entry, bag));
   tile.addEventListener('contextmenu', (event) => {
     event.preventDefault();
@@ -740,10 +1321,10 @@ function createBagItem(entry, bag) {
       tile.remove();
     } else if (stack) {
       stack.textContent = `${entry.count}/${stackLimit}`;
-      price.textContent = formatCatalogPrice(item.price * entry.count);
+      price.textContent = formatCatalogPrice(getItemPrice(item, entry.count));
     }
     loadoutBagFeedback.textContent = '';
-    renderLoadoutWeight();
+    renderLoadoutSummary();
   });
   return tile;
 }
@@ -751,6 +1332,7 @@ function createBagItem(entry, bag) {
 function startBagItemDrag(event, tile, image, entry, bag) {
   if (event.button !== 0 || !event.isPrimary || bagItemDrag) return;
 
+  clearWeightPreview();
   event.preventDefault();
   loadoutBagFrame.setPointerCapture(event.pointerId);
   bagItemDrag = {
@@ -817,10 +1399,10 @@ function getBagDropTarget({ clientX, clientY }, { entry, bag, rotation }) {
   const slot = bag.slots[slotIndex];
   const rect = slotElement.getBoundingClientRect();
   const cell = slot.type === 'container' ? slotElement.firstElementChild.getBoundingClientRect() : {
-    left: rect.left + 1,
-    top: rect.top + 1,
-    width: (rect.width - 2) / slot.width,
-    height: (rect.height - 2) / slot.height,
+    left: rect.left + siteScale,
+    top: rect.top + siteScale,
+    width: (rect.width - 2 * siteScale) / slot.width,
+    height: (rect.height - 2 * siteScale) / slot.height,
   };
   const { width, height } = getBagItemSize({ item: entry.item, rotation });
   const position = {
@@ -887,6 +1469,7 @@ function dropBagItem(event) {
   }
 
   loadoutBagFeedback.textContent = '';
+  renderLoadoutSummary();
   renderBagSlots(bag.code);
 }
 
@@ -921,17 +1504,32 @@ function createWeaponSetupPicker(section) {
   let page = 0;
   let lastWheelTurn;
 
+  bindWeightPreview(magazineButton, () => getPreparedMagazineWeight(getPart(activeSlot, 'magazine')));
+  bindWeightPreview(ammoButton, (ctrlKey) => {
+    const ammo = getPart(activeSlot, 'ammo');
+    if (!ammo) return null;
+
+    return ctrlKey ? getBagItemAdditionWeight(ammo) : getBagAdditionWeight(ammo);
+  });
+  bindWeightPreview(result, () => getPreparedMagazineWeight(getPart(activeSlot, 'magazine')));
+  bindWeightPreview(feedButton, () => equippedWeapons.get(activeSlot)?.attachmentSlots?.magazine?.length
+    ? getPreparedMagazineWeight(getPart(activeSlot, 'magazine'))
+    : getRemovalWeight(getPart(activeSlot, 'ammo'), 1));
   magazineButton.addEventListener('click', () => selectStage('magazine'));
-  ammoButton.addEventListener('click', () => selectStage('ammo'));
+  ammoButton.addEventListener('click', (event) => {
+    if (event.ctrlKey) {
+      const ammo = getPart(activeSlot, 'ammo');
+      if (event.button === 0 && ammo) return placeItemInBag(ammo);
+      return;
+    }
+
+    selectStage('ammo');
+  });
   result.addEventListener('click', () => {
     const state = preparations.get(activeSlot);
     if (stages.hidden || !state?.magazine || !state.ammo) return;
 
-    const magazine = {
-      ...state.magazine,
-      name: `${state.magazine.name} (${state.ammo.name})`,
-      loadedAmmo: state.ammo,
-    };
+    const magazine = createLoadedMagazine(state.magazine, state.ammo);
     if (equippedMagazines.has(activeSlot)) {
       placeItemInBag(magazine);
       return;
@@ -946,6 +1544,7 @@ function createWeaponSetupPicker(section) {
   attachRemoval(feedButton, () => equippedWeapons.get(activeSlot)?.attachmentSlots?.magazine?.length ? 'magazine' : 'ammo');
   attachmentButtons.forEach((button) => {
     const stage = button.dataset.attachmentStage;
+    bindWeightPreview(button, () => getRemovalWeight(getPart(activeSlot, stage)));
     button.addEventListener('click', () => selectStage(stage));
     attachRemoval(button, () => stage);
   });
@@ -967,7 +1566,7 @@ function createWeaponSetupPicker(section) {
 
   function open(slot, mode, stage) {
     activeSlot = slot;
-    if (!preparations.has(slot)) preparations.set(slot, { stage: null, magazine: null, ammo: null });
+    if (!preparations.has(slot)) setPreparation(slot);
     const hasMagazines = Boolean(equippedWeapons.get(slot)?.attachmentSlots?.magazine?.length);
     const showAttachments = mode === 'attachments';
     section.setAttribute('aria-label', showAttachments ? '부착물' : '탄약 준비');
@@ -996,7 +1595,7 @@ function createWeaponSetupPicker(section) {
     renderAmmoStageItem(ammoButton, state.ammo);
     const ready = state.ammo ? state.magazine : null;
     result.hidden = !ready;
-    renderAmmoStageItem(result, ready);
+    renderAmmoStageItem(result, ready, { loadedAmmo: ready ? state.ammo : null });
 
     if (attachmentStages.hidden) return;
 
@@ -1006,7 +1605,7 @@ function createWeaponSetupPicker(section) {
     feedButton.querySelector('.weapon-attachment-slot-label').textContent = hasMagazines ? '탄창' : '탄약';
     feedButton.querySelector('.weapon-ammo-magazine-icon').hidden = !hasMagazines;
     feedButton.querySelector('.weapon-ammo-round-icon').hidden = hasMagazines;
-    renderAmmoStageItem(feedButton, hasMagazines ? state.magazine : state.ammo);
+    renderAmmoStageItem(feedButton, hasMagazines ? state.magazine : state.ammo, { count: hasMagazines ? undefined : 1 });
     attachmentButtons.forEach((button) => {
       const stage = button.dataset.attachmentStage;
       button.setAttribute('aria-pressed', String(state.stage === stage));
@@ -1024,13 +1623,32 @@ function createWeaponSetupPicker(section) {
     return preparations.get(slot)?.[stage];
   }
 
+  function getPreparedMagazineWeight(magazine) {
+    if (!magazine) return null;
+
+    return equippedMagazines.has(activeSlot) ? getBagItemAdditionWeight(magazine) : getItemWeight(magazine);
+  }
+
+  function getSelectionWeight(item, state) {
+    if (state.stage === 'magazine') return getPreparedMagazineWeight(item);
+    if (state.stage === 'ammo') {
+      if (state.magazine) return getBagAdditionWeight(item);
+
+      const chamberWeight = getItemWeight(item, 1) - getItemWeight(state.ammo, 1);
+      return getBagItemAdditionWeight(item).then((bagWeight) => chamberWeight + (bagWeight ?? 0));
+    }
+    return getItemWeight(item) - getItemWeight(state[state.stage]);
+  }
+
   function clearSelection(slot, stage) {
     const state = preparations.get(slot);
     if (!state?.[stage]) return false;
 
     state[stage] = null;
     if (stage === 'magazine') state.ammo = null;
+    if (stage === 'ammo') renderWeaponFeed(slot);
     renderOverviewWeaponParts(slot);
+    renderLoadoutSummary();
     if (slot === activeSlot) {
       renderStages(state);
       renderPage();
@@ -1043,7 +1661,7 @@ function createWeaponSetupPicker(section) {
     const state = preparations.get(activeSlot);
     const selectedCode = state?.[state.stage]?.code;
     const cards = entries.slice(start, start + pageSize).map((item) => {
-      const card = createCatalogCard(item, () => selectItem(item), '선택');
+      const card = createCatalogCard(item, () => selectItem(item), '선택', () => getSelectionWeight(item, state));
       card.querySelector('.weapon-card-action').setAttribute('aria-pressed', String(item.code === selectedCode));
       return card;
     });
@@ -1070,6 +1688,7 @@ function createWeaponSetupPicker(section) {
     const weapon = equippedWeapons.get(activeSlot);
     if (!state || !weapon || (stage === 'ammo' && weapon.attachmentSlots?.magazine?.length && !state.magazine)) return;
 
+    clearWeightPreview(section);
     const request = ++requestId;
     state.stage = stage;
     entries = [];
@@ -1089,10 +1708,11 @@ function createWeaponSetupPicker(section) {
 
     status.textContent = `${label} 목록을 불러오는 중…`;
     try {
-      const catalog = await (isAmmo ? loadCatalog('ammo', 'localAmmo') : loadCatalog('parts', 'localParts'));
+      const matches = await (isAmmo ? loadWeaponAmmo(codes)
+        : loadCatalog('parts', 'localParts').then((catalog) => getItemsByCode(catalog, codes)));
       if (request !== requestId) return;
 
-      entries = getItemsByCode(catalog, codes);
+      entries = matches;
       status.textContent = entries.length ? '' : emptyMessage;
       renderPage();
     } catch (error) {
@@ -1113,11 +1733,15 @@ function createWeaponSetupPicker(section) {
       selectStage('ammo');
       ammoButton.focus({ preventScroll: true });
     } else {
+      const chamberRound = state.stage === 'ammo' && !equippedWeapons.get(activeSlot)?.attachmentSlots?.magazine?.length;
       state[state.stage] = item;
+      if (chamberRound) renderWeaponFeed(activeSlot);
       renderOverviewWeaponParts(activeSlot);
+      renderLoadoutSummary();
       renderStages(state);
       renderPage();
       grid.querySelector('.weapon-card-action[aria-pressed="true"]')?.focus({ preventScroll: true });
+      if (chamberRound) placeItemInBag(item);
     }
   }
 
@@ -1126,11 +1750,16 @@ function createWeaponSetupPicker(section) {
     if (activeSlot === slot) close();
   }
 
-  return { open, close, forget, getPart, clearSelection };
+  function setPreparation(slot, ammo = null, magazine = null) {
+    preparations.set(slot, { stage: null, ammo, magazine });
+  }
+
+  return { open, close, forget, getPart, clearSelection, setPreparation };
 }
 
-function renderAmmoStageItem(slot, item) {
-  if (slot.dataset.chosenItem === item?.code) return;
+function renderAmmoStageItem(slot, item, { loadedAmmo, count } = {}) {
+  const selection = loadedAmmo ? `${item.code}:${loadedAmmo.code}` : item?.code;
+  if (slot.dataset.chosenItem === selection) return;
 
   slot.querySelector('.weapon-ammo-stage-preview')?.remove();
   if (!item) {
@@ -1148,17 +1777,19 @@ function renderAmmoStageItem(slot, item) {
   image.alt = item.name;
   const price = document.createElement('span');
   price.className = 'weapon-price';
-  price.textContent = formatCatalogPrice(item.price);
+  price.textContent = formatCatalogPrice(getItemPrice(loadedAmmo ? { ...item, loadedAmmo } : item, count));
   preview.append(image, price);
   slot.append(preview);
-  slot.dataset.chosenItem = item.code;
+  slot.dataset.chosenItem = selection;
   slot.title = item.name;
 }
 
 function createCatalogPicker(section, catalogName, localCatalogKey, label, {
   emptyMessage = `${label} 목록이 비어 있습니다.`,
   loadCategory = loadPickerCategory,
+  actionLabel = '장착',
   onSelect,
+  onWeightPreview,
 } = {}) {
   const categoryButtons = section.querySelectorAll('[data-category]');
   const pageButtons = section.querySelectorAll('[data-direction]');
@@ -1222,10 +1853,6 @@ function createCatalogPicker(section, catalogName, localCatalogKey, label, {
     turnPage(direction);
   }, { passive: false });
 
-  window.addEventListener('resize', () => {
-    if (!section.closest('[hidden]') && updatePageSize()) renderPage();
-  });
-
   function updatePageSize() {
     const style = getComputedStyle(section);
     const columns = Number(style.getPropertyValue('--picker-columns'));
@@ -1253,8 +1880,9 @@ function createCatalogPicker(section, catalogName, localCatalogKey, label, {
     const firstItem = currentPage * pageSize;
     const slotType = selectedCategory.dataset.slot;
     const canSelect = onSelect && (selectedSlot || !slotType);
-    const slots = filteredItems.slice(firstItem, firstItem + pageSize).map((item) =>
-      createCatalogCard(item, canSelect ? () => onSelect(item, slotType) : undefined));
+    const slots = filteredItems.slice(firstItem, firstItem + pageSize).map((item) => createCatalogCard(item,
+      canSelect ? () => onSelect(item, slotType) : undefined, actionLabel,
+      canSelect && onWeightPreview ? () => onWeightPreview(item, slotType) : undefined));
 
     renderCatalogGrid(grid, slots, pageSize);
 
@@ -1319,6 +1947,7 @@ function createCatalogPicker(section, catalogName, localCatalogKey, label, {
 }
 
 function renderCatalogGrid(grid, cards, pageSize) {
+  clearWeightPreview(grid);
   while (cards.length < pageSize) {
     const slot = document.createElement('li');
     slot.className = 'weapon-slot-empty';
@@ -1351,6 +1980,13 @@ async function loadAmmoCategory(category, catalogName, localCatalogKey) {
 
   const ammo = await ammoRequest;
   return codes ? getItemsByCode(ammo, codes) : ammo.filter((item) => item.name.endsWith(`(${tag})`));
+}
+
+async function loadWeaponAmmo(codes) {
+  const catalogs = [];
+  if (codes.some((code) => code.startsWith('AMMO-'))) catalogs.push(loadCatalog('ammo', 'localAmmo'));
+  if (codes.some((code) => code.startsWith('ITEM-'))) catalogs.push(loadCatalog('items', 'localItems'));
+  return getItemsByCode((await Promise.all(catalogs)).flat(), codes);
 }
 
 function getItemsByCode(entries, codes) {
@@ -1396,7 +2032,7 @@ async function readCatalog(catalogName, localCatalogKey) {
   return response.json();
 }
 
-function createCatalogCard(item, activate, actionLabel = '장착') {
+function createCatalogCard(item, activate, actionLabel = '장착', getWeightDelta) {
   const card = cardTemplate.content.firstElementChild.cloneNode(true);
   const { width, height } = item.inventory;
   const size = card.querySelector('.weapon-size');
@@ -1417,7 +2053,8 @@ function createCatalogCard(item, activate, actionLabel = '장착') {
   card.querySelector('.weapon-art').append(image);
 
   card.querySelector('.weapon-name').textContent = item.name;
-  card.querySelector('.weapon-price').textContent = formatCatalogPrice(item.price);
+  const pricedQuantity = item.priceQuantity ? item.inventory.stackIncrement ?? item.priceQuantity : 1;
+  card.querySelector('.weapon-price').textContent = formatCatalogPrice(getItemPrice(item, pricedQuantity));
   if (activate) {
     const action = document.createElement('button');
     action.type = 'button';
@@ -1426,6 +2063,7 @@ function createCatalogCard(item, activate, actionLabel = '장착') {
     action.addEventListener('click', activate);
     card.append(action);
   }
+  if (getWeightDelta) bindWeightPreview(card, getWeightDelta);
   return card;
 }
 
@@ -1434,5 +2072,17 @@ function catalogImageUrl(item) {
 }
 
 function formatCatalogPrice(price) {
-  return `$${priceFormat.format(price)}`;
+  return Number.isFinite(price) ? `$${priceFormat.format(price)}` : '—';
+}
+
+function getItemPrice(item, count = item.priceQuantity ?? 1) {
+  if (!Number.isFinite(item.price)) return null;
+
+  let unitPrice = item.price / (item.priceQuantity ?? 1);
+  if (item.loadedAmmo) {
+    const ammoPrice = getItemPrice(item.loadedAmmo, item.capacity);
+    if (ammoPrice === null) return null;
+    unitPrice = Math.trunc(unitPrice + ammoPrice);
+  }
+  return unitPrice * count;
 }

@@ -9,354 +9,417 @@
   <script src="./equipment.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <h1 class="site-title">
-        <img class="site-logo" src="./assets/items/logo.png" width="36" height="36" alt="">
-        워독스 정보실
-      </h1>
-      <div class="section-buttons" id="site-nav" role="group" aria-label="정보 분류">
-        <button type="button" aria-pressed="true">패치노트</button>
-        <button type="button" aria-pressed="false" aria-controls="equipment">장비</button>
-        <button type="button" aria-pressed="false">스탯</button>
-        <button type="button" aria-pressed="false">도감</button>
-        <button type="button" aria-pressed="false" aria-controls="loadout-nav loadout">무장</button>
-      </div>
-    </div>
-  </header>
-  <nav class="site-header" id="loadout-nav" aria-labelledby="loadout-title" hidden>
-    <div class="header-inner">
-      <h2 class="site-title" id="loadout-title">무장</h2>
-      <div class="section-buttons" role="group" aria-label="무장 화면">
-        <button type="button" data-loadout-view="overview" aria-pressed="true" aria-controls="loadout-content">개요</button>
-        <button type="button" data-loadout-view="equipment" aria-pressed="false" aria-controls="equipment loadout-bag">장비</button>
-        <button type="button" data-loadout-view="gear" aria-pressed="false" aria-controls="loadout-gear loadout-bag">장구</button>
-        <button type="button" data-loadout-view="items" aria-pressed="false" aria-controls="loadout-items loadout-bag">아이템</button>
-        <button type="button" data-loadout-view="ammo" aria-pressed="false" aria-controls="loadout-ammo loadout-bag">탄약 전개</button>
-      </div>
-    </div>
-  </nav>
-  <main class="section-content">
-    <section class="loadout-bag" id="loadout-bag" aria-labelledby="loadout-bag-title" hidden>
-      <h3 id="loadout-bag-title" tabindex="-1"><span>가방</span></h3>
-      <div class="loadout-bag-content">
-        <div class="loadout-bag-frame" aria-live="polite"></div>
-        <button class="loadout-bag-trigger" type="button" aria-label="가방 선택" aria-haspopup="dialog" aria-controls="loadout-bag-picker"></button>
-      </div>
-      <p class="loadout-bag-feedback" role="status"></p>
-      <div class="loadout-bag-summary">
-        <section class="loadout-weight" aria-labelledby="loadout-weight-title">
-          <h4 id="loadout-weight-title">무게</h4>
-          <div class="loadout-weight-values" role="status">
-            <div><span class="loadout-weight-value">0.0</span> <small>KG</small></div>
-            <div class="loadout-weight-stage">초경량</div>
-          </div>
-          <div class="loadout-weight-gauge" aria-hidden="true">
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
-        </section>
-        <div class="loadout-bag-cost">
-          <div class="loadout-bag-cost-value">$0</div>
-          <div class="loadout-bag-cost-label">뒤로</div>
+  <div class="site-canvas">
+    <header class="site-header">
+      <div class="header-inner">
+        <h1 class="site-title">
+          <img class="site-logo" src="./assets/items/logo.png" width="36" height="36" alt="">
+          워독스 정보실
+        </h1>
+        <div class="section-buttons" id="site-nav" role="group" aria-label="정보 분류">
+          <button type="button" aria-pressed="true" aria-controls="patch-notes">패치노트</button>
+          <button type="button" aria-pressed="false" aria-controls="equipment">장비</button>
+          <button type="button" aria-pressed="false" aria-controls="stats-nav">스탯</button>
+          <button type="button" aria-pressed="false">도감</button>
+          <button type="button" aria-pressed="false" aria-controls="loadout-nav loadout">무장</button>
         </div>
       </div>
-    </section>
-    <section class="weapon-picker" id="equipment" aria-label="무기 선택" hidden>
-      <section class="weapon-loadout-slots" aria-labelledby="weapon-loadout-slots-title" hidden>
-        <h3 id="weapon-loadout-slots-title">장비 슬롯</h3>
-        <div class="weapon-loadout-slots-grid">
-          <div>
-            <button class="weapon-loadout-slot" type="button" data-slot="primary" aria-pressed="true">
-              <img src="./assets/ui/주 무기.png" alt="">
-              <span class="weapon-slot-name">1차</span>
-              <span class="weapon-slot-feed" hidden><img alt=""></span>
-            </button>
-            <div class="weapon-loadout-slot-actions" role="group" aria-label="1차 설정">
-              <button type="button" data-ammo-action aria-controls="weapon-ammo-preparation" aria-expanded="false" disabled>탄약</button>
-              <button type="button" data-attachment-action aria-controls="weapon-ammo-preparation" aria-expanded="false" disabled>부착물</button>
+    </header>
+    <nav class="site-header" id="loadout-nav" aria-labelledby="loadout-title" hidden>
+      <div class="header-inner">
+        <h2 class="site-title" id="loadout-title">무장</h2>
+        <div class="section-buttons" role="group" aria-label="무장 화면">
+          <button type="button" data-loadout-view="overview" aria-pressed="true" aria-controls="loadout-content">개요</button>
+          <button type="button" data-loadout-view="equipment" aria-pressed="false" aria-controls="equipment loadout-bag">장비</button>
+          <button type="button" data-loadout-view="gear" aria-pressed="false" aria-controls="loadout-gear loadout-bag">장구</button>
+          <button type="button" data-loadout-view="items" aria-pressed="false" aria-controls="loadout-items loadout-bag">아이템</button>
+          <button type="button" data-loadout-view="ammo" aria-pressed="false" aria-controls="loadout-ammo loadout-bag">탄약 전개</button>
+        </div>
+      </div>
+    </nav>
+    <nav class="site-header" id="stats-nav" aria-labelledby="stats-title" hidden>
+      <div class="header-inner">
+        <div class="stats-heading">
+          <h2 class="site-title" id="stats-title">스탯</h2>
+          <button class="stats-weapon-trigger" type="button" aria-haspopup="dialog" aria-controls="stats-weapon-dialog">무기 선택</button>
+        </div>
+        <div class="section-buttons" role="group" aria-label="부착물 분류">
+          <button type="button" data-stats-slot="magazine" aria-pressed="true" aria-controls="attachment-stats">탄창</button>
+          <button type="button" data-stats-slot="optic" aria-pressed="false" aria-controls="attachment-stats">스코프</button>
+          <button type="button" data-stats-slot="foregrip" aria-pressed="false" aria-controls="attachment-stats">손잡이</button>
+          <button type="button" data-stats-slot="muzzle" aria-pressed="false" aria-controls="attachment-stats">총구</button>
+        </div>
+      </div>
+    </nav>
+    <main class="section-content">
+      <section class="patch-notes" id="patch-notes" aria-label="패치노트">
+        <aside class="patch-season-panel" aria-labelledby="patch-season-title">
+          <h2 id="patch-season-title">시즌</h2>
+          <div class="patch-season-timeline" role="group" aria-label="시즌 선택"></div>
+        </aside>
+
+        <section class="patch-list-panel" aria-labelledby="patch-list-title">
+          <h2 id="patch-list-title">패치 내역</h2>
+          <div class="patch-list" role="group" aria-label="업데이트 선택"></div>
+          <p class="patch-list-empty" role="status">패치노트를 불러오는 중…</p>
+        </section>
+
+        <section class="patch-detail-panel" aria-label="선택한 패치 상세 내용" aria-live="polite">
+          <p class="patch-detail-empty" role="status">선택한 시즌에 등록된 패치가 없습니다.</p>
+        </section>
+      </section>
+      <section class="attachment-stats" id="attachment-stats" aria-label="부착물 스탯" hidden>
+        <p class="attachment-stats-status" role="status">비교할 무기를 선택하세요.</p>
+        <div class="attachment-stats-scroll">
+          <table class="attachment-stats-table" aria-label="호환 탄창 비교" hidden>
+            <thead>
+              <tr><th scope="col">이름</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">아이템 사진</th></tr>
+              <tr data-stat="verticalRecoil" data-lower-is-better><th scope="row">수직 반동</th></tr>
+              <tr data-stat="horizontalRecoil" data-lower-is-better><th scope="row">수평 반동</th></tr>
+              <tr data-stat="adsSpeed"><th scope="row">줌 속도</th></tr>
+              <tr data-stat="spread" data-lower-is-better hidden><th scope="row">탄 퍼짐</th></tr>
+              <tr data-stat="equipSpeed"><th scope="row">장착 속도</th></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="loadout-bag" id="loadout-bag" aria-labelledby="loadout-bag-title" hidden>
+        <h3 id="loadout-bag-title" tabindex="-1"><span>가방</span></h3>
+        <div class="loadout-bag-content">
+          <div class="loadout-bag-frame" aria-live="polite"></div>
+          <button class="loadout-bag-trigger" type="button" aria-label="가방 선택" aria-haspopup="dialog" aria-controls="loadout-bag-picker"></button>
+        </div>
+        <p class="loadout-bag-feedback" role="status"></p>
+        <div class="loadout-bag-summary">
+          <section class="loadout-weight" aria-labelledby="loadout-weight-title">
+            <h4 id="loadout-weight-title">무게</h4>
+            <div class="loadout-weight-values" role="status">
+              <div><span class="loadout-weight-value">0.0</span> <small>KG</small></div>
+              <div class="loadout-weight-stage">초경량</div>
             </div>
-          </div>
-          <div>
-            <button class="weapon-loadout-slot" type="button" data-slot="sidearm" aria-pressed="false">
-              <img src="./assets/ui/휴대 무기.png" alt="">
-              <span class="weapon-slot-name">휴대 무기</span>
-              <span class="weapon-slot-feed" hidden><img alt=""></span>
-            </button>
-            <div class="weapon-loadout-slot-actions" role="group" aria-label="휴대 무기 설정">
-              <button type="button" data-ammo-action aria-controls="weapon-ammo-preparation" aria-expanded="false" disabled>탄약</button>
-              <button type="button" data-attachment-action aria-controls="weapon-ammo-preparation" aria-expanded="false" disabled>부착물</button>
+            <div class="loadout-weight-gauge" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
             </div>
-          </div>
-          <div>
-            <button class="weapon-loadout-slot" type="button" data-slot="special" aria-pressed="false">
-              <img src="./assets/ui/특수 아이템.png" alt="">
-              <span class="weapon-slot-name">특수 무기</span>
-              <span class="weapon-slot-feed" hidden><img alt=""></span>
-            </button>
-            <div class="weapon-loadout-slot-actions" role="group" aria-label="특수 무기 설정">
-              <button type="button" data-ammo-action aria-controls="weapon-ammo-preparation" aria-expanded="false" disabled>탄약</button>
-              <button type="button" data-attachment-action aria-controls="weapon-ammo-preparation" aria-expanded="false" disabled>부착물</button>
+          </section>
+          <div class="loadout-bag-cost">
+            <div class="loadout-bag-cost-value" aria-live="polite">$0</div>
+            <div class="loadout-bag-cost-label">
+              <span class="loadout-bag-cost-default-label">뒤로</span>
+              <span class="loadout-bag-cost-overview-label">총 가격</span>
             </div>
+            <button class="loadout-bag-cost-back" type="button" aria-label="개요로 돌아가기" aria-controls="loadout-content"></button>
           </div>
         </div>
       </section>
-      <div class="weapon-picker-catalog">
-        <div class="weapon-filters" role="group" aria-label="무기 종류">
-          <button type="button" data-slot="primary" data-category="돌격소총" aria-pressed="true">돌격소총</button>
-          <button type="button" data-slot="primary" data-category="기관단총" aria-pressed="false">SMG</button>
-          <button type="button" data-slot="primary" data-category="산탄총" aria-pressed="false">산탄총</button>
-          <button type="button" data-slot="primary" data-category="경기관총" aria-pressed="false">LMG</button>
-          <button type="button" data-slot="primary" data-category="지정사수소총" aria-pressed="false">지정사수소총</button>
-          <button type="button" data-slot="primary" data-category="저격소총" aria-pressed="false">저격소총</button>
-          <button type="button" data-slot="primary" data-category="장비" aria-pressed="false">활</button>
-          <button type="button" data-slot="sidearm" data-category="권총" aria-pressed="false">권총</button>
-          <button type="button" data-slot="special" data-category="발사기" aria-pressed="false">발사기</button>
-          <button type="button" data-slot="special" data-category="의료" data-item-codes="ITEM-031 ITEM-032" aria-pressed="false" hidden>의료</button>
-          <button type="button" data-slot="special" data-category="건설" data-item-codes="ITEM-054 ITEM-055 ITEM-056" aria-pressed="false" hidden>건설</button>
-          <button type="button" data-slot="special" data-category="정찰" data-item-codes="ITEM-057 ITEM-058 ITEM-059" aria-pressed="false" hidden>정찰</button>
-          <button type="button" data-slot="special" data-category="탈것" data-item-codes="ITEM-053 ITEM-060 ITEM-061 ITEM-062" aria-pressed="false" hidden>탈것</button>
-          <button type="button" data-slot="special" data-category="전술" data-item-codes="ITEM-041 ITEM-045 ITEM-046" aria-pressed="false" hidden>전술</button>
+      <section class="weapon-picker" id="equipment" aria-label="무기 선택" hidden>
+        <section class="weapon-loadout-slots" aria-labelledby="weapon-loadout-slots-title" hidden>
+          <h3 id="weapon-loadout-slots-title">장비 슬롯</h3>
+          <div class="weapon-loadout-slots-grid">
+            <div>
+              <button class="weapon-loadout-slot" type="button" data-slot="primary" aria-pressed="true">
+                <img src="./assets/ui/주 무기.png" alt="">
+                <span class="weapon-slot-name">1차</span>
+                <span class="weapon-slot-feed" hidden><img alt=""></span>
+              </button>
+              <div class="weapon-loadout-slot-actions" role="group" aria-label="1차 설정">
+                <button type="button" data-ammo-action aria-controls="weapon-ammo-preparation" aria-expanded="false" disabled>탄약</button>
+                <button type="button" data-attachment-action aria-controls="weapon-ammo-preparation" aria-expanded="false" disabled>부착물</button>
+              </div>
+            </div>
+            <div>
+              <button class="weapon-loadout-slot" type="button" data-slot="sidearm" aria-pressed="false">
+                <img src="./assets/ui/휴대 무기.png" alt="">
+                <span class="weapon-slot-name">휴대 무기</span>
+                <span class="weapon-slot-feed" hidden><img alt=""></span>
+              </button>
+              <div class="weapon-loadout-slot-actions" role="group" aria-label="휴대 무기 설정">
+                <button type="button" data-ammo-action aria-controls="weapon-ammo-preparation" aria-expanded="false" disabled>탄약</button>
+                <button type="button" data-attachment-action aria-controls="weapon-ammo-preparation" aria-expanded="false" disabled>부착물</button>
+              </div>
+            </div>
+            <div>
+              <button class="weapon-loadout-slot" type="button" data-slot="special" aria-pressed="false">
+                <img src="./assets/ui/특수 아이템.png" alt="">
+                <span class="weapon-slot-name">특수 무기</span>
+                <span class="weapon-slot-feed" hidden><img alt=""></span>
+              </button>
+              <div class="weapon-loadout-slot-actions" role="group" aria-label="특수 무기 설정">
+                <button type="button" data-ammo-action aria-controls="weapon-ammo-preparation" aria-expanded="false" disabled>탄약</button>
+                <button type="button" data-attachment-action aria-controls="weapon-ammo-preparation" aria-expanded="false" disabled>부착물</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="weapon-picker-catalog">
+          <div class="weapon-filters" role="group" aria-label="무기 종류">
+            <button type="button" data-slot="primary" data-category="돌격소총" aria-pressed="true">돌격소총</button>
+            <button type="button" data-slot="primary" data-category="기관단총" aria-pressed="false">SMG</button>
+            <button type="button" data-slot="primary" data-category="산탄총" aria-pressed="false">산탄총</button>
+            <button type="button" data-slot="primary" data-category="경기관총" aria-pressed="false">LMG</button>
+            <button type="button" data-slot="primary" data-category="지정사수소총" aria-pressed="false">지정사수소총</button>
+            <button type="button" data-slot="primary" data-category="저격소총" aria-pressed="false">저격소총</button>
+            <button type="button" data-slot="primary" data-category="장비" aria-pressed="false">활</button>
+            <button type="button" data-slot="sidearm" data-category="권총" aria-pressed="false">권총</button>
+            <button type="button" data-slot="special" data-category="발사기" aria-pressed="false">발사기</button>
+            <button type="button" data-slot="special" data-category="의료" data-item-codes="ITEM-031 ITEM-032" aria-pressed="false" hidden>의료</button>
+            <button type="button" data-slot="special" data-category="건설" data-item-codes="ITEM-054 ITEM-055 ITEM-056" aria-pressed="false" hidden>건설</button>
+            <button type="button" data-slot="special" data-category="정찰" data-item-codes="ITEM-057 ITEM-058 ITEM-059" aria-pressed="false" hidden>정찰</button>
+            <button type="button" data-slot="special" data-category="탈것" data-item-codes="ITEM-053 ITEM-060 ITEM-061 ITEM-062" aria-pressed="false" hidden>탈것</button>
+            <button type="button" data-slot="special" data-category="전술" data-item-codes="ITEM-041 ITEM-045 ITEM-046" aria-pressed="false" hidden>전술</button>
+          </div>
+          <div class="weapon-picker-frame">
+            <button class="weapon-page-arrow" type="button" data-direction="-1" aria-label="이전 페이지" aria-controls="weapon-grid" aria-disabled="true"></button>
+            <ul class="weapon-grid" id="weapon-grid" role="list" aria-label="무기 목록"></ul>
+            <button class="weapon-page-arrow" type="button" data-direction="1" aria-label="다음 페이지" aria-controls="weapon-grid" aria-disabled="true"></button>
+          </div>
+          <div class="weapon-pagination">
+            <div class="weapon-page-markers" aria-hidden="true"></div>
+            <div class="weapon-page-label" role="status" aria-atomic="true"></div>
+          </div>
+        </div>
+        <section class="weapon-ammo-preparation" id="weapon-ammo-preparation" aria-label="탄약 준비" hidden>
+          <div class="weapon-preparation-stages">
+            <div class="weapon-ammo-stages">
+              <div class="weapon-ammo-stage">
+                <h3>1단계 · 탄창 선택</h3>
+                <button class="weapon-ammo-stage-slot" type="button" data-ammo-stage="magazine" aria-label="탄창 선택"
+                  aria-controls="weapon-ammo-grid" aria-pressed="false">
+                  <img class="weapon-ammo-magazine-icon" src="./assets/ui/파츠_탄창.png" alt="">
+                </button>
+              </div>
+              <span class="weapon-ammo-operator" aria-hidden="true">+</span>
+              <div class="weapon-ammo-stage">
+                <h3>2단계 · 탄종 전환</h3>
+                <button class="weapon-ammo-stage-slot" type="button" data-ammo-stage="ammo" aria-label="탄종 선택"
+                  aria-controls="weapon-ammo-grid" aria-pressed="false" disabled>
+                  <img class="weapon-ammo-round-icon" src="./assets/ui/파츠_탄약.png" alt="">
+                </button>
+              </div>
+              <span class="weapon-ammo-operator" aria-hidden="true">=</span>
+              <div class="weapon-ammo-stage weapon-ammo-stage-result">
+                <h3>탄창 준비</h3>
+                <button class="weapon-ammo-stage-slot weapon-ammo-ready-slot" type="button"
+                  aria-label="준비된 탄창 장착 또는 가방에 넣기" hidden></button>
+              </div>
+            </div>
+            <div class="weapon-attachment-stages" hidden>
+              <h3>부착물</h3>
+              <div class="weapon-attachment-slots" role="group" aria-label="부착물 슬롯">
+                <button class="weapon-ammo-stage-slot weapon-attachment-slot" type="button" data-attachment-stage="feed"
+                  aria-controls="weapon-ammo-grid">
+                  <img class="weapon-ammo-magazine-icon" src="./assets/ui/파츠_탄창.png" alt="">
+                  <img class="weapon-ammo-round-icon" src="./assets/ui/파츠_탄약.png" alt="" hidden>
+                  <span class="weapon-attachment-slot-label">탄창</span>
+                </button>
+                <button class="weapon-ammo-stage-slot weapon-attachment-slot" type="button" data-attachment-stage="optic"
+                  aria-controls="weapon-ammo-grid" aria-pressed="false">
+                  <img class="weapon-attachment-icon" src="./assets/ui/파츠_스코프.png" alt="">
+                  <span class="weapon-attachment-slot-label">스코프</span>
+                </button>
+                <button class="weapon-ammo-stage-slot weapon-attachment-slot" type="button" data-attachment-stage="foregrip"
+                  aria-controls="weapon-ammo-grid" aria-pressed="false">
+                  <img class="weapon-attachment-icon" src="./assets/ui/파츠_손잡이.png" alt="">
+                  <span class="weapon-attachment-slot-label">손잡이</span>
+                </button>
+                <button class="weapon-ammo-stage-slot weapon-attachment-slot" type="button" data-attachment-stage="muzzle"
+                  aria-controls="weapon-ammo-grid" aria-pressed="false">
+                  <img class="weapon-attachment-icon" src="./assets/ui/파츠_총구.png" alt="">
+                  <span class="weapon-attachment-slot-label">총구</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="weapon-picker-frame weapon-ammo-selector">
+            <button class="weapon-page-arrow" type="button" data-direction="-1" aria-label="이전 페이지" aria-controls="weapon-ammo-grid" disabled></button>
+            <ul class="weapon-grid" id="weapon-ammo-grid" role="list" aria-label="탄약 준비 선택 목록"></ul>
+            <button class="weapon-page-arrow" type="button" data-direction="1" aria-label="다음 페이지" aria-controls="weapon-ammo-grid" disabled></button>
+            <div class="item-picker-status" role="status" aria-atomic="true"></div>
+          </div>
+        </section>
+      </section>
+      <section class="weapon-picker item-picker" id="loadout-items" aria-label="아이템 선택" hidden>
+        <div class="weapon-filters" role="group" aria-label="아이템 태그">
+          <button type="button" data-category="추천" aria-pressed="true">추천</button>
+          <button type="button" data-category="전술" data-item-codes="ITEM-033 ITEM-034 ITEM-035 ITEM-036 ITEM-037 ITEM-038 ITEM-039 ITEM-040 ITEM-044 ITEM-041 ITEM-045 ITEM-042 ITEM-046 ITEM-043" aria-pressed="false">전술</button>
+          <button type="button" data-category="의료" aria-pressed="false">의료</button>
+          <button type="button" data-category="건설 도구" data-item-codes="ITEM-047 ITEM-048 ITEM-049 ITEM-050 ITEM-051 ITEM-052 ITEM-054 ITEM-055 ITEM-056" aria-pressed="false">건설</button>
+          <button type="button" data-category="정찰" aria-pressed="false">정찰</button>
+          <button type="button" data-category="탈것" data-item-codes="ITEM-053 ITEM-060 ITEM-061 ITEM-062" aria-pressed="false">탈것</button>
         </div>
         <div class="weapon-picker-frame">
-          <button class="weapon-page-arrow" type="button" data-direction="-1" aria-label="이전 페이지" aria-controls="weapon-grid" aria-disabled="true"></button>
-          <ul class="weapon-grid" id="weapon-grid" role="list" aria-label="무기 목록"></ul>
-          <button class="weapon-page-arrow" type="button" data-direction="1" aria-label="다음 페이지" aria-controls="weapon-grid" aria-disabled="true"></button>
-        </div>
-        <div class="weapon-pagination">
-          <div class="weapon-page-markers" aria-hidden="true"></div>
-          <div class="weapon-page-label" role="status" aria-atomic="true"></div>
-        </div>
-      </div>
-      <section class="weapon-ammo-preparation" id="weapon-ammo-preparation" aria-label="탄약 준비" hidden>
-        <div class="weapon-preparation-stages">
-          <div class="weapon-ammo-stages">
-            <div class="weapon-ammo-stage">
-              <h3>1단계 · 탄창 선택</h3>
-              <button class="weapon-ammo-stage-slot" type="button" data-ammo-stage="magazine" aria-label="탄창 선택"
-                aria-controls="weapon-ammo-grid" aria-pressed="false">
-                <img class="weapon-ammo-magazine-icon" src="./assets/ui/파츠_탄창.png" alt="">
-              </button>
-            </div>
-            <span class="weapon-ammo-operator" aria-hidden="true">+</span>
-            <div class="weapon-ammo-stage">
-              <h3>2단계 · 탄종 전환</h3>
-              <button class="weapon-ammo-stage-slot" type="button" data-ammo-stage="ammo" aria-label="탄종 선택"
-                aria-controls="weapon-ammo-grid" aria-pressed="false" disabled>
-                <img class="weapon-ammo-round-icon" src="./assets/ui/파츠_탄약.png" alt="">
-              </button>
-            </div>
-            <span class="weapon-ammo-operator" aria-hidden="true">=</span>
-            <div class="weapon-ammo-stage weapon-ammo-stage-result">
-              <h3>탄창 준비</h3>
-              <button class="weapon-ammo-stage-slot weapon-ammo-ready-slot" type="button"
-                aria-label="준비된 탄창 장착 또는 가방에 넣기" hidden></button>
-            </div>
-          </div>
-          <div class="weapon-attachment-stages" hidden>
-            <h3>부착물</h3>
-            <div class="weapon-attachment-slots" role="group" aria-label="부착물 슬롯">
-              <button class="weapon-ammo-stage-slot weapon-attachment-slot" type="button" data-attachment-stage="feed"
-                aria-controls="weapon-ammo-grid">
-                <img class="weapon-ammo-magazine-icon" src="./assets/ui/파츠_탄창.png" alt="">
-                <img class="weapon-ammo-round-icon" src="./assets/ui/파츠_탄약.png" alt="" hidden>
-                <span class="weapon-attachment-slot-label">탄창</span>
-              </button>
-              <button class="weapon-ammo-stage-slot weapon-attachment-slot" type="button" data-attachment-stage="optic"
-                aria-controls="weapon-ammo-grid" aria-pressed="false">
-                <img class="weapon-attachment-icon" src="./assets/ui/파츠_스코프.png" alt="">
-                <span class="weapon-attachment-slot-label">스코프</span>
-              </button>
-              <button class="weapon-ammo-stage-slot weapon-attachment-slot" type="button" data-attachment-stage="foregrip"
-                aria-controls="weapon-ammo-grid" aria-pressed="false">
-                <img class="weapon-attachment-icon" src="./assets/ui/파츠_손잡이.png" alt="">
-                <span class="weapon-attachment-slot-label">손잡이</span>
-              </button>
-              <button class="weapon-ammo-stage-slot weapon-attachment-slot" type="button" data-attachment-stage="muzzle"
-                aria-controls="weapon-ammo-grid" aria-pressed="false">
-                <img class="weapon-attachment-icon" src="./assets/ui/파츠_총구.png" alt="">
-                <span class="weapon-attachment-slot-label">총구</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="weapon-picker-frame weapon-ammo-selector">
-          <button class="weapon-page-arrow" type="button" data-direction="-1" aria-label="이전 페이지" aria-controls="weapon-ammo-grid" disabled></button>
-          <ul class="weapon-grid" id="weapon-ammo-grid" role="list" aria-label="탄약 준비 선택 목록"></ul>
-          <button class="weapon-page-arrow" type="button" data-direction="1" aria-label="다음 페이지" aria-controls="weapon-ammo-grid" disabled></button>
+          <button class="weapon-page-arrow" type="button" data-direction="-1" aria-label="이전 페이지" aria-controls="item-grid" aria-disabled="true"></button>
+          <ul class="weapon-grid" id="item-grid" role="list" aria-label="아이템 목록"></ul>
+          <button class="weapon-page-arrow" type="button" data-direction="1" aria-label="다음 페이지" aria-controls="item-grid" aria-disabled="true"></button>
           <div class="item-picker-status" role="status" aria-atomic="true"></div>
         </div>
       </section>
-    </section>
-    <section class="weapon-picker item-picker" id="loadout-items" aria-label="아이템 선택" hidden>
-      <div class="weapon-filters" role="group" aria-label="아이템 태그">
-        <button type="button" data-category="추천" aria-pressed="true">추천</button>
-        <button type="button" data-category="전술" data-item-codes="ITEM-033 ITEM-034 ITEM-035 ITEM-036 ITEM-037 ITEM-038 ITEM-039 ITEM-040 ITEM-044 ITEM-041 ITEM-045 ITEM-042 ITEM-046 ITEM-043" aria-pressed="false">전술</button>
-        <button type="button" data-category="의료" aria-pressed="false">의료</button>
-        <button type="button" data-category="건설 도구" data-item-codes="ITEM-047 ITEM-048 ITEM-049 ITEM-050 ITEM-051 ITEM-052 ITEM-054 ITEM-055 ITEM-056" aria-pressed="false">건설</button>
-        <button type="button" data-category="정찰" aria-pressed="false">정찰</button>
-        <button type="button" data-category="탈것" data-item-codes="ITEM-053 ITEM-060 ITEM-061 ITEM-062" aria-pressed="false">탈것</button>
-      </div>
-      <div class="weapon-picker-frame">
-        <button class="weapon-page-arrow" type="button" data-direction="-1" aria-label="이전 페이지" aria-controls="item-grid" aria-disabled="true"></button>
-        <ul class="weapon-grid" id="item-grid" role="list" aria-label="아이템 목록"></ul>
-        <button class="weapon-page-arrow" type="button" data-direction="1" aria-label="다음 페이지" aria-controls="item-grid" aria-disabled="true"></button>
-        <div class="item-picker-status" role="status" aria-atomic="true"></div>
-      </div>
-    </section>
-    <section class="weapon-picker item-picker" id="loadout-ammo" aria-label="탄약 선택" hidden>
-      <div class="weapon-filters" role="group" aria-label="탄약 태그">
-        <button type="button" data-category="FMJ" aria-pressed="true">표준(FMJ)</button>
-        <button type="button" data-category="HP" aria-pressed="false">맨살 피해(HP)</button>
-        <button type="button" data-category="AP" aria-pressed="false">방탄 관통(AP)</button>
-        <button type="button" data-category="카트리지" aria-pressed="false">카트리지</button>
-        <button type="button" data-category="로켓" aria-pressed="false">로켓</button>
-        <button type="button" data-category="기타" aria-pressed="false">기타</button>
-      </div>
-      <div class="weapon-picker-frame">
-        <button class="weapon-page-arrow" type="button" data-direction="-1" aria-label="이전 페이지" aria-controls="ammo-grid" aria-disabled="true"></button>
-        <ul class="weapon-grid" id="ammo-grid" role="list" aria-label="탄약 목록"></ul>
-        <button class="weapon-page-arrow" type="button" data-direction="1" aria-label="다음 페이지" aria-controls="ammo-grid" aria-disabled="true"></button>
-        <div class="item-picker-status" role="status" aria-atomic="true"></div>
-      </div>
-    </section>
-    <section class="loadout" id="loadout" aria-labelledby="loadout-title" hidden>
-      <div class="loadout-content" id="loadout-content">
-        <div class="loadout-overview">
-          <div class="loadout-weapon-row">
-            <button class="loadout-slot loadout-overview-weapon-slot" type="button" data-slot="primary" aria-controls="equipment">
-              <span class="loadout-slot-index" aria-hidden="true">[1]</span>
-              <img src="./assets/ui/주 무기.png" alt="">
-              <span class="weapon-slot-name">주 무기</span>
-            </button>
-            <ul class="loadout-parts" role="list" aria-label="주 무기 파츠 슬롯">
-              <li aria-label="빈 슬롯 1"></li><li aria-label="빈 슬롯 2"></li>
-              <li aria-label="빈 슬롯 3"></li><li aria-label="빈 슬롯 4"></li>
-            </ul>
-          </div>
-          <div class="loadout-overview-item-slots">
-            <div class="loadout-overview-item-row">
-              <button class="loadout-slot loadout-gear-slot loadout-overview-gear-button" type="button" data-slot="backpack">
-                <span class="loadout-gear-art"><img src="./assets/ui/가방.png" alt=""></span>
-                <span class="loadout-gear-label">가방</span>
-              </button>
-              <button class="loadout-slot loadout-gear-slot loadout-overview-gear-button" type="button" data-slot="mobility">
-                <span class="loadout-gear-art"><img src="./assets/ui/기동.png" alt=""></span>
-                <span class="loadout-gear-label">기동</span>
-              </button>
-            </div>
-            <div class="loadout-overview-backpack-panel">
-              <img src="./assets/ui/가방.png" alt="가방">
-            </div>
-            <ul class="loadout-overview-quick-slots" role="list" aria-label="퀵슬롯">
-              <li class="loadout-slot loadout-gear-slot loadout-overview-quick-slot"><span>[4]</span></li>
-              <li class="loadout-slot loadout-gear-slot loadout-overview-quick-slot"><span>[5]</span></li>
-              <li class="loadout-slot loadout-gear-slot loadout-overview-quick-slot"><span>[6]</span></li>
-              <li class="loadout-slot loadout-gear-slot loadout-overview-quick-slot"><span>[7]</span></li>
-              <li class="loadout-slot loadout-gear-slot loadout-overview-quick-slot"><span>[8]</span></li>
-              <li class="loadout-slot loadout-gear-slot loadout-overview-quick-slot"><span>[9]</span></li>
-              <li class="loadout-slot loadout-gear-slot loadout-overview-quick-slot"><span>[0]</span></li>
-            </ul>
-          </div>
-          <div class="loadout-weapon-row">
-            <button class="loadout-slot loadout-overview-weapon-slot" type="button" data-slot="sidearm" aria-controls="equipment">
-              <span class="loadout-slot-index" aria-hidden="true">[2]</span>
-              <img src="./assets/ui/휴대 무기.png" alt="">
-              <span class="weapon-slot-name">휴대 무기</span>
-            </button>
-            <ul class="loadout-parts" role="list" aria-label="휴대 무기 파츠 슬롯">
-              <li aria-label="빈 슬롯 1"></li><li aria-label="빈 슬롯 2"></li>
-              <li aria-label="빈 슬롯 3"></li><li aria-label="빈 슬롯 4"></li>
-            </ul>
-          </div>
-          <div class="loadout-weapon-row">
-            <button class="loadout-slot loadout-overview-weapon-slot" type="button" data-slot="special" aria-controls="equipment">
-              <span class="loadout-slot-index" aria-hidden="true">[3]</span>
-              <img src="./assets/ui/특수 아이템.png" alt="">
-              <span class="weapon-slot-name">특수 아이템</span>
-            </button>
-            <ul class="loadout-parts" role="list" aria-label="특수 아이템 파츠 슬롯">
-              <li aria-label="빈 슬롯 1"></li><li aria-label="빈 슬롯 2"></li>
-              <li aria-label="빈 슬롯 3"></li><li aria-label="빈 슬롯 4"></li>
-            </ul>
-          </div>
-          <div class="loadout-overview-gear">
-            <button class="loadout-slot loadout-gear-slot loadout-overview-gear-button" type="button" data-slot="helmet">
-              <span class="loadout-gear-art"><img src="./assets/ui/방탄모.png" alt=""></span>
-              <span class="loadout-gear-label">방탄모</span>
-            </button>
-            <button class="loadout-slot loadout-gear-slot loadout-overview-gear-button" type="button" data-slot="armor">
-              <span class="loadout-gear-art"><img src="./assets/ui/방탄복.png" alt=""></span>
-              <span class="loadout-gear-label">방탄복</span>
-            </button>
-            <button class="loadout-slot loadout-gear-slot loadout-overview-gear-button" type="button" data-slot="vest">
-              <span class="loadout-gear-art"><img src="./assets/ui/전술조끼.png" alt=""></span>
-              <span class="loadout-gear-label">전술 조끼</span>
-            </button>
-          </div>
+      <section class="weapon-picker item-picker" id="loadout-ammo" aria-label="탄약 선택" hidden>
+        <div class="weapon-filters" role="group" aria-label="탄약 태그">
+          <button type="button" data-category="FMJ" aria-pressed="true">표준(FMJ)</button>
+          <button type="button" data-category="HP" aria-pressed="false">맨살 피해(HP)</button>
+          <button type="button" data-category="AP" aria-pressed="false">방탄 관통(AP)</button>
+          <button type="button" data-category="카트리지" aria-pressed="false">카트리지</button>
+          <button type="button" data-category="로켓" aria-pressed="false">로켓</button>
+          <button type="button" data-category="기타" aria-pressed="false">기타</button>
         </div>
-        <div id="loadout-gear" hidden>
-          <div class="loadout-gear" role="group" aria-label="장구 슬롯">
-            <div class="loadout-gear-cell">
-              <button class="loadout-gear-button" type="button" data-slot="helmet" aria-pressed="true">
+        <div class="weapon-picker-frame">
+          <button class="weapon-page-arrow" type="button" data-direction="-1" aria-label="이전 페이지" aria-controls="ammo-grid" aria-disabled="true"></button>
+          <ul class="weapon-grid" id="ammo-grid" role="list" aria-label="탄약 목록"></ul>
+          <button class="weapon-page-arrow" type="button" data-direction="1" aria-label="다음 페이지" aria-controls="ammo-grid" aria-disabled="true"></button>
+          <div class="item-picker-status" role="status" aria-atomic="true"></div>
+        </div>
+      </section>
+      <section class="loadout" id="loadout" aria-labelledby="loadout-title" hidden>
+        <div class="loadout-content" id="loadout-content">
+          <div class="loadout-overview">
+            <div class="loadout-weapon-row">
+              <button class="loadout-slot loadout-overview-weapon-slot" type="button" data-slot="primary" aria-controls="equipment">
+                <span class="loadout-slot-index" aria-hidden="true">[1]</span>
+                <img src="./assets/ui/주 무기.png" alt="">
+                <span class="weapon-slot-name">주 무기</span>
+              </button>
+              <ul class="loadout-parts" role="list" aria-label="주 무기 파츠 슬롯">
+                <li aria-label="빈 슬롯 1"></li><li aria-label="빈 슬롯 2"></li>
+                <li aria-label="빈 슬롯 3"></li><li aria-label="빈 슬롯 4"></li>
+              </ul>
+            </div>
+            <div class="loadout-overview-item-slots">
+              <div class="loadout-overview-item-row">
+                <button class="loadout-slot loadout-gear-slot loadout-overview-gear-button" type="button" data-slot="backpack">
+                  <span class="loadout-gear-art"><img src="./assets/ui/가방.png" alt=""></span>
+                  <span class="loadout-gear-label">가방</span>
+                </button>
+                <button class="loadout-slot loadout-gear-slot loadout-overview-gear-button" type="button" data-slot="mobility">
+                  <span class="loadout-gear-art"><img src="./assets/ui/기동.png" alt=""></span>
+                  <span class="loadout-gear-label">기동</span>
+                </button>
+              </div>
+              <div class="loadout-overview-backpack-panel">
+                <img src="./assets/ui/가방.png" alt="가방">
+              </div>
+              <ul class="loadout-overview-quick-slots" role="list" aria-label="퀵슬롯">
+                <li class="loadout-slot loadout-gear-slot loadout-overview-quick-slot"><span>[4]</span></li>
+                <li class="loadout-slot loadout-gear-slot loadout-overview-quick-slot"><span>[5]</span></li>
+                <li class="loadout-slot loadout-gear-slot loadout-overview-quick-slot"><span>[6]</span></li>
+                <li class="loadout-slot loadout-gear-slot loadout-overview-quick-slot"><span>[7]</span></li>
+                <li class="loadout-slot loadout-gear-slot loadout-overview-quick-slot"><span>[8]</span></li>
+                <li class="loadout-slot loadout-gear-slot loadout-overview-quick-slot"><span>[9]</span></li>
+                <li class="loadout-slot loadout-gear-slot loadout-overview-quick-slot"><span>[0]</span></li>
+              </ul>
+            </div>
+            <div class="loadout-weapon-row">
+              <button class="loadout-slot loadout-overview-weapon-slot" type="button" data-slot="sidearm" aria-controls="equipment">
+                <span class="loadout-slot-index" aria-hidden="true">[2]</span>
+                <img src="./assets/ui/휴대 무기.png" alt="">
+                <span class="weapon-slot-name">휴대 무기</span>
+              </button>
+              <ul class="loadout-parts" role="list" aria-label="휴대 무기 파츠 슬롯">
+                <li aria-label="빈 슬롯 1"></li><li aria-label="빈 슬롯 2"></li>
+                <li aria-label="빈 슬롯 3"></li><li aria-label="빈 슬롯 4"></li>
+              </ul>
+            </div>
+            <div class="loadout-weapon-row">
+              <button class="loadout-slot loadout-overview-weapon-slot" type="button" data-slot="special" aria-controls="equipment">
+                <span class="loadout-slot-index" aria-hidden="true">[3]</span>
+                <img src="./assets/ui/특수 아이템.png" alt="">
+                <span class="weapon-slot-name">특수 아이템</span>
+              </button>
+              <ul class="loadout-parts" role="list" aria-label="특수 아이템 파츠 슬롯">
+                <li aria-label="빈 슬롯 1"></li><li aria-label="빈 슬롯 2"></li>
+                <li aria-label="빈 슬롯 3"></li><li aria-label="빈 슬롯 4"></li>
+              </ul>
+            </div>
+            <div class="loadout-overview-gear">
+              <button class="loadout-slot loadout-gear-slot loadout-overview-gear-button" type="button" data-slot="helmet">
                 <span class="loadout-gear-art"><img src="./assets/ui/방탄모.png" alt=""></span>
                 <span class="loadout-gear-label">방탄모</span>
               </button>
-            </div>
-            <div class="loadout-gear-cell">
-              <button class="loadout-gear-button" type="button" data-slot="armor" aria-pressed="false">
+              <button class="loadout-slot loadout-gear-slot loadout-overview-gear-button" type="button" data-slot="armor">
                 <span class="loadout-gear-art"><img src="./assets/ui/방탄복.png" alt=""></span>
                 <span class="loadout-gear-label">방탄복</span>
               </button>
-            </div>
-            <div class="loadout-gear-cell">
-              <button class="loadout-gear-button" type="button" data-slot="vest" aria-pressed="false">
+              <button class="loadout-slot loadout-gear-slot loadout-overview-gear-button" type="button" data-slot="vest">
                 <span class="loadout-gear-art"><img src="./assets/ui/전술조끼.png" alt=""></span>
-                <span class="loadout-gear-label">조끼</span>
-              </button>
-            </div>
-            <div class="loadout-gear-cell">
-              <button class="loadout-gear-button" type="button" data-slot="backpack" aria-pressed="false">
-                <span class="loadout-gear-art"><img src="./assets/ui/가방.png" alt=""></span>
-                <span class="loadout-gear-label">가방</span>
-              </button>
-            </div>
-            <div class="loadout-gear-cell">
-              <button class="loadout-gear-button" type="button" data-slot="mobility" aria-pressed="false">
-                <span class="loadout-gear-art"><img src="./assets/ui/기동.png" alt=""></span>
-                <span class="loadout-gear-label">기동</span>
+                <span class="loadout-gear-label">전술 조끼</span>
               </button>
             </div>
           </div>
-          <section class="weapon-picker gear-picker" aria-label="장구 선택">
-            <div class="weapon-filters" role="group" aria-label="장구 분류">
-              <button type="button" data-slot="helmet" data-category="방탄모" data-item-codes="ITEM-001 ITEM-002 ITEM-003 ITEM-004" aria-pressed="true">방탄모</button>
-              <button type="button" data-slot="helmet" data-category="위장" data-item-codes="ITEM-009 ITEM-010" aria-pressed="false">위장</button>
-              <button type="button" data-slot="armor" data-category="방탄복" data-item-codes="ITEM-005 ITEM-006 ITEM-007 ITEM-008" aria-pressed="false" hidden>방탄복</button>
-              <button type="button" data-slot="armor" data-category="위장" data-item-codes="ITEM-011 ITEM-012" aria-pressed="false" hidden>위장</button>
-              <button type="button" data-slot="vest" data-category="조끼" aria-pressed="false" hidden>조끼</button>
-              <button type="button" data-slot="backpack" data-category="가방" aria-pressed="false" hidden>가방</button>
-              <button type="button" data-slot="mobility" data-category="기동" aria-pressed="false" hidden>기동</button>
+          <div id="loadout-gear" hidden>
+            <div class="loadout-gear" role="group" aria-label="장구 슬롯">
+              <div class="loadout-gear-cell">
+                <button class="loadout-gear-button" type="button" data-slot="helmet" aria-pressed="true">
+                  <span class="loadout-gear-art"><img src="./assets/ui/방탄모.png" alt=""></span>
+                  <span class="loadout-gear-label">방탄모</span>
+                </button>
+              </div>
+              <div class="loadout-gear-cell">
+                <button class="loadout-gear-button" type="button" data-slot="armor" aria-pressed="false">
+                  <span class="loadout-gear-art"><img src="./assets/ui/방탄복.png" alt=""></span>
+                  <span class="loadout-gear-label">방탄복</span>
+                </button>
+              </div>
+              <div class="loadout-gear-cell">
+                <button class="loadout-gear-button" type="button" data-slot="vest" aria-pressed="false">
+                  <span class="loadout-gear-art"><img src="./assets/ui/전술조끼.png" alt=""></span>
+                  <span class="loadout-gear-label">조끼</span>
+                </button>
+              </div>
+              <div class="loadout-gear-cell">
+                <button class="loadout-gear-button" type="button" data-slot="backpack" aria-pressed="false">
+                  <span class="loadout-gear-art"><img src="./assets/ui/가방.png" alt=""></span>
+                  <span class="loadout-gear-label">가방</span>
+                </button>
+              </div>
+              <div class="loadout-gear-cell">
+                <button class="loadout-gear-button" type="button" data-slot="mobility" aria-pressed="false">
+                  <span class="loadout-gear-art"><img src="./assets/ui/기동.png" alt=""></span>
+                  <span class="loadout-gear-label">기동</span>
+                </button>
+              </div>
             </div>
-            <div class="weapon-picker-frame">
-              <button class="weapon-page-arrow" type="button" data-direction="-1" aria-label="이전 페이지" aria-controls="gear-grid" aria-disabled="true"></button>
-              <ul class="weapon-grid" id="gear-grid" role="list" aria-label="장구 목록"></ul>
-              <button class="weapon-page-arrow" type="button" data-direction="1" aria-label="다음 페이지" aria-controls="gear-grid" aria-disabled="true"></button>
-              <div class="item-picker-status" role="status" aria-atomic="true"></div>
-            </div>
-          </section>
+            <section class="weapon-picker gear-picker" aria-label="장구 선택">
+              <div class="weapon-filters" role="group" aria-label="장구 분류">
+                <button type="button" data-slot="helmet" data-category="방탄모" data-item-codes="ITEM-001 ITEM-002 ITEM-003 ITEM-004" aria-pressed="true">방탄모</button>
+                <button type="button" data-slot="helmet" data-category="위장" data-item-codes="ITEM-009 ITEM-010" aria-pressed="false">위장</button>
+                <button type="button" data-slot="armor" data-category="방탄복" data-item-codes="ITEM-005 ITEM-006 ITEM-007 ITEM-008" aria-pressed="false" hidden>방탄복</button>
+                <button type="button" data-slot="armor" data-category="위장" data-item-codes="ITEM-011 ITEM-012" aria-pressed="false" hidden>위장</button>
+                <button type="button" data-slot="vest" data-category="조끼" aria-pressed="false" hidden>조끼</button>
+                <button type="button" data-slot="backpack" data-category="가방" aria-pressed="false" hidden>가방</button>
+                <button type="button" data-slot="mobility" data-category="기동" aria-pressed="false" hidden>기동</button>
+              </div>
+              <div class="weapon-picker-frame">
+                <button class="weapon-page-arrow" type="button" data-direction="-1" aria-label="이전 페이지" aria-controls="gear-grid" aria-disabled="true"></button>
+                <ul class="weapon-grid" id="gear-grid" role="list" aria-label="장구 목록"></ul>
+                <button class="weapon-page-arrow" type="button" data-direction="1" aria-label="다음 페이지" aria-controls="gear-grid" aria-disabled="true"></button>
+                <div class="item-picker-status" role="status" aria-atomic="true"></div>
+              </div>
+            </section>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
-  <dialog class="loadout-bag-picker" id="loadout-bag-picker" aria-labelledby="loadout-bag-picker-title">
-    <div class="loadout-bag-picker-panel">
+      </section>
+    </main>
+  </div>
+  <dialog class="catalog-dialog" id="loadout-bag-picker" aria-labelledby="loadout-bag-picker-title">
+    <div class="catalog-dialog-panel">
       <h2 id="loadout-bag-picker-title">가방 선택</h2>
-      <div class="loadout-bag-picker-body">
+      <div class="catalog-dialog-body">
         <p class="loadout-bag-picker-status" role="status"></p>
         <ul class="loadout-bag-picker-grid" role="list" aria-label="가방 목록"></ul>
       </div>
       <form method="dialog">
-        <button class="loadout-bag-picker-cancel" type="submit" autofocus>취소</button>
+        <button class="catalog-dialog-cancel" type="submit" autofocus>취소</button>
+      </form>
+    </div>
+  </dialog>
+  <dialog class="catalog-dialog" id="stats-weapon-dialog" aria-labelledby="stats-weapon-dialog-title">
+    <div class="catalog-dialog-panel">
+      <h2 id="stats-weapon-dialog-title">무기 선택</h2>
+      <div class="catalog-dialog-body weapon-picker"></div>
+      <form method="dialog">
+        <button class="catalog-dialog-cancel" type="submit" autofocus>취소</button>
       </form>
     </div>
   </dialog>
